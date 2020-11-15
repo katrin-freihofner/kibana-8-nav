@@ -26,25 +26,20 @@ var EuiIconVisTagCloud = function EuiIconVisTagCloud(_ref) {
       titleId = _ref.titleId,
       props = _objectWithoutProperties(_ref, ["title", "titleId"]);
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", _extends({
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("svg", _extends({
     width: 16,
     height: 16,
     viewBox: "0 0 16 16",
     xmlns: "http://www.w3.org/2000/svg",
     "aria-labelledby": titleId
-  }, props), title ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", {
+  }, props), title ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("title", {
     id: titleId
-  }, title) : null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+  }, title) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
     d: "M1.5 9.047a.5.5 0 100 1h13a.5.5 0 000-1h-13zm0-1h13a1.5 1.5 0 010 3h-13a1.5 1.5 0 010-3zM10 13a.5.5 0 110 1H4a.5.5 0 110-1h6zM8.001 2.015a.5.5 0 11-.002 1l-5-.015a.5.5 0 11.003-1l5 .015zM14 5a.5.5 0 110 1H6a.5.5 0 010-1h8z"
   }));
 };
 
 var icon = EuiIconVisTagCloud;
-EuiIconVisTagCloud.__docgenInfo = {
-  "description": "",
-  "methods": [],
-  "displayName": "EuiIconVisTagCloud"
-};
 
 /***/ })
 

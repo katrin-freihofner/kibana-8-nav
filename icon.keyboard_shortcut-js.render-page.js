@@ -26,25 +26,20 @@ var EuiIconKeyboardShortcut = function EuiIconKeyboardShortcut(_ref) {
       titleId = _ref.titleId,
       props = _objectWithoutProperties(_ref, ["title", "titleId"]);
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", _extends({
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("svg", _extends({
     width: 16,
     height: 16,
     viewBox: "0 0 16 16",
     xmlns: "http://www.w3.org/2000/svg",
     "aria-labelledby": titleId
-  }, props), title ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", {
+  }, props), title ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("title", {
     id: titleId
-  }, title) : null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+  }, title) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
     d: "M15 9a1 1 0 01.993.883L16 10v5a1 1 0 01-.883.993L15 16H7a1 1 0 01-.993-.883L6 15v-5a1 1 0 01.883-.993L7 9h8zM2.5 10a.5.5 0 01.492.41L3 10.5V12h1.5a.5.5 0 01.09.992L4.5 13H3v1.5a.5.5 0 01-.992.09L2 14.5V13H.5a.5.5 0 01-.09-.992L.5 12H2v-1.5a.5.5 0 01.5-.5zM15 10H7v5h8v-5zm-1 3v1H8v-1h6zm1-13a1 1 0 011 1v5a1 1 0 01-1 1H1a1 1 0 01-1-1V1a1 1 0 011-1h14zm0 1H1v5h14V1zM8 4v1H2V4h6z"
   }));
 };
 
 var icon = EuiIconKeyboardShortcut;
-EuiIconKeyboardShortcut.__docgenInfo = {
-  "description": "",
-  "methods": [],
-  "displayName": "EuiIconKeyboardShortcut"
-};
 
 /***/ })
 

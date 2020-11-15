@@ -26,25 +26,20 @@ var EuiIconVisPie = function EuiIconVisPie(_ref) {
       titleId = _ref.titleId,
       props = _objectWithoutProperties(_ref, ["title", "titleId"]);
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", _extends({
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("svg", _extends({
     width: 16,
     height: 16,
     viewBox: "0 0 16 16",
     xmlns: "http://www.w3.org/2000/svg",
     "aria-labelledby": titleId
-  }, props), title ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", {
+  }, props), title ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("title", {
     id: titleId
-  }, title) : null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+  }, title) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
     d: "M6.5 9a.5.5 0 01-.5-.5V3.023A5.5 5.5 0 1011.978 9H6.5zM7 8h5.5a.5.5 0 01.5.5A6.5 6.5 0 116.5 2a.5.5 0 01.5.5V8zm2-6.972V6h4.972C13.696 3.552 11.448 1.304 9 1.028zM14.5 7h-6a.5.5 0 01-.5-.5v-6a.5.5 0 01.5-.5C11.853 0 15 3.147 15 6.5a.5.5 0 01-.5.5zM6.146 8.854a.5.5 0 11.708-.708l4 4a.5.5 0 01-.708.708l-4-4z"
   }));
 };
 
 var icon = EuiIconVisPie;
-EuiIconVisPie.__docgenInfo = {
-  "description": "",
-  "methods": [],
-  "displayName": "EuiIconVisPie"
-};
 
 /***/ })
 

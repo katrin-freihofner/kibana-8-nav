@@ -26,25 +26,20 @@ var EuiIconMagnifyWithPlus = function EuiIconMagnifyWithPlus(_ref) {
       titleId = _ref.titleId,
       props = _objectWithoutProperties(_ref, ["title", "titleId"]);
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", _extends({
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("svg", _extends({
     width: 16,
     height: 16,
     viewBox: "0 0 16 16",
     xmlns: "http://www.w3.org/2000/svg",
     "aria-labelledby": titleId
-  }, props), title ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", {
+  }, props), title ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("title", {
     id: titleId
-  }, title) : null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+  }, title) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
     d: "M7 6h2.5a.5.5 0 010 1H7v2.5a.5.5 0 01-1 0V7H3.5a.5.5 0 010-1H6V3.5a.5.5 0 011 0V6zm3.24 4.74c0-.117.04-.225.107-.31A5.478 5.478 0 0012 6.5 5.5 5.5 0 106.5 12a.5.5 0 110 1 6.5 6.5 0 114.936-2.27l4.419 4.418a.5.5 0 01-.707.707l-4.768-4.768a.499.499 0 01-.14-.347z"
   }));
 };
 
 var icon = EuiIconMagnifyWithPlus;
-EuiIconMagnifyWithPlus.__docgenInfo = {
-  "description": "",
-  "methods": [],
-  "displayName": "EuiIconMagnifyWithPlus"
-};
 
 /***/ })
 

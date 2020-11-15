@@ -26,27 +26,22 @@ var EuiIconCopy = function EuiIconCopy(_ref) {
       titleId = _ref.titleId,
       props = _objectWithoutProperties(_ref, ["title", "titleId"]);
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", _extends({
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("svg", _extends({
     width: 16,
     height: 16,
     viewBox: "0 0 16 16",
     xmlns: "http://www.w3.org/2000/svg",
     "aria-labelledby": titleId
-  }, props), title ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", {
+  }, props), title ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("title", {
     id: titleId
-  }, title) : null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+  }, title) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
     d: "M11.4 0c.235 0 .46.099.622.273l2.743 3c.151.162.235.378.235.602v9.25a.867.867 0 01-.857.875H3.857A.867.867 0 013 13.125V.875C3 .392 3.384 0 3.857 0H11.4zM14 4h-2.6a.4.4 0 01-.4-.4V1H4v12h10V4z"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
     d: "M3 1H2a1 1 0 00-1 1v13a1 1 0 001 1h10a1 1 0 001-1v-1h-1v1H2V2h1V1z"
   }));
 };
 
 var icon = EuiIconCopy;
-EuiIconCopy.__docgenInfo = {
-  "description": "",
-  "methods": [],
-  "displayName": "EuiIconCopy"
-};
 
 /***/ })
 

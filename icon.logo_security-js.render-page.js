@@ -26,32 +26,27 @@ var EuiIconLogoSecurity = function EuiIconLogoSecurity(_ref) {
       titleId = _ref.titleId,
       props = _objectWithoutProperties(_ref, ["title", "titleId"]);
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", _extends({
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("svg", _extends({
     width: 32,
     height: 32,
     viewBox: "0 0 32 32",
     xmlns: "http://www.w3.org/2000/svg",
     "aria-labelledby": titleId
-  }, props), title ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", {
+  }, props), title ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("title", {
     id: titleId
-  }, title) : null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+  }, title) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
     d: "M9 7.008V0h20v16.744c0 3.913-6.378 6.477-9.015 7.256V7.008H9z",
     fill: "#FA744E"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
     d: "M3 20.073V10h14v22C7.667 27.98 3 24.004 3 20.073z",
     fill: "#1DBAB0"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
     d: "M9 10h8v14c-2.983-1.14-8-3.756-8-7.043V10z",
     className: "euiIcon__fillNegative"
   }));
 };
 
 var icon = EuiIconLogoSecurity;
-EuiIconLogoSecurity.__docgenInfo = {
-  "description": "",
-  "methods": [],
-  "displayName": "EuiIconLogoSecurity"
-};
 
 /***/ })
 

@@ -26,21 +26,21 @@ var EuiIconSwatchInput = function EuiIconSwatchInput(_ref) {
       titleId = _ref.titleId,
       props = _objectWithoutProperties(_ref, ["title", "titleId"]);
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", _extends({
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("svg", _extends({
     width: 16,
     height: 16,
     viewBox: "0 0 16 16",
     xmlns: "http://www.w3.org/2000/svg",
     "aria-labelledby": titleId
-  }, props), title ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", {
+  }, props), title ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("title", {
     id: titleId
-  }, title) : null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("rect", {
+  }, title) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("rect", {
     x: 2,
     y: 2,
     width: 12,
     height: 12,
     rx: 3
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("rect", {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("rect", {
     className: "euiSwatchInput__stroke",
     x: 2.5,
     y: 2.5,
@@ -51,11 +51,6 @@ var EuiIconSwatchInput = function EuiIconSwatchInput(_ref) {
 };
 
 var icon = EuiIconSwatchInput;
-EuiIconSwatchInput.__docgenInfo = {
-  "description": "",
-  "methods": [],
-  "displayName": "EuiIconSwatchInput"
-};
 
 /***/ })
 

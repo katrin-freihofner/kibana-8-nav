@@ -21,34 +21,29 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
 
 
 
-var EuiIconTokenCompSuggester = function EuiIconTokenCompSuggester(_ref) {
+var EuiIconTokenCompletionSuggester = function EuiIconTokenCompletionSuggester(_ref) {
   var title = _ref.title,
       titleId = _ref.titleId,
       props = _objectWithoutProperties(_ref, ["title", "titleId"]);
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", _extends({
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("svg", _extends({
     width: 16,
     height: 16,
     viewBox: "0 0 16 16",
     xmlns: "http://www.w3.org/2000/svg",
     "aria-labelledby": titleId
-  }, props), title ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", {
+  }, props), title ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("title", {
     id: titleId
-  }, title) : null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("g", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+  }, title) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
     fillRule: "evenodd",
-    clipRule: "evenodd",
-    d: "M3 4c0-.55228.44772-1 1-1h8c.5523 0 1 .44772 1 1v5.99578c0 .55232-.4477 1.00002-1 1.00002h-1.661L7.4 13.2c-.16481.1236-.4.006-.4-.2v-2.0042H4c-.55228 0-1-.4477-1-1.00002V4zm1.5 1c0-.27614.22386-.5.5-.5h6c.2761 0 .5.22386.5.5v4c0 .27614-.2239.5-.5.5h-.9L8 11V9.5H5c-.27614 0-.5-.22386-.5-.5V5z"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
-    d: "M6.75 6c-.55228 0-1 .44772-1 1s.44772 1 1 1 1-.44772 1-1-.44772-1-1-1zM9.25 6c-.55228 0-1 .44772-1 1s.44772 1 1 1 1-.44772 1-1-.44772-1-1-1z"
-  })));
+    d: "M3 4a1 1 0 011-1h8a1 1 0 011 1v5.996a1 1 0 01-1 1h-1.661L7.4 13.2A.25.25 0 017 13v-2.004H4a1 1 0 01-1-1V4zm1.5 1a.5.5 0 01.5-.5h6a.5.5 0 01.5.5v4a.5.5 0 01-.5.5h-.9L8 11V9.5H5a.5.5 0 01-.5-.5V5z",
+    clipRule: "evenodd"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
+    d: "M6.75 6a1 1 0 100 2 1 1 0 000-2zm2.5 0a1 1 0 100 2 1 1 0 000-2z"
+  }));
 };
 
-var icon = EuiIconTokenCompSuggester;
-EuiIconTokenCompSuggester.__docgenInfo = {
-  "description": "",
-  "methods": [],
-  "displayName": "EuiIconTokenCompSuggester"
-};
+var icon = EuiIconTokenCompletionSuggester;
 
 /***/ })
 

@@ -26,25 +26,20 @@ var EuiIconCloudStormy = function EuiIconCloudStormy(_ref) {
       titleId = _ref.titleId,
       props = _objectWithoutProperties(_ref, ["title", "titleId"]);
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", _extends({
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("svg", _extends({
     width: 16,
     height: 16,
     viewBox: "0 0 16 16",
     xmlns: "http://www.w3.org/2000/svg",
     "aria-labelledby": titleId
-  }, props), title ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", {
+  }, props), title ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("title", {
     id: titleId
-  }, title) : null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+  }, title) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
     d: "M7.421 4.93a.5.5 0 11-.87.49 3 3 0 10-4.43 3.918.5.5 0 01-.626.78 4 4 0 013.973-6.84l.032.018V3.28a5.5 5.5 0 117.003 7.357.5.5 0 11-.36-.934 4.5 4.5 0 10-5.77-5.923c.42.31.778.701 1.05 1.15h-.002zM9.6 11c.669.002.794.67.36 1.003l-4.68 3.882c-.457.378-1.053-.26-.643-.689l3.08-3.193A5411.7 5411.7 0 015.113 12c-.668-.001-.793-.669-.36-1.003l4.68-3.881c.458-.379 1.053.26.643.688l-3.08 3.193L9.6 11z"
   }));
 };
 
 var icon = EuiIconCloudStormy;
-EuiIconCloudStormy.__docgenInfo = {
-  "description": "",
-  "methods": [],
-  "displayName": "EuiIconCloudStormy"
-};
 
 /***/ })
 

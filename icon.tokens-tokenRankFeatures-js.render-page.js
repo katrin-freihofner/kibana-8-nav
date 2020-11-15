@@ -26,25 +26,20 @@ var EuiIconTokenRankFeatures = function EuiIconTokenRankFeatures(_ref) {
       titleId = _ref.titleId,
       props = _objectWithoutProperties(_ref, ["title", "titleId"]);
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", _extends({
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("svg", _extends({
     width: 16,
     height: 16,
     viewBox: "0 0 16 16",
     xmlns: "http://www.w3.org/2000/svg",
     "aria-labelledby": titleId
-  }, props), title ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", {
+  }, props), title ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("title", {
     id: titleId
-  }, title) : null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
-    d: "M13 4V12H11V6H9V10H5V12H3V8H7V4H13Z"
+  }, title) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
+    d: "M13 4v8h-2V6H9v4H5v2H3V8h4V4h6z"
   }));
 };
 
 var icon = EuiIconTokenRankFeatures;
-EuiIconTokenRankFeatures.__docgenInfo = {
-  "description": "",
-  "methods": [],
-  "displayName": "EuiIconTokenRankFeatures"
-};
 
 /***/ })
 

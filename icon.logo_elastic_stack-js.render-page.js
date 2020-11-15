@@ -26,38 +26,33 @@ var EuiIconLogoElasticStack = function EuiIconLogoElasticStack(_ref) {
       titleId = _ref.titleId,
       props = _objectWithoutProperties(_ref, ["title", "titleId"]);
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", _extends({
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("svg", _extends({
     width: 32,
     height: 32,
     viewBox: "0 0 32 32",
     xmlns: "http://www.w3.org/2000/svg",
     "aria-labelledby": titleId
-  }, props), title ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", {
+  }, props), title ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("title", {
     id: titleId
-  }, title) : null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("g", {
+  }, title) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("g", {
     fill: "none",
     fillRule: "evenodd"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
     fill: "#F04E98",
     d: "M32 9V2.5A2.5 2.5 0 0029.5 0h-27A2.5 2.5 0 000 2.5V9h32z"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
     fill: "#00BFB3",
     d: "M0 20h32v-8H0z"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
     fill: "#0080D5",
     d: "M14.5 23H0v6.5A2.5 2.5 0 002.5 32h12v-9z"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
     fill: "#FEC514",
     d: "M17.5 23v9h12a2.5 2.5 0 002.5-2.5V23H17.5z"
   })));
 };
 
 var icon = EuiIconLogoElasticStack;
-EuiIconLogoElasticStack.__docgenInfo = {
-  "description": "",
-  "methods": [],
-  "displayName": "EuiIconLogoElasticStack"
-};
 
 /***/ })
 

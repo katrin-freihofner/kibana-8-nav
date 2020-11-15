@@ -26,32 +26,27 @@ var EuiIconLogoAppSearch = function EuiIconLogoAppSearch(_ref) {
       titleId = _ref.titleId,
       props = _objectWithoutProperties(_ref, ["title", "titleId"]);
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", _extends({
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("svg", _extends({
     width: 32,
     height: 32,
     viewBox: "0 0 32 32",
     xmlns: "http://www.w3.org/2000/svg",
     "aria-labelledby": titleId
-  }, props), title ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", {
+  }, props), title ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("title", {
     id: titleId
-  }, title) : null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+  }, title) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
     fill: "#0080D5",
     d: "M19.5.938a7.002 7.002 0 00-7 0l-8 4.619A7 7 0 001 11.62v9.237a7 7 0 003.5 6.062l7.5 4.33V17.979a7 7 0 013.5-6.062L27 5.276 19.5.939z"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
     className: "euiIcon__fillNegative",
     d: "M19.5.938a7.002 7.002 0 00-7 0L5 5.277l11 6.35 11-6.35-7.5-4.34z"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
     fill: "#FA744E",
     d: "M28.435 7.76l-10.026 5.79a6.994 6.994 0 011.59 4.428v13.27l7.5-4.33a7 7 0 003.5-6.061v-9.238a6.992 6.992 0 00-1.586-4.422l-.978.564z"
   }));
 };
 
 var icon = EuiIconLogoAppSearch;
-EuiIconLogoAppSearch.__docgenInfo = {
-  "description": "",
-  "methods": [],
-  "displayName": "EuiIconLogoAppSearch"
-};
 
 /***/ })
 

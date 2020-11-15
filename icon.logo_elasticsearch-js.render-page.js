@@ -26,35 +26,30 @@ var EuiIconLogoElasticsearch = function EuiIconLogoElasticsearch(_ref) {
       titleId = _ref.titleId,
       props = _objectWithoutProperties(_ref, ["title", "titleId"]);
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", _extends({
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("svg", _extends({
     width: 32,
     height: 32,
     viewBox: "0 0 32 32",
     xmlns: "http://www.w3.org/2000/svg",
     "aria-labelledby": titleId
-  }, props), title ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", {
+  }, props), title ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("title", {
     id: titleId
-  }, title) : null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("g", {
+  }, title) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("g", {
     fill: "none",
     fillRule: "evenodd"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
     className: "euiIcon__fillNegative",
     d: "M2 16c0 1.384.194 2.72.524 4H22a4 4 0 000-8H2.524A15.984 15.984 0 002 16"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
     fill: "#FEC514",
     d: "M28.924 7.662A15.381 15.381 0 0030.48 6C27.547 2.346 23.05 0 18 0 11.679 0 6.239 3.678 3.644 9H25.51a5.039 5.039 0 003.413-1.338"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
     fill: "#00BFB3",
     d: "M25.51 23H3.645C6.24 28.323 11.679 32 18 32c5.05 0 9.547-2.346 12.48-6a15.381 15.381 0 00-1.556-1.662A5.034 5.034 0 0025.51 23"
   })));
 };
 
 var icon = EuiIconLogoElasticsearch;
-EuiIconLogoElasticsearch.__docgenInfo = {
-  "description": "",
-  "methods": [],
-  "displayName": "EuiIconLogoElasticsearch"
-};
 
 /***/ })
 

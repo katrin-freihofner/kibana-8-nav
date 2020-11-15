@@ -26,26 +26,21 @@ var EuiIconSecuritySignal = function EuiIconSecuritySignal(_ref) {
       titleId = _ref.titleId,
       props = _objectWithoutProperties(_ref, ["title", "titleId"]);
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", _extends({
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("svg", _extends({
     width: 16,
     height: 16,
     viewBox: "0 0 16 16",
     xmlns: "http://www.w3.org/2000/svg",
     "aria-labelledby": titleId
-  }, props), title ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", {
+  }, props), title ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("title", {
     id: titleId
-  }, title) : null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+  }, title) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
     fillRule: "evenodd",
     d: "M11.875 3.418a6 6 0 10.707.707l-2.46 2.46-1.156 1.156a1 1 0 11-.707-.707l.757-.757a2 2 0 00-2.43 3.137.5.5 0 11-.707.707 3 3 0 013.86-4.567l.714-.714A4 4 0 108 12a.5.5 0 110 1 5 5 0 113.164-8.871l.71-.71zm.709-.709a7 7 0 10.707.707l.366-.366a.5.5 0 10-.707-.707l-.366.366z"
   }));
 };
 
 var icon = EuiIconSecuritySignal;
-EuiIconSecuritySignal.__docgenInfo = {
-  "description": "",
-  "methods": [],
-  "displayName": "EuiIconSecuritySignal"
-};
 
 /***/ })
 

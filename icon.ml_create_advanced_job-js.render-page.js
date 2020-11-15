@@ -26,28 +26,23 @@ var EuiIconMlCreateAdvancedJob = function EuiIconMlCreateAdvancedJob(_ref) {
       titleId = _ref.titleId,
       props = _objectWithoutProperties(_ref, ["title", "titleId"]);
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", _extends({
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("svg", _extends({
     width: 32,
     height: 32,
     viewBox: "0 0 32 32",
     xmlns: "http://www.w3.org/2000/svg",
     "aria-labelledby": titleId
-  }, props), title ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", {
+  }, props), title ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("title", {
     id: titleId
-  }, title) : null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+  }, title) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
     d: "M16 32C7.163 32 0 24.837 0 16S7.163 0 16 0s16 7.163 16 16h-2c0-7.732-6.268-14-14-14S2 8.268 2 16s6.268 14 14 14v2z"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
     className: "euiIcon__fillSecondary",
-    d: "M23 15h-6V9h-2v6H9v2h6v6h2v-6h6zM20 25h2v7h-2zM25 20h2v12h-2zM30 23h2v9h-2z"
+    d: "M27 20v12h-2V20h2zm-5 4v8h-2v-8h2zm10-2v10h-2V22h2zM17 9v6h6v2h-6v6h-2v-6H9v-2h6V9h2z"
   }));
 };
 
 var icon = EuiIconMlCreateAdvancedJob;
-EuiIconMlCreateAdvancedJob.__docgenInfo = {
-  "description": "",
-  "methods": [],
-  "displayName": "EuiIconMlCreateAdvancedJob"
-};
 
 /***/ })
 

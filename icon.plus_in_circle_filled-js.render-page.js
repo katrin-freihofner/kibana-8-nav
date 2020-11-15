@@ -26,25 +26,20 @@ var EuiIconPlusInCircleFilled = function EuiIconPlusInCircleFilled(_ref) {
       titleId = _ref.titleId,
       props = _objectWithoutProperties(_ref, ["title", "titleId"]);
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", _extends({
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("svg", _extends({
     width: 16,
     height: 16,
     viewBox: "0 0 16 16",
     xmlns: "http://www.w3.org/2000/svg",
     "aria-labelledby": titleId
-  }, props), title ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", {
+  }, props), title ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("title", {
     id: titleId
-  }, title) : null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+  }, title) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
     d: "M8 7V3.5a.5.5 0 00-1 0V7H3.5a.5.5 0 000 1H7v3.5a.5.5 0 101 0V8h3.5a.5.5 0 100-1H8zm-.5 8a7.5 7.5 0 110-15 7.5 7.5 0 010 15z"
   }));
 };
 
 var icon = EuiIconPlusInCircleFilled;
-EuiIconPlusInCircleFilled.__docgenInfo = {
-  "description": "",
-  "methods": [],
-  "displayName": "EuiIconPlusInCircleFilled"
-};
 
 /***/ })
 

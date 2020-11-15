@@ -26,25 +26,20 @@ var EuiIconEditorUndo = function EuiIconEditorUndo(_ref) {
       titleId = _ref.titleId,
       props = _objectWithoutProperties(_ref, ["title", "titleId"]);
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", _extends({
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("svg", _extends({
     width: 16,
     height: 16,
     viewBox: "0 0 16 16",
     xmlns: "http://www.w3.org/2000/svg",
     "aria-labelledby": titleId
-  }, props), title ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", {
+  }, props), title ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("title", {
     id: titleId
-  }, title) : null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+  }, title) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
     d: "M5.5 6h5c1.943 0 3 1.057 3 3s-1.057 3-3 3H9v-1h1.5c1.39 0 2-.61 2-2 0-1.39-.61-2-2-2h-5v3L2 6.5 5.5 3v3z"
   }));
 };
 
 var icon = EuiIconEditorUndo;
-EuiIconEditorUndo.__docgenInfo = {
-  "description": "",
-  "methods": [],
-  "displayName": "EuiIconEditorUndo"
-};
 
 /***/ })
 

@@ -26,17 +26,17 @@ var EuiIconCompute = function EuiIconCompute(_ref) {
       titleId = _ref.titleId,
       props = _objectWithoutProperties(_ref, ["title", "titleId"]);
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", _extends({
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("svg", _extends({
     width: 16,
     height: 16,
     viewBox: "0 0 16 16",
     xmlns: "http://www.w3.org/2000/svg",
     "aria-labelledby": titleId
-  }, props), title ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", {
+  }, props), title ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("title", {
     id: titleId
-  }, title) : null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+  }, title) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
     d: "M4 3a1 1 0 00-1 1v8a1 1 0 001 1h8a1 1 0 001-1V4a1 1 0 00-1-1H4zm10 8v1a2 2 0 01-2 2h-1v2h-1v-2H8.5v2h-1v-2H6v2H5v-2H4a2 2 0 01-2-2v-1H0v-1h2V8.5H0v-1h2V6H0V5h2V4a2 2 0 012-2h1V0h1v2h1.5V0h1v2H10V0h1v2h1a2 2 0 012 2v1h2v1h-2v1.5h2v1h-2V10h2v1h-2z"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("rect", {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("rect", {
     width: 6,
     height: 6,
     x: 5,
@@ -46,11 +46,6 @@ var EuiIconCompute = function EuiIconCompute(_ref) {
 };
 
 var icon = EuiIconCompute;
-EuiIconCompute.__docgenInfo = {
-  "description": "",
-  "methods": [],
-  "displayName": "EuiIconCompute"
-};
 
 /***/ })
 

@@ -26,28 +26,23 @@ var EuiIconAppApm = function EuiIconAppApm(_ref) {
       titleId = _ref.titleId,
       props = _objectWithoutProperties(_ref, ["title", "titleId"]);
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", _extends({
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("svg", _extends({
     width: 32,
     height: 32,
     viewBox: "0 0 32 32",
     xmlns: "http://www.w3.org/2000/svg",
     "aria-labelledby": titleId
-  }, props), title ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", {
+  }, props), title ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("title", {
     id: titleId
-  }, title) : null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+  }, title) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
     d: "M3 10h4v2H1V1h30v6h-2V3H3v7zm26 19v-6h2v8H18v-8h2v6h9z"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
     className: "euiIcon__fillSecondary",
     d: "M31 10H9v11h12c5.523 0 10-4.477 10-10v-1zm-10 9H11v-7h17.938A8.001 8.001 0 0121 19z"
   }));
 };
 
 var icon = EuiIconAppApm;
-EuiIconAppApm.__docgenInfo = {
-  "description": "",
-  "methods": [],
-  "displayName": "EuiIconAppApm"
-};
 
 /***/ })
 

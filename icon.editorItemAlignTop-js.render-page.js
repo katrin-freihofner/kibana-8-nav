@@ -26,25 +26,20 @@ var EuiIconEditorItemAlignTop = function EuiIconEditorItemAlignTop(_ref) {
       titleId = _ref.titleId,
       props = _objectWithoutProperties(_ref, ["title", "titleId"]);
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", _extends({
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("svg", _extends({
     width: 16,
     height: 16,
     viewBox: "0 0 16 16",
     xmlns: "http://www.w3.org/2000/svg",
     "aria-labelledby": titleId
-  }, props), title ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", {
+  }, props), title ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("title", {
     id: titleId
-  }, title) : null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+  }, title) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
     d: "M7 3h2a2 2 0 012 2v8a2 2 0 01-2 2H7a2 2 0 01-2-2V5a2 2 0 012-2zM1.5 1h13a.5.5 0 110 1h-13a.5.5 0 010-1z"
   }));
 };
 
 var icon = EuiIconEditorItemAlignTop;
-EuiIconEditorItemAlignTop.__docgenInfo = {
-  "description": "",
-  "methods": [],
-  "displayName": "EuiIconEditorItemAlignTop"
-};
 
 /***/ })
 

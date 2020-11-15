@@ -26,25 +26,20 @@ var EuiIconKqlFunction = function EuiIconKqlFunction(_ref) {
       titleId = _ref.titleId,
       props = _objectWithoutProperties(_ref, ["title", "titleId"]);
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", _extends({
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("svg", _extends({
     width: 16,
     height: 16,
     viewBox: "0 0 16 16",
     xmlns: "http://www.w3.org/2000/svg",
     "aria-labelledby": titleId
-  }, props), title ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", {
+  }, props), title ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("title", {
     id: titleId
-  }, title) : null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+  }, title) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
     d: "M7 7H3v2h4v2l3-3-3-3v2zM6 6V5a1 1 0 011.707-.707l3 3a1 1 0 010 1.414l-3 3A1 1 0 016 11v-1H3a1 1 0 01-1-1V7a1 1 0 011-1h3zm7.5-3a.5.5 0 01.5.5v9a.5.5 0 11-1 0v-9a.5.5 0 01.5-.5z"
   }));
 };
 
 var icon = EuiIconKqlFunction;
-EuiIconKqlFunction.__docgenInfo = {
-  "description": "",
-  "methods": [],
-  "displayName": "EuiIconKqlFunction"
-};
 
 /***/ })
 

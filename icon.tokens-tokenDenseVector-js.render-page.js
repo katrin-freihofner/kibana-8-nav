@@ -26,26 +26,20 @@ var EuiIconTokenDenseVector = function EuiIconTokenDenseVector(_ref) {
       titleId = _ref.titleId,
       props = _objectWithoutProperties(_ref, ["title", "titleId"]);
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", _extends({
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("svg", _extends({
     width: 16,
     height: 16,
     viewBox: "0 0 16 16",
     xmlns: "http://www.w3.org/2000/svg",
     "aria-labelledby": titleId
-  }, props), title ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", {
+  }, props), title ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("title", {
     id: titleId
-  }, title) : null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
-    fillRule: "evenodd",
-    d: "M4.1539 12V4H6.86711V5.13923H5.65807V10.8608H6.86711V12H4.1539ZM11.8461 4V12H9.13288V10.8608H10.3419V5.13923H9.13288V4H11.8461Z"
+  }, title) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
+    d: "M4.154 12V4h2.713v1.14H5.658v5.72h1.21V12H4.153zm7.692-8v8H9.133v-1.14h1.209V5.14h-1.21V4h2.714z"
   }));
 };
 
 var icon = EuiIconTokenDenseVector;
-EuiIconTokenDenseVector.__docgenInfo = {
-  "description": "",
-  "methods": [],
-  "displayName": "EuiIconTokenDenseVector"
-};
 
 /***/ })
 

@@ -26,21 +26,21 @@ var EuiIconLogoNginx = function EuiIconLogoNginx(_ref) {
       titleId = _ref.titleId,
       props = _objectWithoutProperties(_ref, ["title", "titleId"]);
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", _extends({
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("svg", _extends({
     width: 32,
     height: 32,
     viewBox: "0 0 32 32",
     xmlns: "http://www.w3.org/2000/svg",
     "aria-labelledby": titleId
-  }, props), title ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", {
+  }, props), title ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("title", {
     id: titleId
-  }, title) : null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("g", {
+  }, title) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("g", {
     fill: "none",
     fillRule: "evenodd"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
     fill: "#119639",
     d: "M16 0l13.856 8v16L16 32 2.144 24V8z"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
     fill: "#FFF",
     fillRule: "nonzero",
     d: "M11.17 13.512v8.376a1.607 1.607 0 11-3.215 0V9.632c0-1.432 1.731-2.149 2.744-1.136l9.51 9.512V9.632a1.607 1.607 0 013.215 0v12.256c0 1.432-1.731 2.149-2.744 1.136l-9.51-9.512z"
@@ -48,11 +48,6 @@ var EuiIconLogoNginx = function EuiIconLogoNginx(_ref) {
 };
 
 var icon = EuiIconLogoNginx;
-EuiIconLogoNginx.__docgenInfo = {
-  "description": "",
-  "methods": [],
-  "displayName": "EuiIconLogoNginx"
-};
 
 /***/ })
 

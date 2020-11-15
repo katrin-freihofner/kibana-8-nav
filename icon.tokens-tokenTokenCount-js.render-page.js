@@ -21,36 +21,25 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
 
 
 
-var EuiIconTokenBinary = function EuiIconTokenBinary(_ref) {
+var EuiIconTokenTokenCount = function EuiIconTokenTokenCount(_ref) {
   var title = _ref.title,
       titleId = _ref.titleId,
       props = _objectWithoutProperties(_ref, ["title", "titleId"]);
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", _extends({
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("svg", _extends({
     width: 16,
     height: 16,
     viewBox: "0 0 16 16",
     xmlns: "http://www.w3.org/2000/svg",
     "aria-labelledby": titleId
-  }, props), title ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", {
+  }, props), title ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("title", {
     id: titleId
-  }, title) : null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("g", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
-    d: "M8 4H3V7H8V4Z"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
-    d: "M13 9H8V12H13V9Z"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
-    d: "M10 4H13V7H10V4Z"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
-    d: "M6 9H3V12H6V9Z"
-  })));
+  }, title) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
+    d: "M8 4H3v3h5V4zM13 9H8v3h5V9zM10 4h3v3h-3V4zM6 9H3v3h3V9z"
+  }));
 };
 
-var icon = EuiIconTokenBinary;
-EuiIconTokenBinary.__docgenInfo = {
-  "description": "",
-  "methods": [],
-  "displayName": "EuiIconTokenBinary"
-};
+var icon = EuiIconTokenTokenCount;
 
 /***/ })
 

@@ -26,25 +26,20 @@ var EuiIconTokenHistogram = function EuiIconTokenHistogram(_ref) {
       titleId = _ref.titleId,
       props = _objectWithoutProperties(_ref, ["title", "titleId"]);
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", _extends({
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("svg", _extends({
     width: 16,
     height: 16,
     viewBox: "0 0 16 16",
     xmlns: "http://www.w3.org/2000/svg",
     "aria-labelledby": titleId
-  }, props), title ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", {
+  }, props), title ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("title", {
     id: titleId
-  }, title) : null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
-    d: "M3 3h4v5h2V5.5h4V13H3.00148v-1H3V3zm1 9h2V4H4v8zm3 0h2V9H7v3zm3 0h2V6.5h-2V12z"
+  }, title) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
+    d: "M3 3h4v5h2V5.5h4V13H3.001v-1H3V3zm1 9h2V4H4v8zm3 0h2V9H7v3zm3 0h2V6.5h-2V12z"
   }));
 };
 
 var icon = EuiIconTokenHistogram;
-EuiIconTokenHistogram.__docgenInfo = {
-  "description": "",
-  "methods": [],
-  "displayName": "EuiIconTokenHistogram"
-};
 
 /***/ })
 

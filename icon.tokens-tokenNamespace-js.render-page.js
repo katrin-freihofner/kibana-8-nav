@@ -26,25 +26,20 @@ var EuiIconTokenNamespace = function EuiIconTokenNamespace(_ref) {
       titleId = _ref.titleId,
       props = _objectWithoutProperties(_ref, ["title", "titleId"]);
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", _extends({
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("svg", _extends({
     width: 16,
     height: 16,
     viewBox: "0 0 16 16",
     xmlns: "http://www.w3.org/2000/svg",
     "aria-labelledby": titleId
-  }, props), title ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", {
+  }, props), title ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("title", {
     id: titleId
-  }, title) : null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+  }, title) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
     d: "M7.556 8.416l-.804-1.68h-.036v5.64H5V4h1.992l2.292 3.96.804 1.68h.036V4h1.716v8.376H9.848l-2.292-3.96z"
   }));
 };
 
 var icon = EuiIconTokenNamespace;
-EuiIconTokenNamespace.__docgenInfo = {
-  "description": "",
-  "methods": [],
-  "displayName": "EuiIconTokenNamespace"
-};
 
 /***/ })
 
