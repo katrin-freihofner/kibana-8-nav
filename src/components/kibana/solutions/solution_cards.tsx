@@ -4,7 +4,7 @@ import { navigate } from 'gatsby';
 import {
   CommonProps,
   EuiButton,
-  EuiFlexGrid,
+  EuiFlexGroup,
   EuiFlexItem,
   EuiCard,
   EuiIcon,
@@ -28,7 +28,7 @@ export function SolutionCards({
   );
 
   return (
-    <EuiFlexGrid columns={current ? 3 : 4} className={classes} {...rest}>
+    <EuiFlexGroup className={classes} {...rest}>
       {current !== 'Enterprise search' && (
         <EuiFlexItem>
           <EuiCard
@@ -118,6 +118,6 @@ export function SolutionCards({
           />
         </EuiFlexItem>
       )}
-    </EuiFlexGrid>
+    </EuiFlexGroup>
   );
 }

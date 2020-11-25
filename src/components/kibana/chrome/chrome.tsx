@@ -38,7 +38,7 @@ export const KibanaChrome: React.FunctionComponent<KibanaChromeProps> = ({
   }
 
   return (
-    <>
+    <div className="kbnHeader">
       <EuiHeader
         position="fixed"
         theme="dark"
@@ -88,6 +88,6 @@ export const KibanaChrome: React.FunctionComponent<KibanaChromeProps> = ({
           },
         ]}
       />
-    </>
+    </div>
   );
 };

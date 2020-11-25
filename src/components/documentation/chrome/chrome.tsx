@@ -31,7 +31,7 @@ export const DocsChrome: React.FunctionComponent<DocsChromeProps> = ({
   }
 
   return (
-    <>
+    <div className="docsHeader">
       <EuiHeader
         position="fixed"
         theme="dark"
@@ -73,6 +73,6 @@ export const DocsChrome: React.FunctionComponent<DocsChromeProps> = ({
           },
         ]}
       />
-    </>
+    </div>
   );
 };

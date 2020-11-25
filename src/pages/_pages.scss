@@ -9,6 +9,7 @@
 Hack fix
 **/
 
-#gatsby-focus-wrapper > .euiPage {
-  // display: block;
+#gatsby-focus-wrapper > .euiPage:first-child {
+  min-height: 0;
+  height: 0;
 }
