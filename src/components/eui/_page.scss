@@ -96,3 +96,8 @@
 .euiBody--collapsibleNavIsDocked {
   padding-left: 260px !important;
 }
+
+.euiSideNavItemButton__label + svg {
+  // Hiding the arrow icon for now
+  display: none;
+}

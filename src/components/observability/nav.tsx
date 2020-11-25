@@ -16,11 +16,10 @@ export function ObservabilityNav({ navItem }: Props) {
 
   const createItem = (name: string, data = {}) => {
     return {
-      ...data,
       id: name,
       name,
       // @ts-ignore
-      isSelected: name === navItem,
+      isSelected: data.url === navItem || name === navItem,
       // @ts-ignore
       disabled: !data.url,
       // @ts-ignore
@@ -32,6 +31,7 @@ export function ObservabilityNav({ navItem }: Props) {
         : () => {
             return null;
           },
+      ...data,
     };
   };
 
@@ -50,7 +50,15 @@ export function ObservabilityNav({ navItem }: Props) {
       items: [
         createItem('Services'),
         createItem('Traces', { url: 'observability/trace' }),
-        createItem('Settings'),
+        createItem('Settings', {
+          url: 'observability/apm-settings',
+          items: [
+            createItem('Agent configuration', { disabled: false }),
+            createItem('Anomaly detection'),
+            createItem('Customize app'),
+            createItem('Indices'),
+          ],
+        }),
       ],
     }),
     createItem('Uptime'),
