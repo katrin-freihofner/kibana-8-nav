@@ -56,7 +56,7 @@ export const KibanaNav: FunctionComponent<Props> = ({
   currentRoute = 'Home',
 }) => {
   const context = React.useContext(ThemeContext);
-  const [navIsOpen, setNavIsOpen] = useState(context.navIsDocked);
+  const [navIsOpen, setNavIsOpen] = useState(false);
 
   const [pinnedItems, setPinnedItems] = useState<
     EuiPinnableListGroupItemProps[]
@@ -204,34 +204,37 @@ export const KibanaNav: FunctionComponent<Props> = ({
       <EuiFlexItem className="eui-yScroll">
         {createNavGroups(KibanaNavLinksFirst)}
 
-        <EuiCollapsibleNavGroup
-          background="light"
-          iconType="logoWorkplaceSearch"
-          title="Enterprise Search"
-          isCollapsible={true}
-          initialIsOpen={true}
-          arrowDisplay="none"
-          extraAction={
-            <EuiButtonIcon
-              aria-label="Hide and never show again"
-              title="Hide and never show again"
-              iconType="cross"
-            />
-          }>
-          <EuiText size="s" color="subdued" style={{ padding: '0 8px 8px' }}>
-            <p>
-              Quickly add pretuned search to your website, app, or workplace.
-              Search it all, simply.
-              <br />
-              <EuiLink
-                onClick={() => {
-                  navigate('enterprise-search/overview');
-                }}>
-                Learn more
-              </EuiLink>
-            </p>
-          </EuiText>
-        </EuiCollapsibleNavGroup>
+        {false && (
+          <EuiCollapsibleNavGroup
+            background="light"
+            iconType="logoWorkplaceSearch"
+            title="Enterprise Search"
+            isCollapsible={true}
+            initialIsOpen={true}
+            arrowDisplay="none"
+            extraAction={
+              <EuiButtonIcon
+                aria-label="Hide and never show again"
+                title="Hide and never show again"
+                iconType="cross"
+              />
+            }>
+            <EuiText size="s" color="subdued" style={{ padding: '0 8px 8px' }}>
+              <p>
+                Quickly add pretuned search to your website, app, or workplace.
+                Search it all, simply.
+                <br />
+                <EuiLink
+                  onClick={() => {
+                    navigate('enterprise-search/overview');
+                  }}>
+                  Learn more
+                </EuiLink>
+              </p>
+            </EuiText>
+          </EuiCollapsibleNavGroup>
+        )}
+
         {createNavGroups(KibanaNavLinksLast)}
 
         {/* NO -- Docking button only for larger screens that can support it*/}

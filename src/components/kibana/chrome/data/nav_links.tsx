@@ -99,18 +99,22 @@ export const KibanaNavLinksFirst: ChromeNavGroupProps[] = [
 ];
 
 export const KibanaNavLinksLast: ChromeNavGroupProps[] = [
-  // {
-  //   title: 'Enterprise Search',
-  //   iconType: 'logoWorkplaceSearch',
-  //   links: [
-  //     {
-  //       label: 'App Search',
-  //     },
-  //     {
-  //       label: 'Workplace Search',
-  //     },
-  //   ],
-  // },
+  {
+    title: 'Enterprise Search',
+    iconType: 'logoWorkplaceSearch',
+    links: [
+      {
+        label: 'Overview',
+        url: 'enterprise-search/overview',
+      },
+      {
+        label: 'App Search',
+      },
+      {
+        label: 'Workplace Search',
+      },
+    ],
+  },
   {
     title: 'Management',
     iconType: 'devToolsApp',
