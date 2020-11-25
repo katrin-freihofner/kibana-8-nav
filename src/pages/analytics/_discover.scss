@@ -1,0 +1,17 @@
+.dscPage {
+  padding: 0;
+}
+
+.dscPageSidebar {
+  margin: 0;
+  height: 100%;
+  padding: 0 $euiSize;
+
+  .pageScreenshot {
+    filter: contrast(103%);
+  }
+}
+
+.dscPageContent__wrapper {
+  padding: 0 $euiSize $euiSize 0;
+}

@@ -10,9 +10,15 @@ import {
   EuiPageContent,
   EuiFlexGroup,
   EuiFlexItem,
+  EuiButtonIcon,
+  EuiFieldSearch,
+  EuiFilterButton,
+  EuiFilterGroup,
 } from '@elastic/eui';
 // @ts-ignore
 import sidebarImg from '../../images/Discover - sidebar.svg';
+// @ts-ignore
+import chartImg from '../../images/Discover - chart.svg';
 // @ts-ignore
 import tableImg from '../../images/Discover - table.svg';
 
@@ -51,30 +57,81 @@ const headerLinks: ReactNode = (
 
 export default () => (
   <KibanaPage
+    fullHeight
     pageTitle="Discover"
     breadcrumbs={breadcrumbs}
-    headerLinks={headerLinks}>
+    headerLinks={headerLinks}
+    pageProps={{
+      className: 'dscPage',
+    }}
+    pageBodyProps={{
+      className: 'dscPageBody',
+    }}>
     <EuiPageHeader style={{ padding: 16 }}>
       <KibanaGlobals />
     </EuiPageHeader>
-    <EuiFlexGroup gutterSize="none" responsive={false}>
+    <EuiFlexGroup
+      className="eui-overflowHidden"
+      gutterSize="none"
+      responsive={false}>
       <EuiFlexItem grow={false}>
-        <EuiPageSideBar style={{ backgroundColor: '#F5F7FA' }}>
-          <img
-            className="pageScreenshot"
-            alt="Discover sidebar"
-            width={288}
-            src={sidebarImg}
-          />
+        <EuiPageSideBar className="dscPageSidebar">
+          <EuiFlexGroup
+            className="eui-fullHeight"
+            direction="column"
+            alignItems="stretch"
+            gutterSize="s"
+            responsive={false}>
+            <EuiFlexItem grow={false}>
+              <EuiButton color="text">
+                <strong>kibana_sample_data_ecommerce</strong>
+              </EuiButton>
+            </EuiFlexItem>
+            <EuiFlexItem grow={false}>
+              <EuiFieldSearch placeholder="Search field names" />
+            </EuiFlexItem>
+            <EuiFlexItem grow={false}>
+              <EuiFilterGroup>
+                <EuiFilterButton>Filter by type</EuiFilterButton>
+              </EuiFilterGroup>
+            </EuiFlexItem>
+            <EuiFlexItem className="eui-yScroll">
+              <img
+                className="pageScreenshot"
+                alt="Discover sidebar"
+                width={288}
+                src={sidebarImg}
+              />
+            </EuiFlexItem>
+          </EuiFlexGroup>
         </EuiPageSideBar>
       </EuiFlexItem>
-      <EuiFlexItem>
-        <EuiPageContent>
-          <img
-            className="pageScreenshot pageScreenshot--fullWidth"
-            alt="Discover table"
-            src={tableImg}
-          />
+      <EuiFlexItem grow={false}>
+        <EuiButtonIcon iconType="menuLeft" />
+      </EuiFlexItem>
+      <EuiFlexItem className="dscPageContent__wrapper">
+        <EuiPageContent paddingSize="none" className="eui-fullHeight">
+          <EuiFlexGroup
+            className="eui-fullHeight"
+            direction="column"
+            alignItems="stretch"
+            gutterSize="none"
+            responsive={false}>
+            <EuiFlexItem grow={false}>
+              <img
+                className="pageScreenshot pageScreenshot--fullWidth"
+                alt="Discover chart"
+                src={chartImg}
+              />
+            </EuiFlexItem>
+            <EuiFlexItem className="eui-yScroll">
+              <img
+                className="pageScreenshot pageScreenshot--fullWidth"
+                alt="Discover table"
+                src={tableImg}
+              />
+            </EuiFlexItem>
+          </EuiFlexGroup>
         </EuiPageContent>
       </EuiFlexItem>
     </EuiFlexGroup>

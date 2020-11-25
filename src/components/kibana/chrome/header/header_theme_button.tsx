@@ -2,9 +2,6 @@ import React from 'react';
 import { EuiButtonProps, EuiButton } from '@elastic/eui';
 import ThemeContext from '../../../../themes/ThemeContext';
 
-// @ts-ignore
-import { sun } from '../../../../images/sun';
-
 export const KibanaHeaderThemeButton: React.FunctionComponent<EuiButtonProps> = ({
   ...props
 }) => {
@@ -13,7 +10,7 @@ export const KibanaHeaderThemeButton: React.FunctionComponent<EuiButtonProps> = 
       {(context) => (
         <EuiButton
           size="s"
-          iconType={context.theme === 'dark' ? sun : 'moon'}
+          iconType={context.theme === 'dark' ? 'faceSad' : 'faceHappy'}
           onClick={context.toggleDark}
           isLoading={context.themeIsLoading}
           {...props}>

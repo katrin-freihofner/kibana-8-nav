@@ -26,3 +26,13 @@
 .euiCard--primaryTitle .euiCard__title {
   color: $euiLinkColor;
 }
+
+//** Helpers to add
+
+.eui-fullHeight {
+  height: 100%;
+}
+
+.eui-overflowHidden {
+  overflow: hidden;
+}

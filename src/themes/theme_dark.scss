@@ -1,5 +1,5 @@
 // This file generates a blob file that has a dark background
-@import '~@elastic/eui/src/theme_amsterdam_dark';
+@import '~@elastic/eui/src/theme_light';
 
 @import '../global_styling/index';
 @import '../components/index';
@@ -7,6 +7,6 @@
 @import '../pages/index';
 
 .pageScreenshot {
-  filter: invert(1) hue-rotate(154deg);
-  mix-blend-mode: color-dodge;
+  // filter: invert(1) hue-rotate(154deg);
+  // mix-blend-mode: color-dodge;
 }
