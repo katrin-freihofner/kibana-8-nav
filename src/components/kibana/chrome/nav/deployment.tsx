@@ -7,6 +7,7 @@ import {
   EuiButton,
   EuiSpacer,
 } from '@elastic/eui';
+import { navigateTo } from 'gatsby';
 
 const deploymentsList: EuiListGroupProps['listItems'] = [
   {
@@ -26,7 +27,7 @@ export const KibanaNavDeployment = () => (
     title={
       <span>
         <small style={{ fontWeight: 'normal' }}>Deployment</small> <br />
-        <strong>personal-databoard</strong>
+        <strong>Squirrel</strong>
       </span>
     }
     iconType="logoGCPMono"
@@ -35,9 +36,9 @@ export const KibanaNavDeployment = () => (
     initialIsOpen={false}
     background="dark">
     <div role="group" className="kibanaNavDeployment__content">
-      <EuiListGroup listItems={deploymentsList} flush />
-      <EuiSpacer size="s" />
-      <EuiButton color="ghost" fullWidth>
+      {/* <EuiListGroup listItems={deploymentsList} flush />
+      <EuiSpacer size="s" /> */}
+      <EuiButton onClick={() => navigateTo('cloud')} color="ghost" fullWidth>
         Manage deployments
       </EuiButton>
     </div>

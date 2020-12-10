@@ -7,6 +7,7 @@ export const wrapRootElement = ({ element }) => (
 
 const Layout = require('./src/components/layout').default;
 const DocsLayout = require('./src/components/documentation/layout').default;
+const CloudLayout = require('./src/components/cloud/layout').default;
 
 export const wrapPageElement = ({ element, props }) => {
   // props provide same data to Layout as Page element will get
@@ -14,6 +15,8 @@ export const wrapPageElement = ({ element, props }) => {
 
   if (props.path.includes('documentation')) {
     return <DocsLayout>{element}</DocsLayout>;
+  } else if (props.path.includes('cloud')) {
+    return <CloudLayout>{element}</CloudLayout>;
   }
 
   return <Layout {...props}>{element}</Layout>;
