@@ -36,3 +36,13 @@
 .eui-overflowHidden {
   overflow: hidden;
 }
+
+.euiCollapsibleNavGroup__children:empty {
+  display: none;
+}
+
+.euiSideBar--dynamic + .euiSideNavItem__items,
+.euiSideBar--dynamic {
+  background: transparentize($euiColorLightShade, .75);
+  box-shadow: 20px 0px 0px 8px transparentize($euiColorLightShade, .75), -20px 0px 0px 8px transparentize($euiColorLightShade, .75);
+}

@@ -3,24 +3,9 @@ import React from 'react';
 import {
   EuiCollapsibleNavGroup,
   EuiListGroupProps,
-  EuiListGroup,
   EuiButton,
-  EuiSpacer,
 } from '@elastic/eui';
 import { navigateTo } from 'gatsby';
-
-const deploymentsList: EuiListGroupProps['listItems'] = [
-  {
-    label: 'combining-binaries',
-    iconType: 'logoAzureMono',
-    size: 's',
-  },
-  {
-    label: 'stack-monitoring',
-    iconType: 'logoAWSMono',
-    size: 's',
-  },
-];
 
 export const KibanaNavDeployment = () => (
   <EuiCollapsibleNavGroup
@@ -38,8 +23,11 @@ export const KibanaNavDeployment = () => (
     <div role="group" className="kibanaNavDeployment__content">
       {/* <EuiListGroup listItems={deploymentsList} flush />
       <EuiSpacer size="s" /> */}
-      <EuiButton onClick={() => navigateTo('cloud')} color="ghost" fullWidth>
-        Manage deployments
+      <EuiButton
+        onClick={() => navigateTo('cloud/deployment')}
+        color="ghost"
+        fullWidth>
+        Manage deployment
       </EuiButton>
     </div>
   </EuiCollapsibleNavGroup>

@@ -16,13 +16,10 @@ import {
   EuiIcon,
   EuiCollapsibleNavGroup,
   EuiHeaderSectionItemButton,
-  EuiShowFor,
-  EuiListGroupItem,
   EuiCollapsibleNav,
   EuiPinnableListGroupItemProps,
 } from '@elastic/eui';
 
-import { CloudMissionNav } from './mission_nav';
 import { CloudNavLinksFirst } from '../data';
 
 import ThemeContext from '../../../../themes/ThemeContext';
@@ -46,7 +43,7 @@ export type ChromeNavGroupProps = {
 
 export const CloudNav: FunctionComponent<Props> = ({}) => {
   const context = React.useContext(ThemeContext);
-  const [navIsOpen, setNavIsOpen] = useState(context.navIsDocked);
+  const [navIsOpen, setNavIsOpen] = useState(false);
 
   const [pinnedItems, setPinnedItems] = useState<
     EuiPinnableListGroupItemProps[]
@@ -144,7 +141,6 @@ export const CloudNav: FunctionComponent<Props> = ({}) => {
         className: 'kbnCollapsibleNav__overlay',
       }}
       isOpen={navIsOpen}
-      isDocked={context.navIsDocked}
       button={
         <EuiHeaderSectionItemButton
           aria-label="Toggle main navigation"
@@ -153,29 +149,16 @@ export const CloudNav: FunctionComponent<Props> = ({}) => {
         </EuiHeaderSectionItemButton>
       }
       onClose={() => setNavIsOpen(false)}>
-      {/* Dark deployments section */}
-      <EuiFlexItem grow={false} style={{ flexShrink: 0 }}>
-        <CloudMissionNav />
-      </EuiFlexItem>
-
       {/* BOTTOM */}
       <EuiFlexItem className="eui-yScroll">
+        <EuiCollapsibleNavGroup
+          background="light"
+          title="Cloud"
+          isCollapsible={false}
+          iconType="logoElastic"
+        />
         {createNavGroups(CloudNavLinksFirst)}
       </EuiFlexItem>
-      {/* NO -- Docking button only for larger screens that can support it*/}
-      <EuiShowFor sizes={['l', 'xl']}>
-        <EuiCollapsibleNavGroup>
-          <EuiListGroupItem
-            size="xs"
-            color="subdued"
-            label={`${context.navIsDocked ? 'Undock' : 'Dock'} navigation`}
-            onClick={() => {
-              context.toggleDockedNav();
-            }}
-            iconType={context.navIsDocked ? 'lock' : 'lockOpen'}
-          />
-        </EuiCollapsibleNavGroup>
-      </EuiShowFor>
     </EuiCollapsibleNav>
   );
 };
