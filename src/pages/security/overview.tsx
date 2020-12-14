@@ -12,7 +12,7 @@ import {
   EuiText,
 } from '@elastic/eui';
 // @ts-ignore
-import illustration_2 from '../../images/Illustration_2.png';
+import illustration2 from '../../images/Illustration_2.png';
 import { SolutionCards } from '../../components/kibana/solutions';
 import { SecurityPage } from '../../components/security/page';
 
@@ -53,7 +53,7 @@ export default () => (
                 alt=""
                 aria-hidden={true}
                 width={254}
-                src={illustration_2}
+                src={illustration2}
               />
             </EuiFlexItem>
           </EuiFlexGroup>

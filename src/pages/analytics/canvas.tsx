@@ -62,12 +62,14 @@ export default () => (
           </EuiFlexItem>
         </EuiFlexGroup>
         <EuiSpacer />
-        <img
-          className="pageScreenshot pageScreenshot--responsive"
-          alt="Canvas listing page"
-          width={1212}
-          src={canvasImg}
-        />
+        <div className="pageScreenshot__TBD">
+          <img
+            className="pageScreenshot pageScreenshot--responsive"
+            alt="Canvas listing page"
+            width={1212}
+            src={canvasImg}
+          />
+        </div>
       </EuiPageContentBody>
     </EuiPageContent>
   </KibanaPage>

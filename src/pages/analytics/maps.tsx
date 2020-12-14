@@ -45,12 +45,14 @@ export default () => (
         <EuiFieldSearch fullWidth placeholder="Search for a by map name..." />
         <EuiSpacer />
 
-        <img
-          className="pageScreenshot pageScreenshot--responsive"
-          alt="Dashboard listing page"
-          width={1212}
-          src={dashboardImg}
-        />
+        <div className="pageScreenshot__TBD">
+          <img
+            className="pageScreenshot pageScreenshot--responsive"
+            alt="Dashboard listing page"
+            width={1212}
+            src={dashboardImg}
+          />
+        </div>
       </EuiPageContentBody>
     </EuiPageContent>
   </KibanaPage>

@@ -154,9 +154,7 @@ export const KibanaNavLinksLast: ChromeNavGroupProps[] = [
     links: [
       {
         label: 'Docs',
-        href: 'https://www.elastic.co/guide',
-        target: '_blank',
-        rel: 'noopener noreferrer',
+        url: 'documentation',
       },
       {
         label: 'Blogs',

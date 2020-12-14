@@ -61,12 +61,14 @@ export default () => (
     }}>
     <EuiPageContent>
       <EuiPageContentBody>
-        <img
-          className="pageScreenshot pageScreenshot--fullWidth"
-          alt="TSVB Gauge chart"
-          width={1400}
-          src={tsvbImg}
-        />
+        <div className="pageScreenshot__TBD">
+          <img
+            className="pageScreenshot pageScreenshot--fullWidth"
+            alt="TSVB Gauge chart"
+            width={1400}
+            src={tsvbImg}
+          />
+        </div>
       </EuiPageContentBody>
     </EuiPageContent>
   </KibanaPage>

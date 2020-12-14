@@ -50,10 +50,8 @@ const CloudLayout: FunctionComponent<{
     <CloudChromeContext.Provider
       // @ts-ignore
       value={{ chrome: chromeOptions, setChrome: setChromeOptions }}>
-      <div>
-        <CloudChrome {...chromeOptions} />
-        <div className="chrWrap">{children}</div>
-      </div>
+      <CloudChrome {...chromeOptions} />
+      {children}
     </CloudChromeContext.Provider>
   );
 };

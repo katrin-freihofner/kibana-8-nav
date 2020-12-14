@@ -52,7 +52,9 @@ export default () => (
           placeholder="Search for by dashboard name..."
         />
         <EuiSpacer />
-        <Link to="/analytics/dashboards/logs-web-traffic">
+        <Link
+          className="pageScreenshot__TBD"
+          to="/analytics/dashboards/logs-web-traffic">
           <img
             className="pageScreenshot pageScreenshot--responsive"
             alt="Dashboard listing page"

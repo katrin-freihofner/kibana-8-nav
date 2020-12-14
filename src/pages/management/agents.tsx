@@ -110,12 +110,14 @@ export default () => (
             </EuiFlexItem>
           </EuiFlexGroup>
           <EuiSpacer />
-          <img
-            className="pageScreenshot pageScreenshot--responsive"
-            alt="Blank table"
-            width={1168}
-            src={tableImg}
-          />
+          <div className="pageScreenshot__TBD">
+            <img
+              className="pageScreenshot pageScreenshot--responsive"
+              alt="Blank table"
+              width={1168}
+              src={tableImg}
+            />
+          </div>
         </EuiPageContentBody>
       </EuiPageContentBody>
     </EuiPageContent>

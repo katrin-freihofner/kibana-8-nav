@@ -9,7 +9,7 @@ import {
   EuiHeaderLinks,
 } from '@elastic/eui';
 // @ts-ignore
-import logs_dashboardImg from '../../../images/[Logs] Web Traffic.png';
+import logsDashboardImg from '../../../images/[Logs] Web Traffic.png';
 import { KibanaGlobals } from '../../../components/kibana/chrome/globals';
 import { KibanaPage } from '../../../components/kibana/page/page';
 
@@ -57,11 +57,13 @@ export default () => (
     <EuiPageHeader style={{ padding: 16 }}>
       <KibanaGlobals />
     </EuiPageHeader>
-    <img
-      className="pageScreenshot pageScreenshot--fullWidth"
-      alt="[Logs] Web Traffic dashboard"
-      width={1175}
-      src={logs_dashboardImg}
-    />
+    <div className="pageScreenshot__TBD">
+      <img
+        className="pageScreenshot pageScreenshot--fullWidth"
+        alt="[Logs] Web Traffic dashboard"
+        width={1175}
+        src={logsDashboardImg}
+      />
+    </div>
   </KibanaPage>
 );

@@ -56,10 +56,8 @@ const DocsLayout: FunctionComponent<{
     <DocsChromeContext.Provider
       // @ts-ignore
       value={{ chrome: chromeOptions, setChrome: setChromeOptions }}>
-      <div>
-        <DocsChrome {...chromeOptions} />
-        <div className="chrWrap">{children}</div>
-      </div>
+      <DocsChrome {...chromeOptions} />
+      {children}
     </DocsChromeContext.Provider>
   );
 };

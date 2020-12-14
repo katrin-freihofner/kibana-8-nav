@@ -99,12 +99,14 @@ export default () => (
               </EuiFilterGroup>
             </EuiFlexItem>
             <EuiFlexItem className="eui-yScroll">
-              <img
-                className="pageScreenshot"
-                alt="Discover sidebar"
-                width={288}
-                src={sidebarImg}
-              />
+              <div className="pageScreenshot__TBD">
+                <img
+                  className="pageScreenshot"
+                  alt="Discover sidebar"
+                  width={288}
+                  src={sidebarImg}
+                />
+              </div>
             </EuiFlexItem>
           </EuiFlexGroup>
         </EuiPageSideBar>
@@ -121,18 +123,22 @@ export default () => (
             gutterSize="none"
             responsive={false}>
             <EuiFlexItem grow={false}>
-              <img
-                className="pageScreenshot pageScreenshot--fullWidth"
-                alt="Discover chart"
-                src={chartImg}
-              />
+              <div className="pageScreenshot__TBD">
+                <img
+                  className="pageScreenshot pageScreenshot--fullWidth"
+                  alt="Discover chart"
+                  src={chartImg}
+                />
+              </div>
             </EuiFlexItem>
             <EuiFlexItem className="eui-yScroll">
-              <img
-                className="pageScreenshot pageScreenshot--fullWidth"
-                alt="Discover table"
-                src={tableImg}
-              />
+              <div className="pageScreenshot__TBD">
+                <img
+                  className="pageScreenshot pageScreenshot--fullWidth"
+                  alt="Discover table"
+                  src={tableImg}
+                />
+              </div>
             </EuiFlexItem>
           </EuiFlexGroup>
         </EuiPageContent>

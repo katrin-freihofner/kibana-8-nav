@@ -88,12 +88,14 @@ export default () => (
     </EuiPageContent>
     <EuiHorizontalRule margin="none" />
     <EuiPageContent style={{ padding: 0 }}>
-      <img
-        className="pageScreenshot pageScreenshot--fullWidth"
-        alt="Traces explorer"
-        width={1275}
-        src={tracesImg}
-      />
+      <div className="pageScreenshot__TBD">
+        <img
+          className="pageScreenshot pageScreenshot--fullWidth"
+          alt="Traces explorer"
+          width={1275}
+          src={tracesImg}
+        />
+      </div>
     </EuiPageContent>
   </SecurityPage>
 );

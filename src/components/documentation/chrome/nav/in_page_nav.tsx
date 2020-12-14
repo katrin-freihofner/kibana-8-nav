@@ -9,6 +9,7 @@ import {
   EuiSideNav,
   EuiSpacer,
   EuiText,
+  EuiTextColor,
   EuiTitle,
 } from '@elastic/eui';
 
@@ -75,7 +76,9 @@ export function DocsInPageNav({ currentUrl = 'introduction' }: Props) {
       <EuiFlexItem style={{ overflowY: 'auto', overflowX: 'hidden' }}>
         <div>
           <EuiTitle size="xs">
-            <h2>On this page</h2>
+            <EuiTextColor color="subdued">
+              <h2>On this page</h2>
+            </EuiTextColor>
           </EuiTitle>
           <EuiSpacer />
           <EuiSideNav

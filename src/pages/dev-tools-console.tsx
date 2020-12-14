@@ -34,12 +34,14 @@ export default () => (
     {/** TODO: How to afford for bottom bar displacement outside of body */}
     <EuiPageContent style={{ paddingBottom: 72 }}>
       <EuiPageContentBody>
-        <img
-          className="pageScreenshot pageScreenshot--fullWidth"
-          alt="Dev Tools / Console"
-          width={1341}
-          src={consoleImg}
-        />
+        <div className="pageScreenshot__TBD">
+          <img
+            className="pageScreenshot pageScreenshot--fullWidth"
+            alt="Dev Tools / Console"
+            width={1341}
+            src={consoleImg}
+          />
+        </div>
       </EuiPageContentBody>
     </EuiPageContent>
 
