@@ -1,3 +1,26 @@
+.pageScreenshot__TBD {
+  position: relative;
+  display: inline-block;
+
+  &::after {
+    content: '';
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 11'%3E%3Ctext font-family='monospace' x='0' y='10'%3ETBD%3C/text%3E%3C/svg%3E");
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    transform: rotate(-17deg) scale(.5);
+    opacity: 0.15;
+  }
+
+  &[href]::after {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 11'%3E%3Ctext font-family='monospace' x='0' y='10'%3ECLICK%3C/text%3E%3C/svg%3E");
+  }
+}
+
 .pageScreenshot--responsive {
   max-width: 100%;
 }

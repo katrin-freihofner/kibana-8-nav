@@ -7,7 +7,7 @@ export const CloudNavLinksFirst: ChromeNavGroupProps[] = [
     links: [
       {
         label: 'Overview',
-        onClick: () => {},
+        url: 'cloud/deployments',
       },
       {
         label: 'Features',

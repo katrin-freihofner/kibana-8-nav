@@ -69,7 +69,7 @@ export default () => (
     <EuiPageContent
       className="euiPageContent--restrictWidth"
       style={{ paddingTop: 0 }}>
-      <EuiPageContentBody>
+      <EuiPageContentBody className="pageScreenshot__TBD">
         <img
           className="pageScreenshot pageScreenshot--responsive"
           alt="Blank table"

@@ -9,7 +9,7 @@ export default () => {
   return (
     <KibanaPage pageTitle="Cloud">
       <div className="eui-textCenter">
-        <Link to="cloud/deployments">
+        <Link className="pageScreenshot__TBD" to="cloud/deployments">
           <img
             className="pageScreenshot"
             alt="Blank table"
