@@ -73,11 +73,11 @@ export const KibanaHeaderUserMenu: React.FunctionComponent<Props> = ({
 
           <EuiFlexGroup justifyContent="spaceBetween" responsive={false}>
             <EuiFlexItem grow={false}>
-              <EuiLink href="">Edit profile</EuiLink>
+              <EuiLink>Edit profile</EuiLink>
             </EuiFlexItem>
 
             <EuiFlexItem grow={false}>
-              <EuiLink href="">Log out</EuiLink>
+              <EuiLink>Log out</EuiLink>
             </EuiFlexItem>
           </EuiFlexGroup>
 

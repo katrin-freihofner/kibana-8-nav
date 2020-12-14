@@ -2,6 +2,7 @@ import React, { FunctionComponent } from 'react';
 import { EuiBreadcrumb } from '@elastic/eui';
 import { CloudPage, CloudPageProps } from '../page/page';
 import { CloudDeploymentsNav } from './nav';
+import { navigate } from 'gatsby';
 
 export type DeploymentsPageProps = CloudPageProps & {
   sideNavItem?: string;
@@ -18,7 +19,7 @@ export const DeploymentsPage: FunctionComponent<DeploymentsPageProps> = ({
   const baseBreadcrumb: EuiBreadcrumb[] = [
     {
       text: 'Cloud',
-      href: breadcrumbs?.length ? '/cloud' : undefined,
+      onClick: breadcrumbs?.length ? () => navigate('cloud') : undefined,
     },
   ];
 

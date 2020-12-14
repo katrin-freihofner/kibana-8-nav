@@ -2,6 +2,7 @@ import React, { FunctionComponent } from 'react';
 import { EuiBreadcrumb } from '@elastic/eui';
 import { KibanaPage, KibanaPageProps } from '../page/page';
 import { KibanaManagementNav } from './nav';
+import { navigate } from 'gatsby';
 
 export type ManagementPage = KibanaPageProps & {
   sideNavItem?: string;
@@ -16,7 +17,9 @@ export const ManagementPage: FunctionComponent<ManagementPage> = ({
   const baseBreadcrumb: EuiBreadcrumb[] = [
     {
       text: 'Management',
-      href: breadcrumbs?.length ? '/management/stack' : undefined,
+      onClick: breadcrumbs?.length
+        ? () => navigate('management/stack')
+        : undefined,
     },
   ];
 

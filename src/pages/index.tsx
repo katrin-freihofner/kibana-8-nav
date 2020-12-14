@@ -36,13 +36,13 @@ const breadcrumbs: EuiBreadcrumb[] = [
 
 const headerLinks: ReactNode = (
   <EuiHeaderLinks>
-    <EuiHeaderLink href="#">App directory</EuiHeaderLink>
+    <EuiHeaderLink>App directory</EuiHeaderLink>
 
-    <EuiHeaderLink href="#" onClick={() => navigate('dev-tools-console')}>
+    <EuiHeaderLink onClick={() => navigate('dev-tools-console')}>
       Dev tools
     </EuiHeaderLink>
 
-    <EuiHeaderLink href="#" onClick={() => navigate('management/stack')}>
+    <EuiHeaderLink onClick={() => navigate('management/stack')}>
       Manage stack
     </EuiHeaderLink>
 
@@ -80,7 +80,7 @@ export default () => (
               <EuiSpacer />
               <EuiFlexGroup responsive={false} wrap>
                 <EuiFlexItem grow={false}>
-                  <EuiButton fill href="/management/ingest">
+                  <EuiButton fill onClick={() => navigate('management/ingest')}>
                     Add an integration
                   </EuiButton>
                 </EuiFlexItem>
@@ -88,7 +88,9 @@ export default () => (
                   <EuiButton>Upload a file</EuiButton>
                 </EuiFlexItem>
                 <EuiFlexItem grow={false} style={{ position: 'relative' }}>
-                  <EuiButton href="/management/agents">Fleet</EuiButton>
+                  <EuiButton onClick={() => navigate('management/agents')}>
+                    Fleet
+                  </EuiButton>
                   <EuiBetaBadge
                     label="Beta"
                     style={{

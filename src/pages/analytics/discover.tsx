@@ -24,11 +24,14 @@ import tableImg from '../../images/Discover - table.svg';
 
 import { KibanaGlobals } from '../../components/kibana/chrome/globals';
 import { KibanaPage } from '../../components/kibana/page/page';
+import { navigate } from 'gatsby';
 
 const breadcrumbs: EuiBreadcrumb[] = [
   {
     text: 'Analytics',
-    href: '/analytics/overview',
+    onClick: () => {
+      navigate('analytics/overview');
+    },
   },
   {
     text: 'Discover',
@@ -37,9 +40,9 @@ const breadcrumbs: EuiBreadcrumb[] = [
 
 const headerLinks: ReactNode = (
   <EuiHeaderLinks>
-    <EuiHeaderLink href="#">New</EuiHeaderLink>
+    <EuiHeaderLink>New</EuiHeaderLink>
 
-    <EuiHeaderLink href="#">Open</EuiHeaderLink>
+    <EuiHeaderLink>Open</EuiHeaderLink>
 
     <EuiHeaderLink>Share</EuiHeaderLink>
 

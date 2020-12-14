@@ -21,7 +21,6 @@ const PAGE_TITLE = 'Dashboards';
 const breadcrumbs: EuiBreadcrumb[] = [
   {
     text: 'Analytics',
-    href: '#',
     onClick: () => {
       navigate('analytics/overview');
     },

@@ -73,7 +73,7 @@ export const CloudDeploymentsNav: any = ({
     <>
       <EuiTitle size="xs">
         <h2>
-          <EuiLink color="text" href="/cloud/deployments">
+          <EuiLink color="text" onClick={() => navigate('cloud/deployments')}>
             <EuiIcon size="l" type="package" /> &ensp;{' '}
             <strong>Deployments</strong>
           </EuiLink>

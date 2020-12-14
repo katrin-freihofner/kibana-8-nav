@@ -45,13 +45,13 @@ const breadcrumbs: EuiBreadcrumb[] = [
 
 const headerLinks: ReactNode = (
   <EuiHeaderLinks>
-    <EuiHeaderLink href="#">App directory</EuiHeaderLink>
+    <EuiHeaderLink>App directory</EuiHeaderLink>
 
-    <EuiHeaderLink href="#" onClick={() => navigate('dev-tools-console')}>
+    <EuiHeaderLink onClick={() => navigate('dev-tools-console')}>
       Dev tools
     </EuiHeaderLink>
 
-    <EuiHeaderLink href="#" onClick={() => navigate('management/stack')}>
+    <EuiHeaderLink onClick={() => navigate('management/stack')}>
       Manage stack
     </EuiHeaderLink>
 

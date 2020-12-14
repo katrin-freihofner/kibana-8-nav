@@ -26,9 +26,9 @@ export default () => (
                 <h1>This is Heading One</h1>
                 <p>
                   Far out in the uncharted backwaters of the{' '}
-                  <a href="#">unfashionable</a> end of the western spiral arm of
-                  the Galaxy lies a small unregarded yellow sun. When suddenly
-                  some wild JavaScript code appeared!{' '}
+                  <a>unfashionable</a> end of the western spiral arm of the
+                  Galaxy lies a small unregarded yellow sun. When suddenly some
+                  wild JavaScript code appeared!{' '}
                   <code>const whoa = &quot;!&quot;</code>
                 </p>
 

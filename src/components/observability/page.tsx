@@ -2,6 +2,7 @@ import React, { FunctionComponent, ReactNode } from 'react';
 import { EuiBreadcrumb, EuiHeaderLinks, EuiButton } from '@elastic/eui';
 import { KibanaPage, KibanaPageProps } from '../kibana/page/page';
 import { ObservabilityNav } from './nav';
+import { navigate } from 'gatsby';
 
 export type ObservabilityPage = KibanaPageProps & {
   navItem?: string;
@@ -17,7 +18,9 @@ export const ObservabilityPage: FunctionComponent<ObservabilityPage> = ({
   const baseBreadcrumb: EuiBreadcrumb[] = [
     {
       text: 'Observability',
-      href: breadcrumbs?.length ? '/observability/overview' : undefined,
+      onClick: breadcrumbs?.length
+        ? () => navigate('/observability/overview')
+        : undefined,
     },
   ];
 

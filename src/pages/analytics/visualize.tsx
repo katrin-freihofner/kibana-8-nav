@@ -16,7 +16,6 @@ const PAGE_TITLE = 'TSVB';
 const breadcrumbs: EuiBreadcrumb[] = [
   {
     text: 'Analytics',
-    href: '#',
     onClick: () => {
       navigate('analytics/overview');
     },

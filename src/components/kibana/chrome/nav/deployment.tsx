@@ -1,11 +1,7 @@
 import React from 'react';
 
-import {
-  EuiCollapsibleNavGroup,
-  EuiListGroupProps,
-  EuiButton,
-} from '@elastic/eui';
-import { navigateTo } from 'gatsby';
+import { EuiCollapsibleNavGroup, EuiButton } from '@elastic/eui';
+import { navigate } from 'gatsby';
 
 export const KibanaNavDeployment = () => (
   <EuiCollapsibleNavGroup
@@ -24,7 +20,7 @@ export const KibanaNavDeployment = () => (
       {/* <EuiListGroup listItems={deploymentsList} flush />
       <EuiSpacer size="s" /> */}
       <EuiButton
-        onClick={() => navigateTo('cloud/deployment')}
+        onClick={() => navigate('cloud/deployment')}
         color="ghost"
         fullWidth>
         Manage deployment

@@ -14,6 +14,7 @@ import { user } from '../../kibana/chrome/data';
 import { KibanaHeaderUserMenu } from '../../kibana/chrome/header';
 
 import { DocsNav } from './nav';
+import { navigate } from 'gatsby';
 
 export type DocsChromeProps = {
   breadcrumbs?: EuiBreadcrumb[];
@@ -24,7 +25,10 @@ export const DocsChrome: React.FunctionComponent<DocsChromeProps> = ({
 }) => {
   function renderLogo() {
     return (
-      <EuiHeaderLogo iconType="logoElastic" href="/" aria-label="Goes to home">
+      <EuiHeaderLogo
+        iconType="logoElastic"
+        onClick={() => navigate('documentation')}
+        aria-label="Goes to home">
         Elastic
       </EuiHeaderLogo>
     );

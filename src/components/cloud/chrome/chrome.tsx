@@ -17,6 +17,7 @@ import {
 
 import { CloudNav } from './nav';
 import { KibanaHeaderHelpMenu } from '../../kibana/chrome/header/header_help_menu';
+import { navigate } from 'gatsby';
 
 export type CloudChromeProps = {
   breadcrumbs?: EuiBreadcrumb[];
@@ -27,7 +28,10 @@ export const CloudChrome: React.FunctionComponent<CloudChromeProps> = ({
 }) => {
   function renderLogo() {
     return (
-      <EuiHeaderLogo iconType="logoElastic" href="/" aria-label="Goes to home">
+      <EuiHeaderLogo
+        iconType="logoElastic"
+        onClick={() => navigate('cloud')}
+        aria-label="Goes to home">
         Elastic
       </EuiHeaderLogo>
     );

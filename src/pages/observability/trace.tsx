@@ -37,7 +37,7 @@ const breadcrumbs: EuiBreadcrumb[] = [
   },
 ];
 
-const headerLinks: ReactNode = <EuiHeaderLink href="#">Alerts</EuiHeaderLink>;
+const headerLinks: ReactNode = <EuiHeaderLink>Alerts</EuiHeaderLink>;
 
 export default () => (
   <ObservabilityPage

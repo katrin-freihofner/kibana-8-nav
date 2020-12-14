@@ -16,14 +16,12 @@ import { KibanaPage } from '../../../components/kibana/page/page';
 const breadcrumbs: EuiBreadcrumb[] = [
   {
     text: 'Analytics',
-    href: '#',
     onClick: () => {
       navigate('analytics/overview');
     },
   },
   {
     text: 'Dashboards',
-    href: '#',
     onClick: () => {
       navigate('analytics/dashboards');
     },
@@ -35,9 +33,9 @@ const breadcrumbs: EuiBreadcrumb[] = [
 
 const headerLinks: ReactNode = (
   <EuiHeaderLinks>
-    <EuiHeaderLink href="#">Full screen</EuiHeaderLink>
+    <EuiHeaderLink>Full screen</EuiHeaderLink>
 
-    <EuiHeaderLink href="#">Share</EuiHeaderLink>
+    <EuiHeaderLink>Share</EuiHeaderLink>
 
     <EuiHeaderLink>Clone</EuiHeaderLink>
 

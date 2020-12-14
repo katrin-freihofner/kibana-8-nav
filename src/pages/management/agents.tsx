@@ -34,7 +34,7 @@ const breadcrumbs: EuiBreadcrumb[] = [
 
 const headerLinks: ReactNode = (
   <EuiHeaderLinks>
-    <EuiHeaderLink href="#">Send feedback</EuiHeaderLink>
+    <EuiHeaderLink>Send feedback</EuiHeaderLink>
 
     <EuiButton minWidth={0} size="s">
       Settings

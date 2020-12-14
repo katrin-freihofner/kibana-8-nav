@@ -2,6 +2,7 @@ import React, { FunctionComponent, ReactNode } from 'react';
 import { EuiBreadcrumb, EuiHeaderLink, EuiHeaderLinks } from '@elastic/eui';
 import { KibanaPage, KibanaPageProps } from '../kibana/page/page';
 import { SecurityNav } from './nav';
+import { navigate } from 'gatsby';
 
 export type SecurityPage = KibanaPageProps & {
   navItem?: string;
@@ -17,7 +18,9 @@ export const SecurityPage: FunctionComponent<SecurityPage> = ({
   const baseBreadcrumb: EuiBreadcrumb[] = [
     {
       text: 'Security',
-      href: breadcrumbs?.length ? '/security/overview' : undefined,
+      onClick: breadcrumbs?.length
+        ? () => navigate('/security/overview')
+        : undefined,
     },
   ];
 
@@ -29,7 +32,7 @@ export const SecurityPage: FunctionComponent<SecurityPage> = ({
   const theHeaderLinks: ReactNode = (
     <EuiHeaderLinks>
       {headerLinks}
-      <EuiHeaderLink href="#">Settings</EuiHeaderLink>
+      <EuiHeaderLink>Settings</EuiHeaderLink>
     </EuiHeaderLinks>
   );
 

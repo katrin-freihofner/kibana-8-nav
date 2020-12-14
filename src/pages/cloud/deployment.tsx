@@ -14,6 +14,7 @@ import {
 import { DeploymentsPage } from '../../components/cloud/deployments/page';
 // @ts-ignore
 import squirrelImg from '../../images/Cloud Deployment - Squirrel.png';
+import { navigate } from 'gatsby';
 
 const breadcrumbs: EuiBreadcrumb[] = [
   {
@@ -36,12 +37,13 @@ export default () => (
             </EuiLink>
           </h1>
         </EuiTitle>
+        {/* @ts-ignore NEED TO ALLOW THIS IN EUI */}
         <EuiTitle size="l" style={{ marginTop: 0 }}>
           <h2>Deployment overview</h2>
         </EuiTitle>
       </EuiPageHeaderSection>
       <EuiPageHeaderSection>
-        <EuiButton href="/">Open deployment</EuiButton>
+        <EuiButton onClick={() => navigate('/')}>Open deployment</EuiButton>
       </EuiPageHeaderSection>
     </EuiPageHeader>
     {/* <EuiPageContent

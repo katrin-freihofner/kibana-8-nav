@@ -17,8 +17,9 @@ import {
 } from './header';
 
 import { KibanaNav } from './nav';
-import { KibanaChromeSearch } from './search';
+// import { KibanaChromeSearch } from './search';
 import { KibanaHeaderHelpMenu } from './header/header_help_menu';
+import { navigate } from 'gatsby';
 
 export type KibanaChromeProps = {
   breadcrumbs?: EuiBreadcrumb[];
@@ -31,7 +32,10 @@ export const KibanaChrome: React.FunctionComponent<KibanaChromeProps> = ({
 }) => {
   function renderLogo() {
     return (
-      <EuiHeaderLogo iconType="logoElastic" href="/" aria-label="Goes to home">
+      <EuiHeaderLogo
+        iconType="logoElastic"
+        onClick={() => navigate('/')}
+        aria-label="Goes to home">
         Elastic
       </EuiHeaderLogo>
     );
