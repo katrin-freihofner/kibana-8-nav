@@ -28,6 +28,9 @@ export const DocsChromeContext = createContext<DocsChromeContextShape>({
       {
         text: 'Documentation',
       },
+      {
+        text: 'Product Design',
+      },
     ],
   },
 
@@ -42,6 +45,9 @@ const DocsLayout: FunctionComponent<{
     breadcrumbs: [
       {
         text: 'Documentation',
+      },
+      {
+        text: 'Product Design',
       },
     ],
   });

@@ -1,6 +1,5 @@
 .pageScreenshot__TBD {
   position: relative;
-  display: inline-block;
 
   &::after {
     content: '';
@@ -14,6 +13,10 @@
     bottom: 0;
     transform: rotate(-17deg) scale(.5);
     opacity: 0.15;
+  }
+
+  &[href] {
+    display: inline-block;
   }
 
   &[href]::after {

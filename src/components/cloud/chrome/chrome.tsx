@@ -18,6 +18,7 @@ import {
 import { CloudNav } from './nav';
 import { KibanaHeaderHelpMenu } from '../../kibana/chrome/header/header_help_menu';
 import { navigate } from 'gatsby';
+import { KibanaChromeSearch } from '../../kibana/chrome/search';
 
 export type CloudChromeProps = {
   breadcrumbs?: EuiBreadcrumb[];
@@ -45,6 +46,10 @@ export const CloudChrome: React.FunctionComponent<CloudChromeProps> = ({
         sections={[
           {
             items: [renderLogo()],
+            borders: 'none',
+          },
+          {
+            items: [<KibanaChromeSearch />],
             borders: 'none',
           },
           {

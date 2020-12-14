@@ -17,7 +17,7 @@ import {
 } from './header';
 
 import { KibanaNav } from './nav';
-// import { KibanaChromeSearch } from './search';
+import { KibanaChromeSearch } from './search';
 import { KibanaHeaderHelpMenu } from './header/header_help_menu';
 import { navigate } from 'gatsby';
 
@@ -51,10 +51,10 @@ export const KibanaChrome: React.FunctionComponent<KibanaChromeProps> = ({
             items: [renderLogo()],
             borders: 'none',
           },
-          // {
-          //   items: [<KibanaChromeSearch />],
-          //   borders: 'none',
-          // },
+          {
+            items: [<KibanaChromeSearch />],
+            borders: 'none',
+          },
           {
             items: [
               <EuiBadge

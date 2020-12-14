@@ -1,78 +1,55 @@
-import React, { useState, useEffect } from 'react';
-import _ from 'lodash';
-import { navigate } from 'gatsby';
-
 import {
-  EuiIcon,
-  EuiHighlight,
-  EuiTextColor,
+  EuiText,
   EuiBadge,
-  EuiSelectable,
+  EuiSelectableTemplateSitewide,
+  EuiSelectableTemplateSitewideOption,
   EuiFlexGroup,
   EuiFlexItem,
   EuiLink,
-  EuiText,
-  EuiPopover,
-  EuiAvatar,
+  EuiButton,
 } from '@elastic/eui';
-import {
-  EuiSelectableOptionsProps,
-  EuiSelectableOptionProps,
-} from '../../../../eui_types_shim';
-
-import { searchData, recents } from '../data';
-
-function createAppendNodes(space?: string) {
-  const spaceAvatar = space ? (
-    <EuiAvatar type="space" name={space} size="s" />
-  ) : undefined;
-
-  return (
-    <EuiFlexGroup responsive={false} gutterSize="s">
-      {spaceAvatar && <EuiFlexItem grow={false}>{spaceAvatar}</EuiFlexItem>}
-      <EuiFlexItem grow={false}>
-        <EuiBadge
-          aria-hidden={true}
-          className="kibanaChromeSearch__itemGotoBadge"
-          color="hollow">
-          Go to <small>↩</small>
-        </EuiBadge>
-      </EuiFlexItem>
-    </EuiFlexGroup>
-  );
-}
-
-const allSearches = searchData.concat(recents);
-const data: EuiSelectableOptionsProps = allSearches.map((item) => {
-  return {
-    key: item.title,
-    label: `${item.title} ${item.type.title}`,
-    prepend: item.type.iconType ? (
-      <EuiIcon type={item.type.iconType} size="m" color="subdued" />
-    ) : undefined,
-    className: 'kibanaChromeSearch__item',
-    append: createAppendNodes(item.space),
-  };
-});
-
-const recentData: EuiSelectableOptionsProps = recents.map((item) => {
-  return {
-    key: item.title,
-    label: `${item.title} ${item.type.title}`,
-    prepend: <EuiIcon type="clock" size="m" color="subdued" />,
-    className: 'kibanaChromeSearch__item',
-    append: createAppendNodes(item.space),
-  };
-});
+import { navigate } from 'gatsby';
+import React, { useState, useEffect } from 'react';
+import { searchData } from '../data/search';
 
 export const KibanaChromeSearch = () => {
-  const options = data;
-  const [inputHasFocus, setInputHasFocus] = useState(false);
   const [searchValue, setSearchValue] = useState('');
-  const searchValueExists = searchValue && searchValue !== '';
+  const [isLoading, setLoading] = useState(false);
+  const [searchRef, setSearchRef] = useState<HTMLInputElement | null>(null);
+  const searchValueExists = searchValue && searchValue.length;
 
-  let inputRef: HTMLInputElement;
+  /**
+   * Timeout to simulate loading (only on key command+k)
+   */
+  let searchTimeout;
+  const startSearchTimeout = () => {
+    searchTimeout = setTimeout(() => {
+      // Simulate a remotely-executed search.
+      setLoading(false);
+    }, 400);
+  };
+  clearTimeout(searchTimeout);
+  startSearchTimeout();
 
+  /**
+   * Take the first 5 options and simulate recently viewed
+   */
+  const recents = searchData.slice(0, 5);
+  const recentsWithIcon: EuiSelectableTemplateSitewideOption[] = recents.map(
+    (recent) => {
+      return {
+        ...recent,
+        icon: {
+          type: 'clock',
+          color: 'subdued',
+        },
+      };
+    }
+  );
+
+  /**
+   * Hook up the keyboard shortcut for command+k to initiate focus into search input
+   */
   useEffect(() => {
     window.addEventListener('keydown', onWindowKeyDown);
 
@@ -88,104 +65,64 @@ export const KibanaChromeSearch = () => {
   };
 
   const onWindowKeyUp = () => {
-    inputRef && inputRef.focus();
+    searchRef && searchRef.focus();
+    setLoading(true);
     window.removeEventListener('keyup', onWindowKeyUp);
   };
 
-  const onChange = (updatedOptions: EuiSelectableOptionProps[]) => {
-    const clickedItem = _.find(updatedOptions, { checked: 'on' });
-    if (!clickedItem) return;
-    const searchItem = _.find(allSearches, { title: clickedItem.key });
-    if (searchItem && searchItem.url) navigate(searchItem.url);
+  const onKeyUpCapture = (e: any) => {
+    setSearchValue(e.currentTarget.value);
   };
 
-  const renderOption = (
-    option: EuiSelectableOptionProps,
-    searchValue: string
-  ) => {
-    const moreInfo = _.find(allSearches, { title: option.key });
-    if (!moreInfo) return 'Missing info';
-
-    return (
-      <>
-        <strong>
-          <EuiHighlight search={searchValue}>{moreInfo.title}</EuiHighlight>
-        </strong>
-        <br />
-        <small>
-          {moreInfo.type.title && (
-            <EuiTextColor color="secondary">
-              <strong>
-                <EuiHighlight search={searchValue}>
-                  {moreInfo.type.title}
-                </EuiHighlight>
-              </strong>
-            </EuiTextColor>
-          )}
-          {moreInfo.meta && (
-            <EuiTextColor color="subdued">
-              &ensp;•&ensp;
-              <EuiHighlight search={searchValue}>{moreInfo.meta}</EuiHighlight>
-            </EuiTextColor>
-          )}
-        </small>
-      </>
+  /**
+   * Do something with the selection based on the found option with `checked: on`
+   */
+  const onChange = (updatedOptions: EuiSelectableTemplateSitewideOption[]) => {
+    const clickedItem = updatedOptions.find(
+      (option) => option.checked === 'on'
     );
+    if (!clickedItem) return;
+    if (clickedItem.url) navigate(clickedItem.url);
   };
 
   return (
-    <EuiSelectable
-      className="kibanaChromeSearch"
-      searchable
-      options={searchValueExists ? options : recentData}
+    <EuiSelectableTemplateSitewide
+      isLoading={isLoading}
       onChange={onChange}
-      renderOption={renderOption}
-      height={300}
-      singleSelection={true}
+      options={searchValueExists ? searchData : recentsWithIcon}
       searchProps={{
-        className: 'kbnSearch__darkTheme',
-        compressed: true,
-        placeholder: 'Search for anything...',
-        onFocus: () => setInputHasFocus(true),
-        onKeyUpCapture: (e: any) => setSearchValue(e.currentTarget.value),
-        // TODO: Allow pre/appends on search inputs
         append: '⌘K',
-        inputRef: (ref: any) => (inputRef = ref),
-        // TODO: `isClearable` doesn't seem to work or is not passed down
-        isClearable: true,
+        onKeyUpCapture: onKeyUpCapture,
+        className: 'customSearchClass',
+        inputRef: setSearchRef,
+        compressed: true,
       }}
       listProps={{
-        rowHeight: 68,
-        showIcons: false,
-        className: 'kibanaChromeSearch__list',
-      }}>
-      {(list, search) => (
-        <EuiPopover
-          id="popover"
-          button={search}
-          isOpen={inputHasFocus}
-          closePopover={() => setInputHasFocus(false)}
-          panelPaddingSize="none">
-          <div style={{ width: '600px' }}>
-            {list}
-            <EuiText className="kibanaChromeSearch__popoverFooter" size="xs">
-              <EuiFlexGroup
-                alignItems="center"
-                gutterSize="s"
-                responsive={false}>
-                <EuiFlexItem grow={false}>
-                  <EuiLink>View more results</EuiLink>
-                </EuiFlexItem>
-                <EuiFlexItem />
-                <EuiFlexItem grow={false}>Quickly search using</EuiFlexItem>
-                <EuiFlexItem grow={false}>
-                  <EuiBadge>Command + K</EuiBadge>
-                </EuiFlexItem>
-              </EuiFlexGroup>
-            </EuiText>
-          </div>
-        </EuiPopover>
-      )}
-    </EuiSelectable>
+        className: 'customListClass',
+      }}
+      popoverProps={{
+        className: 'customPopoverClass',
+      }}
+      popoverButton={<EuiButton>Mobile toggle</EuiButton>}
+      popoverButtonBreakpoints={['xs', 's']}
+      popoverFooter={
+        <EuiText color="subdued" size="xs">
+          <EuiFlexGroup
+            alignItems="center"
+            gutterSize="s"
+            responsive={false}
+            wrap>
+            <EuiFlexItem grow={false}>
+              {searchValueExists && <EuiLink>View more results</EuiLink>}
+            </EuiFlexItem>
+            <EuiFlexItem />
+            <EuiFlexItem grow={false}>Quickly search using</EuiFlexItem>
+            <EuiFlexItem grow={false}>
+              <EuiBadge>Command + K</EuiBadge>
+            </EuiFlexItem>
+          </EuiFlexGroup>
+        </EuiText>
+      }
+    />
   );
 };

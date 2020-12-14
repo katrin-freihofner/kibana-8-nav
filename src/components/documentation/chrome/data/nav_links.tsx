@@ -6,8 +6,9 @@ export const DocsNavLinksFirst: ChromeNavGroupProps[] = [
     links: [
       {
         label: 'Charter',
-        onClick: () => {},
+        url: 'documentation',
         isActive: true,
+        color: 'primary',
       },
       {
         label: 'Roles',

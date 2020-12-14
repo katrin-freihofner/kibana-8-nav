@@ -15,6 +15,7 @@ import { KibanaHeaderUserMenu } from '../../kibana/chrome/header';
 
 import { DocsNav } from './nav';
 import { navigate } from 'gatsby';
+import { KibanaChromeSearch } from '../../kibana/chrome/search';
 
 export type DocsChromeProps = {
   breadcrumbs?: EuiBreadcrumb[];
@@ -49,6 +50,10 @@ export const DocsChrome: React.FunctionComponent<DocsChromeProps> = ({
                 <EuiHeaderLink>Company</EuiHeaderLink>
               </EuiHeaderLinks>,
             ],
+            borders: 'none',
+          },
+          {
+            items: [<KibanaChromeSearch />],
             borders: 'none',
           },
           {

@@ -1,117 +1,172 @@
-export const recents = [
-  {
-    title: 'Welcome dashboards',
-    type: {
-      title: 'Saved dashboard',
-      iconType: 'dashboardApp',
-    },
-    space: 'Default Space',
-  },
-  {
-    title:
-      '[Flights] Flight Count and Average Ticket Price over the course of several years maybe even decades',
-    type: {
-      title: 'Saved visualization',
-      iconType: 'visualizeApp',
-    },
-    space: 'Default Space',
-  },
-  {
-    title: '[Flights] Global Flight Dashboard',
-    type: {
-      title: 'Saved dashboard',
-      iconType: 'dashboardApp',
-    },
-    space: 'Hello World',
-  },
-  {
-    title: '[Logs] Host, Visits and Bytes Table',
-    type: {
-      title: 'TSVB visualization',
-      iconType: 'visVisualBuilder',
-    },
-  },
-  {
-    title: '[Flights] Flight Log',
-    type: {
-      title: 'Saved discover',
-      iconType: 'discoverApp',
-    },
-    space: 'Hello World',
-  },
-];
-
 export const searchData = [
   {
-    title: 'Dashboards',
+    url: 'analytics/dashboards/logs-web-traffic',
+    label: '[Logs] Web Traffic',
+    meta: [
+      {
+        text: 'Dashboard',
+        type: 'application',
+        highlightSearchString: true,
+      },
+    ],
+  },
+  {
+    url: 'documentation',
+    label: 'Product Design Manual',
+    meta: [
+      {
+        text: 'Documentation',
+        type: 'article',
+      },
+      {
+        text: 'https://docs.elastic.co/product-design',
+        highlightSearchString: true,
+      },
+    ],
+  },
+  {
     url: 'analytics/dashboards',
-    type: {
-      iconType: 'logoKibana',
+    label: 'Dashboards',
+    icon: {
+      type: 'logoKibana',
     },
   },
   {
-    title:
-      'Generate HAR Archive of Network Timings/Details for Kibana requests',
-    type: {
-      title: 'Article',
+    url: 'security/event-suspicious-login',
+    label: 'Suspcious login',
+    icon: {
+      type: 'logoSecurity',
     },
-    meta:
-      'https://discuss.elastic.co/t/generate-har-archive-of-network-timings',
+    meta: [
+      {
+        text: 'personal-databoard',
+        type: 'deployment',
+      },
+    ],
   },
   {
-    title: '[Logs] Web Traffic',
-    url: '/analytics/dashboards/logs-web-traffic',
-    type: {
-      title: 'Saved dashboard',
-      iconType: 'dashboardApp',
-    },
-    space: 'Another',
-  },
-  {
-    title: 'Databoard analytics',
-    type: {
-      title: 'Saved discover',
-      iconType: 'discoverApp',
-    },
-  },
-  {
-    title: 'Primary logs',
-    type: {
-      title: 'personal-databoard',
-      iconType: 'logstashInput',
-    },
-    space: 'Hello World',
-  },
-  {
-    title: 'SIEM',
-    type: {
-      title: 'personal-databoard',
-      iconType: 'logoSecurity',
-    },
-  },
-  {
-    title: 'Dev tools',
+    label: 'Dev tools',
     url: 'dev-tools-console',
-    type: {
-      title: 'Management application',
-      iconType: 'devToolsApp',
-    },
+    meta: [
+      {
+        text: 'Management application',
+        type: 'application',
+      },
+    ],
   },
   {
-    title: 'Console',
-    url: 'dev-tools-console',
-    type: {
-      title: 'Dev tools application',
-      iconType: 'consoleApp',
-    },
-  },
-  {
-    title: 'Maps',
     url: 'analytics/maps',
-    type: {
-      title: 'Kibana application',
-      iconType: 'gisApp',
-    },
+    label: 'Maps',
+    icon: { type: 'logoKibana' },
+    meta: [
+      {
+        text: 'Analyze application',
+        type: 'application',
+      },
+    ],
     space: 'Hello World',
+  },
+  {
+    disabled: true,
+    label: 'Welcome dashboards',
+    avatar: {
+      name: 'Default Space',
+    },
+    meta: [
+      {
+        text: 'Dashboard',
+        type: 'application',
+        highlightSearchString: true,
+      },
+    ],
+  },
+  {
+    disabled: true,
+    label:
+      '[Flights] Flight Count and Average Ticket Price over the course of several years maybe even decades',
+    avatar: {
+      name: 'Default Space',
+    },
+    meta: [
+      {
+        text: 'Visualization',
+        type: 'application',
+      },
+    ],
+  },
+  {
+    disabled: true,
+    label: '[Flights] Global Flight Dashboard',
+    avatar: {
+      name: 'Hello World',
+    },
+    meta: [
+      {
+        text: 'Dashboard',
+        type: 'application',
+        highlightSearchString: true,
+      },
+    ],
+  },
+  {
+    disabled: true,
+    label: '[Logs] Host, Visits and Bytes Table',
+    meta: [
+      {
+        text: 'TSVB visualization',
+        type: 'application',
+      },
+    ],
+  },
+  {
+    disabled: true,
+    label: '[Flights] Flight Log',
+    avatar: {
+      name: 'Hello World',
+    },
+    meta: [
+      {
+        text: 'Discover',
+        type: 'application',
+      },
+    ],
+  },
+  {
+    disabled: true,
+    label: 'Databoard analytics',
+    title: 'Databoard analytics; Dashboard; Deployment: Flights Data',
+    meta: [
+      {
+        text: 'Dashboard',
+        type: 'application',
+      },
+      {
+        text: 'Flights Data',
+        type: 'deployment',
+      },
+    ],
+  },
+  {
+    disabled: true,
+    label: 'Squirrel',
+    avatar: {
+      name: 'Another',
+    },
+    meta: [
+      {
+        text: 'Flights Data',
+        type: 'deployment',
+      },
+    ],
+  },
+  {
+    url: 'dev-tools-console',
+    label: 'Console',
+    meta: [
+      {
+        text: 'Management application',
+        type: 'application',
+      },
+    ],
   },
 ];
