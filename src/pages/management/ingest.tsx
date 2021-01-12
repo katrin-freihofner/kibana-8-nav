@@ -22,6 +22,7 @@ import {
   EuiIcon,
   EuiHorizontalRule,
   EuiCallOut,
+  EuiKeyPadMenuItem,
 } from '@elastic/eui';
 
 import { ManagementPage } from '../../components/kibana/management/page';
@@ -49,20 +50,12 @@ const Cards: ReactNode[] = [];
 for (let i = 0; i < 20; i++) {
   Cards.push(
     <EuiFlexItem>
-      <EuiCard
-        icon={<EuiIcon type="logoElastic" size="xl" />}
-        title="Elastic"
-        description="Integration"
-        betaBadgeLabel="Experimental"
-        footer={
-          <EuiCallOut
-            color="success"
-            iconType="checkInCircleFilled"
-            size="s"
-            title="Installed"
-          />
-        }
-      />
+      <EuiKeyPadMenuItem
+        label="Elastic"
+        betaBadgeLabel="Installed"
+        betaBadgeIconType="check">
+        <EuiIcon type="logoElastic" size="xl" />
+      </EuiKeyPadMenuItem>
     </EuiFlexItem>
   );
 }
@@ -132,7 +125,7 @@ export default () => (
             </div>
           </EuiFlexItem>
           <EuiFlexItem>
-            <EuiFlexGrid columns={3} gutterSize="xl">
+            <EuiFlexGrid style={{ padding: 24 }} columns={4} gutterSize="xl">
               {Cards}
             </EuiFlexGrid>
           </EuiFlexItem>

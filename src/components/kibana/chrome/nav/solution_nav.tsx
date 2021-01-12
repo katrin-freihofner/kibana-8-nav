@@ -68,7 +68,7 @@ export function KibanaSolutionNav({ currentUrl = 'management/stack' }: Props) {
       ],
     }),
     createItem('Fleet', {
-      url: 'management/fleet',
+      url: 'management/agents',
       // items: [
       //   createItem('Integrations'),
       //   createItem('Configuration'),
