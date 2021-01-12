@@ -9,7 +9,7 @@
   @include euiYScroll;
   height: auto;
   padding: $euiSizeL;
-  // border-right: $euiBorderThin;
+  border-right: $euiBorderThin !important; // Overrides resizable panel
   margin-right: 0;
   background: $euiPageBackgroundColor;
   min-width: 260px;

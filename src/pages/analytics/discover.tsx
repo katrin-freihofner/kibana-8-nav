@@ -6,14 +6,13 @@ import {
   EuiButton,
   EuiHeaderLink,
   EuiHeaderLinks,
-  EuiPageSideBar,
   EuiPageContent,
   EuiFlexGroup,
   EuiFlexItem,
-  EuiButtonIcon,
   EuiFieldSearch,
   EuiFilterButton,
   EuiFilterGroup,
+  EuiResizableContainer,
 } from '@elastic/eui';
 // @ts-ignore
 import sidebarImg from '../../images/Discover - sidebar.svg';
@@ -58,6 +57,38 @@ const headerLinks: ReactNode = (
   </EuiHeaderLinks>
 );
 
+const sideBar = (
+  <EuiFlexGroup
+    className="eui-fullHeight"
+    direction="column"
+    alignItems="stretch"
+    gutterSize="s"
+    responsive={false}>
+    <EuiFlexItem grow={false}>
+      <EuiButton color="text">
+        <strong>kibana_sample_data_ecommerce</strong>
+      </EuiButton>
+    </EuiFlexItem>
+    <EuiFlexItem grow={false}>
+      <EuiFieldSearch placeholder="Search field names" fullWidth />
+    </EuiFlexItem>
+    <EuiFlexItem grow={false}>
+      <EuiFilterGroup>
+        <EuiFilterButton>Filter by type</EuiFilterButton>
+      </EuiFilterGroup>
+    </EuiFlexItem>
+    <EuiFlexItem className="eui-yScroll">
+      <div className="pageScreenshot__TBD">
+        <img
+          className="pageScreenshot pageScreenshot--fullWidth"
+          alt="Discover sidebar"
+          src={sidebarImg}
+        />
+      </div>
+    </EuiFlexItem>
+  </EuiFlexGroup>
+);
+
 export default () => (
   <KibanaPage
     fullHeight
@@ -73,76 +104,57 @@ export default () => (
     <EuiPageHeader style={{ padding: 16 }}>
       <KibanaGlobals />
     </EuiPageHeader>
-    <EuiFlexGroup
-      className="eui-overflowHidden"
-      gutterSize="none"
-      responsive={false}>
-      <EuiFlexItem grow={false}>
-        <EuiPageSideBar className="dscPageSidebar">
-          <EuiFlexGroup
-            className="eui-fullHeight"
-            direction="column"
-            alignItems="stretch"
-            gutterSize="s"
-            responsive={false}>
-            <EuiFlexItem grow={false}>
-              <EuiButton color="text">
-                <strong>kibana_sample_data_ecommerce</strong>
-              </EuiButton>
-            </EuiFlexItem>
-            <EuiFlexItem grow={false}>
-              <EuiFieldSearch placeholder="Search field names" />
-            </EuiFlexItem>
-            <EuiFlexItem grow={false}>
-              <EuiFilterGroup>
-                <EuiFilterButton>Filter by type</EuiFilterButton>
-              </EuiFilterGroup>
-            </EuiFlexItem>
-            <EuiFlexItem className="eui-yScroll">
-              <div className="pageScreenshot__TBD">
-                <img
-                  className="pageScreenshot"
-                  alt="Discover sidebar"
-                  width={288}
-                  src={sidebarImg}
-                />
-              </div>
-            </EuiFlexItem>
-          </EuiFlexGroup>
-        </EuiPageSideBar>
-      </EuiFlexItem>
-      <EuiFlexItem grow={false}>
-        <EuiButtonIcon iconType="menuLeft" />
-      </EuiFlexItem>
-      <EuiFlexItem className="dscPageContent__wrapper">
-        <EuiPageContent paddingSize="none" className="eui-fullHeight">
-          <EuiFlexGroup
-            className="eui-fullHeight"
-            direction="column"
-            alignItems="stretch"
-            gutterSize="none"
-            responsive={false}>
-            <EuiFlexItem grow={false}>
-              <div className="pageScreenshot__TBD">
-                <img
-                  className="pageScreenshot pageScreenshot--fullWidth"
-                  alt="Discover chart"
-                  src={chartImg}
-                />
-              </div>
-            </EuiFlexItem>
-            <EuiFlexItem className="eui-yScroll">
-              <div className="pageScreenshot__TBD">
-                <img
-                  className="pageScreenshot pageScreenshot--fullWidth"
-                  alt="Discover table"
-                  src={tableImg}
-                />
-              </div>
-            </EuiFlexItem>
-          </EuiFlexGroup>
-        </EuiPageContent>
-      </EuiFlexItem>
-    </EuiFlexGroup>
+    <EuiResizableContainer>
+      {(EuiResizablePanel, EuiResizableButton) => (
+        <>
+          <EuiResizablePanel
+            mode="collapsible"
+            initialSize={25}
+            // TODO: Fix: miSize isn't respected on page load
+            minSize={'260px'}
+            paddingSize="none"
+            className="euiPageSideBar dscPageSidebar">
+            {sideBar}
+          </EuiResizablePanel>
+
+          <EuiResizableButton style={{}} />
+
+          <EuiResizablePanel
+            mode="main"
+            initialSize={85}
+            minSize="600px"
+            paddingSize="none"
+            className="dscPageContent__wrapper">
+            <EuiPageContent paddingSize="none" className="eui-fullHeight">
+              <EuiFlexGroup
+                className="eui-fullHeight"
+                direction="column"
+                alignItems="stretch"
+                gutterSize="none"
+                responsive={false}>
+                <EuiFlexItem grow={false}>
+                  <div className="pageScreenshot__TBD">
+                    <img
+                      className="pageScreenshot pageScreenshot--fullWidth"
+                      alt="Discover chart"
+                      src={chartImg}
+                    />
+                  </div>
+                </EuiFlexItem>
+                <EuiFlexItem className="eui-yScroll">
+                  <div className="pageScreenshot__TBD">
+                    <img
+                      className="pageScreenshot pageScreenshot--fullWidth"
+                      alt="Discover table"
+                      src={tableImg}
+                    />
+                  </div>
+                </EuiFlexItem>
+              </EuiFlexGroup>
+            </EuiPageContent>
+          </EuiResizablePanel>
+        </>
+      )}
+    </EuiResizableContainer>
   </KibanaPage>
 );

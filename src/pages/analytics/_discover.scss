@@ -4,6 +4,12 @@
   flex-direction: column;
 }
 
+.dscPageBody {
+  > .euiResizableContainer {
+    height: 100%;
+  }
+}
+
 .dscPageSidebar {
   margin: 0;
   height: 100%;
