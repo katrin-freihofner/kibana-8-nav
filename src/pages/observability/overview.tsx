@@ -17,7 +17,7 @@ import {
 } from '@elastic/eui';
 import { SolutionCards } from '../../components/kibana/solutions';
 // @ts-ignore
-import illustration_1 from '../../images/Illustration_1.png';
+import illustration1 from '../../images/Illustration_1.png';
 import { ObservabilityPage } from '../../components/observability/page';
 
 export default () => (
@@ -50,7 +50,7 @@ export default () => (
                 alt=""
                 aria-hidden={true}
                 width={360}
-                src={illustration_1}
+                src={illustration1}
               />
             </EuiFlexItem>
           </EuiFlexGroup>

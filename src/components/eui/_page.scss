@@ -2,16 +2,14 @@
 // ensure any restricted widths center and color properly
 
 .euiPage {
-  padding: 0;
   flex-grow: 1;
-  // background: $euiColorEmptyShade;
 }
 
 .euiPageSideBar {
   @include euiYScroll;
   height: auto;
   padding: $euiSizeL;
-  border-right: $euiBorderThin;
+  // border-right: $euiBorderThin;
   margin-right: 0;
   background: $euiPageBackgroundColor;
   min-width: 260px;
@@ -43,7 +41,9 @@
 }
 
 .euiPageBody {
+  min-height: 100%;
   background: $euiPageBackgroundColor;
+  border-left: $euiBorderThin;
 }
 
 .euiPageBody--restrictWidth-default,

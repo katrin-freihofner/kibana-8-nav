@@ -10,8 +10,8 @@ import {
   EuiPageBody,
   EuiPageBodyProps,
   EuiPageProps,
-  EuiPageSideBar,
   EuiPageSideBarProps,
+  EuiResizableContainer,
 } from '@elastic/eui';
 import { KibanaPageHeader, KibanaPageHeaderProps } from './page_header';
 import { KibanaChromeContext } from '../../layout';
@@ -56,7 +56,7 @@ export const KibanaPage: FunctionComponent<KibanaPageProps> = ({
   }, [breadcrumbs, headerLinks]);
 
   const optionalSideBar = solutionNav ? (
-    <EuiPageSideBar {...pageSideBarProps}>{solutionNav}</EuiPageSideBar>
+    <div {...pageSideBarProps}>{solutionNav}</div>
   ) : undefined;
 
   const optionalPageHeader = pageHeader && <KibanaPageHeader {...pageHeader} />;
@@ -69,12 +69,50 @@ export const KibanaPage: FunctionComponent<KibanaPageProps> = ({
     pageProps ? pageProps.className : ''
   );
 
-  return (
+  return optionalSideBar ? (
     <>
       <Helmet>
         <title>{pageTitle} | Kibana 8 Prototype</title>
       </Helmet>
-      <EuiPage {...pageProps} className={pageClasses}>
+
+      <EuiResizableContainer>
+        {(EuiResizablePanel, EuiResizableButton) => (
+          <EuiPage {...pageProps} paddingSize="none" className={pageClasses}>
+            <EuiResizablePanel
+              mode="collapsible"
+              initialSize={15}
+              // TODO: Fix: miSize isn't respected on page load
+              minSize={'220px'}
+              // @ts-ignore TODO: Allow for maxSize
+              // Also TODO: Allow all Size follows take a percentage or string value
+              maxSize="300px"
+              paddingSize="none"
+              className="euiPageSideBar">
+              {optionalSideBar}
+            </EuiResizablePanel>
+
+            <EuiResizableButton style={{}} />
+
+            <EuiResizablePanel
+              mode="main"
+              initialSize={85}
+              minSize="300px"
+              paddingSize="none">
+              <EuiPageBody {...pageBodyProps}>
+                {optionalPageHeader}
+                {children}
+              </EuiPageBody>
+            </EuiResizablePanel>
+          </EuiPage>
+        )}
+      </EuiResizableContainer>
+    </>
+  ) : (
+    <>
+      <Helmet>
+        <title>{pageTitle} | Kibana 8 Prototype</title>
+      </Helmet>
+      <EuiPage {...pageProps} paddingSize="none" className={pageClasses}>
         {optionalSideBar}
         <EuiPageBody {...pageBodyProps}>
           {optionalPageHeader}

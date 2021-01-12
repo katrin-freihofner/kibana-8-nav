@@ -18,10 +18,8 @@ import {
   EuiFacetGroup,
   EuiFlexGrid,
   EuiTitle,
-  EuiCard,
   EuiIcon,
   EuiHorizontalRule,
-  EuiCallOut,
   EuiKeyPadMenuItem,
 } from '@elastic/eui';
 
