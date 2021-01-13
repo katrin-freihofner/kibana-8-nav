@@ -16,8 +16,6 @@ import {
   EuiIcon,
   EuiCollapsibleNavGroup,
   EuiHeaderSectionItemButton,
-  EuiShowFor,
-  EuiListGroupItem,
   EuiHorizontalRule,
   EuiCollapsibleNav,
   EuiPinnableListGroupItemProps,
@@ -26,7 +24,6 @@ import {
   EuiText,
 } from '@elastic/eui';
 
-import { KibanaNavDeployment } from './deployment';
 import {
   KibanaNavLinksFirst,
   KibanaNavLinksLast,
@@ -55,7 +52,7 @@ export type ChromeNavGroupProps = {
 export const KibanaNav: FunctionComponent<Props> = ({
   currentRoute = 'Home',
 }) => {
-  const context = React.useContext(ThemeContext);
+  // const context = React.useContext(ThemeContext);
   const [navIsOpen, setNavIsOpen] = useState(false);
 
   const [pinnedItems, setPinnedItems] = useState<
@@ -173,11 +170,6 @@ export const KibanaNav: FunctionComponent<Props> = ({
         </EuiHeaderSectionItemButton>
       }
       onClose={() => setNavIsOpen(false)}>
-      {/* Dark deployments section */}
-      <EuiFlexItem grow={false} style={{ flexShrink: 0 }}>
-        <KibanaNavDeployment />
-      </EuiFlexItem>
-
       {/* Shaded pinned section always with a home item */}
       <EuiFlexItem grow={false} style={{ flexShrink: 0 }}>
         <EuiCollapsibleNavGroup

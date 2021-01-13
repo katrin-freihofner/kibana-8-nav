@@ -1,12 +1,6 @@
 import React, { ReactNode } from 'react';
 
-import {
-  EuiHeaderLogo,
-  EuiBreadcrumb,
-  EuiBadge,
-  EuiHeader,
-} from '@elastic/eui';
-import theme from '@elastic/eui/dist/eui_theme_light.json';
+import { EuiHeaderLogo, EuiBreadcrumb, EuiHeader } from '@elastic/eui';
 
 import { user } from './data';
 
@@ -20,6 +14,7 @@ import { KibanaNav } from './nav';
 import { KibanaChromeSearch } from './search';
 import { KibanaHeaderHelpMenu } from './header/header_help_menu';
 import { navigate } from 'gatsby';
+import { KibanaNavDeployment } from './nav/deployment';
 
 export type KibanaChromeProps = {
   breadcrumbs?: EuiBreadcrumb[];
@@ -48,7 +43,7 @@ export const KibanaChrome: React.FunctionComponent<KibanaChromeProps> = ({
         theme="dark"
         sections={[
           {
-            items: [renderLogo()],
+            items: [renderLogo(), <KibanaNavDeployment />],
             borders: 'none',
           },
           {
@@ -57,12 +52,6 @@ export const KibanaChrome: React.FunctionComponent<KibanaChromeProps> = ({
           },
           {
             items: [
-              <EuiBadge
-                color={theme.euiColorDarkestShade}
-                iconType="arrowDown"
-                iconSide="right">
-                Production logs
-              </EuiBadge>,
               <KibanaHeaderHelpMenu />,
               <KibanaHeaderUpdates />,
               <KibanaHeaderUserMenu {...user} />,

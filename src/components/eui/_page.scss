@@ -9,10 +9,10 @@
   @include euiYScroll;
   height: auto;
   padding: $euiSizeL;
-  border-right: $euiBorderThin !important; // Overrides resizable panel
+  // border-right: $euiBorderThin !important; // Overrides resizable panel
   margin-right: 0;
   background: $euiPageBackgroundColor;
-  min-width: 260px;
+  // min-width: 260px;  No need for this anymore as the min width comes from the resizable panel
   max-height: calc(100vh - #{$euiHeaderHeightCompensation * 2});
   flex-grow: 1;
   position: sticky;

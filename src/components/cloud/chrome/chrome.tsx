@@ -5,7 +5,6 @@ import {
   EuiBreadcrumb,
   EuiBadge,
   EuiHeader,
-  EuiButton,
 } from '@elastic/eui';
 
 import { user } from '../../kibana/chrome/data';
@@ -19,6 +18,7 @@ import { CloudNav } from './nav';
 import { KibanaHeaderHelpMenu } from '../../kibana/chrome/header/header_help_menu';
 import { navigate } from 'gatsby';
 import { KibanaChromeSearch } from '../../kibana/chrome/search';
+import { CompanyBadge } from './nav/company';
 
 export type CloudChromeProps = {
   breadcrumbs?: EuiBreadcrumb[];
@@ -45,7 +45,7 @@ export const CloudChrome: React.FunctionComponent<CloudChromeProps> = ({
         theme="dark"
         sections={[
           {
-            items: [renderLogo()],
+            items: [renderLogo(), <CompanyBadge />],
             borders: 'none',
           },
           {
@@ -54,13 +54,6 @@ export const CloudChrome: React.FunctionComponent<CloudChromeProps> = ({
           },
           {
             items: [
-              <EuiButton
-                color="ghost"
-                size="s"
-                iconType="arrowDown"
-                iconSide="right">
-                Org name
-              </EuiButton>,
               <KibanaHeaderHelpMenu />,
               <KibanaHeaderUpdates />,
               <KibanaHeaderUserMenu {...user} />,

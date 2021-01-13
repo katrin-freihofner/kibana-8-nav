@@ -13,6 +13,7 @@ import {
   EuiFilterButton,
   EuiFilterGroup,
   EuiResizableContainer,
+  EuiPageBody,
 } from '@elastic/eui';
 // @ts-ignore
 import sidebarImg from '../../images/Discover - sidebar.svg';
@@ -125,33 +126,35 @@ export default () => (
             minSize="600px"
             paddingSize="none"
             className="dscPageContent__wrapper">
-            <EuiPageContent paddingSize="none" className="eui-fullHeight">
-              <EuiFlexGroup
-                className="eui-fullHeight"
-                direction="column"
-                alignItems="stretch"
-                gutterSize="none"
-                responsive={false}>
-                <EuiFlexItem grow={false}>
-                  <div className="pageScreenshot__TBD">
-                    <img
-                      className="pageScreenshot pageScreenshot--fullWidth"
-                      alt="Discover chart"
-                      src={chartImg}
-                    />
-                  </div>
-                </EuiFlexItem>
-                <EuiFlexItem className="eui-yScroll">
-                  <div className="pageScreenshot__TBD">
-                    <img
-                      className="pageScreenshot pageScreenshot--fullWidth"
-                      alt="Discover table"
-                      src={tableImg}
-                    />
-                  </div>
-                </EuiFlexItem>
-              </EuiFlexGroup>
-            </EuiPageContent>
+            <EuiPageBody>
+              <EuiPageContent paddingSize="none" className="eui-fullHeight">
+                <EuiFlexGroup
+                  className="eui-fullHeight"
+                  direction="column"
+                  alignItems="stretch"
+                  gutterSize="none"
+                  responsive={false}>
+                  <EuiFlexItem grow={false}>
+                    <div className="pageScreenshot__TBD">
+                      <img
+                        className="pageScreenshot pageScreenshot--fullWidth"
+                        alt="Discover chart"
+                        src={chartImg}
+                      />
+                    </div>
+                  </EuiFlexItem>
+                  <EuiFlexItem className="eui-yScroll">
+                    <div className="pageScreenshot__TBD">
+                      <img
+                        className="pageScreenshot pageScreenshot--fullWidth"
+                        alt="Discover table"
+                        src={tableImg}
+                      />
+                    </div>
+                  </EuiFlexItem>
+                </EuiFlexGroup>
+              </EuiPageContent>
+            </EuiPageBody>
           </EuiResizablePanel>
         </>
       )}

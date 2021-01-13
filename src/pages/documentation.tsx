@@ -13,10 +13,9 @@ import {
   EuiFlexItem,
 } from '@elastic/eui';
 import { DocsInPageNav } from '../components/documentation/chrome/nav';
-// @ts-ignore
 
 export default () => (
-  <EuiPage>
+  <EuiPage paddingSize="none">
     <EuiPageBody>
       <EuiPageContent className="euiPageContent--restrictWidth">
         <EuiPageContentBody>

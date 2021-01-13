@@ -56,3 +56,10 @@
 .euiListGroupItem--primary.euiListGroupItem-isClickable:hover {
   background-color: transparentize($euiColorPrimary, .9) !important;
 }
+
+.euiResizableButton:not(:hover):not(:focus) {
+  &::before,
+  &::after {
+    opacity: .25;
+  }
+}

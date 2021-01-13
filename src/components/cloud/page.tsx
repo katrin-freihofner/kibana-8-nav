@@ -74,7 +74,7 @@ export const CloudPage: FunctionComponent<CloudPageProps> = ({
       <Helmet>
         <title>{pageTitle} | Cloud 8 Prototype</title>
       </Helmet>
-      <EuiPage {...pageProps} className={pageClasses}>
+      <EuiPage {...pageProps} paddingSize="none" className={pageClasses}>
         {optionalSideBar}
         <EuiPageBody {...pageBodyProps}>
           {optionalPageHeader}

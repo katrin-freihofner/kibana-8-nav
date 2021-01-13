@@ -79,10 +79,15 @@ export const KibanaPage: FunctionComponent<KibanaPageProps> = ({
         {(EuiResizablePanel, EuiResizableButton) => (
           <EuiPage {...pageProps} paddingSize="none" className={pageClasses}>
             <EuiResizablePanel
-              mode="collapsible"
-              initialSize={15}
+              mode={[
+                'collapsible',
+                {
+                  position: 'top',
+                },
+              ]}
+              initialSize={17}
               // TODO: Fix: miSize isn't respected on page load
-              minSize={'220px'}
+              minSize={'60px'}
               // @ts-ignore TODO: Allow for maxSize
               // Also TODO: Allow all Size follows take a percentage or string value
               maxSize="300px"
@@ -91,12 +96,12 @@ export const KibanaPage: FunctionComponent<KibanaPageProps> = ({
               {optionalSideBar}
             </EuiResizablePanel>
 
-            <EuiResizableButton style={{}} />
+            <EuiResizableButton className="kbnPage__resizer" style={{}} />
 
             <EuiResizablePanel
               mode="main"
-              initialSize={85}
-              minSize="300px"
+              initialSize={83}
+              minSize="600px"
               paddingSize="none">
               <EuiPageBody {...pageBodyProps}>
                 {optionalPageHeader}

@@ -43,7 +43,12 @@ export default () => (
         </EuiTitle>
       </EuiPageHeaderSection>
       <EuiPageHeaderSection>
-        <EuiButton onClick={() => navigate('/')}>Open deployment</EuiButton>
+        <EuiButton
+          iconType="popout"
+          iconSide="right"
+          onClick={() => navigate('/')}>
+          Open deployment
+        </EuiButton>
       </EuiPageHeaderSection>
     </EuiPageHeader>
     {/* <EuiPageContent
