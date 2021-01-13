@@ -46,12 +46,14 @@ export const KibanaHeaderSpacesMenu: React.FunctionComponent<Props> = ({
     (space) => createOptionFromSpace(space)
   );
 
-  const [options, setOptions] = useState(spacesList);
+  const [options, setOptions] = useState(
+    spacesList.concat(additionalSpacesList)
+  );
   const [selectedSpace, setSelectedSpace] = useState(
     find(spacesList, { checked: 'on' })
   );
   const [menuIsOpen, setMenuIsOpen] = useState(false);
-  const [isListExtended, setIsListExtended] = useState(false);
+  const [isListExtended, setIsListExtended] = useState(true);
 
   const onMenuButtonClick = () => {
     setMenuIsOpen(!menuIsOpen);
@@ -102,7 +104,7 @@ export const KibanaHeaderSpacesMenu: React.FunctionComponent<Props> = ({
         options={options}
         onChange={onSpaceSelect}
         singleSelection="always"
-        style={{ width: 300 }}
+        style={{ width: 220 }}
         searchProps={{
           placeholder: 'Find a space',
           compressed: true,

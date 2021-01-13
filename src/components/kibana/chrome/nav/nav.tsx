@@ -30,8 +30,6 @@ import {
   KibanaNavTopLinks,
 } from '../data/nav_links';
 
-import ThemeContext from '../../../../themes/ThemeContext';
-
 interface Props
   extends Omit<EuiFlyoutProps, 'onClose'>,
     HTMLAttributes<HTMLDivElement> {

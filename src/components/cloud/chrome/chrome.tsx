@@ -18,7 +18,7 @@ import { CloudNav } from './nav';
 import { KibanaHeaderHelpMenu } from '../../kibana/chrome/header/header_help_menu';
 import { navigate } from 'gatsby';
 import { KibanaChromeSearch } from '../../kibana/chrome/search';
-import { CompanyBadge } from './nav/company';
+import { CloudDeploymentMenu } from './deployments_menu';
 
 export type CloudChromeProps = {
   breadcrumbs?: EuiBreadcrumb[];
@@ -45,7 +45,7 @@ export const CloudChrome: React.FunctionComponent<CloudChromeProps> = ({
         theme="dark"
         sections={[
           {
-            items: [renderLogo(), <CompanyBadge />],
+            items: [renderLogo(), <CloudDeploymentMenu />],
             borders: 'none',
           },
           {
