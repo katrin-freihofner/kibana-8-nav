@@ -16,8 +16,9 @@ import {
   EuiButtonProps,
 } from '@elastic/eui';
 import classNames from 'classnames';
-import { EuiTabProps } from '@elastic/eui/src/components/tabs/tab';
 import { EuiSuperDatePicker } from '../../eui/super_date_picker';
+
+type EuiTabProps = React.ComponentProps<typeof EuiTab>;
 
 export type KibanaPageHeaderTitle = {
   /**

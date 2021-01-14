@@ -25,8 +25,8 @@ const ThemeContext = React.createContext(defaultState);
 const supportsDarkMode = () =>
   window.matchMedia('(prefers-color-scheme: dark)').matches === true;
 
-class ThemeProvider extends React.Component<object, State> {
-  constructor(props: object) {
+class ThemeProvider extends React.Component<unknown, State> {
+  constructor(props: unknown) {
     super(props);
 
     let theme;
