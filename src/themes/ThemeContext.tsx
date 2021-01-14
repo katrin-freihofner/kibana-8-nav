@@ -1,5 +1,13 @@
 import React from 'react';
 
+const localStorageIsDefined: boolean = typeof localStorage !== 'undefined';
+
+if (localStorageIsDefined && localStorage.getItem('theme') === 'dark') {
+  require('./theme_dark.scss');
+} else {
+  require('./theme_light.scss');
+}
+
 const defaultState = {
   navIsDocked: false,
   theme: 'light',

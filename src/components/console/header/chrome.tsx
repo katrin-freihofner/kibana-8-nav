@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { EuiHeaderLogo, EuiHeader } from '@elastic/eui';
-
 import { ConsoleHelpMenu } from './help_menu';
 import { navigate } from 'gatsby';
 import { KibanaChromeSearch } from '../../kibana/chrome/search';

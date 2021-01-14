@@ -7,14 +7,6 @@ import React, {
 
 import { DocsChrome, DocsChromeProps } from './chrome/chrome';
 
-const localStorageIsDefined: boolean = typeof localStorage !== 'undefined';
-
-if (localStorageIsDefined && localStorage.getItem('theme') === 'dark') {
-  require('../../themes/theme_dark.scss');
-} else {
-  require('../../themes/theme_light.scss');
-}
-
 interface DocsChromeContextShape {
   chrome?: DocsChromeProps;
   setChrome: React.Dispatch<
