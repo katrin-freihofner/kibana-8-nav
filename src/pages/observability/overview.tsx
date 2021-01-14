@@ -15,10 +15,10 @@ import {
   EuiSpacer,
   EuiText,
 } from '@elastic/eui';
-import { SolutionCards } from '../../components/kibana/solutions';
+import { SolutionCards } from '../../components/kibana/solution_cards';
 // @ts-ignore
 import illustration1 from '../../images/Illustration_1.png';
-import { ObservabilityPage } from '../../components/observability/page';
+import { ObservabilityPage } from '../../components/kibana/observability/page';
 
 export default () => (
   <ObservabilityPage pageTitle="Observability Overview" navItem="Overview">

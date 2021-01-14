@@ -1,6 +1,6 @@
 import React, { FunctionComponent, ReactNode } from 'react';
 import { EuiBreadcrumb, EuiHeaderLinks, EuiButton } from '@elastic/eui';
-import { KibanaPage, KibanaPageProps } from '../kibana/page/page';
+import { KibanaPage, KibanaPageProps } from '../page/page';
 import { ObservabilityNav } from './nav';
 import { navigate } from 'gatsby';
 

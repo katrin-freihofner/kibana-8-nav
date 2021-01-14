@@ -14,7 +14,7 @@ import {
   EuiResizableContainer,
 } from '@elastic/eui';
 import { KibanaPageHeader, KibanaPageHeaderProps } from './page_header';
-import { KibanaChromeContext } from '../../layout';
+import { KibanaChromeContext } from '../layout';
 import Helmet from 'react-helmet';
 import classNames from 'classnames';
 

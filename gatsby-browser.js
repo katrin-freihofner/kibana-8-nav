@@ -5,7 +5,7 @@ export const wrapRootElement = ({ element }) => (
   <ThemeProvider>{element}</ThemeProvider>
 );
 
-const Layout = require('./src/components/layout').default;
+const Layout = require('./src/components/kibana/layout').default;
 const DocsLayout = require('./src/components/documentation/layout').default;
 const CloudLayout = require('./src/components/cloud/layout').default;
 

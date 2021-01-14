@@ -12,35 +12,31 @@ import {
 } from '@elastic/eui';
 import theme from '@elastic/eui/dist/eui_theme_light.json';
 
-import { deployments } from './data/deployments';
+import { CloudDeployments } from '../../cloud/_data';
 import { EuiSelectableOptionsProps } from '../../../eui_types_shim';
 import { Link, navigate } from 'gatsby';
 
-export type CloudDeploymentsProps = {
-  title: string;
-  active?: boolean;
-  disabled?: boolean;
-};
-
-type Props = {
+export type ConsoleDeploymentMenuProps = {
+  companyName: string;
   inDeployment?: boolean;
 };
 
-export const CloudDeploymentMenu: React.FunctionComponent<Props> = ({
+export const ConsoleDeploymentMenu: React.FunctionComponent<ConsoleDeploymentMenuProps> = ({
+  companyName,
   inDeployment = false,
   ...props
 }) => {
   if (!inDeployment) {
     return (
       <EuiBadge color={theme.euiColorDarkestShade} {...props}>
-        Acme Inc.
+        {companyName}
       </EuiBadge>
     );
   }
 
-  const [options, setOptions] = useState(deployments);
+  const [options, setOptions] = useState(CloudDeployments);
   const [selectedDeployment, setSelectedDeployment] = useState(
-    find(deployments, { checked: 'on' })
+    find(CloudDeployments, { checked: 'on' })
   );
   const [menuIsOpen, setMenuIsOpen] = useState(false);
 
@@ -59,7 +55,7 @@ export const CloudDeploymentMenu: React.FunctionComponent<Props> = ({
     navigate('home');
   };
 
-  const createMenuId = htmlIdGenerator('CloudDeploymentMenu');
+  const createMenuId = htmlIdGenerator('ConsoleDeploymentMenu');
   const menuId = createMenuId();
 
   const button = (
@@ -94,7 +90,7 @@ export const CloudDeploymentMenu: React.FunctionComponent<Props> = ({
         {(list) => (
           <Fragment>
             <EuiPopoverTitle paddingSize="s">
-              <Link to="cloud">Acme Inc.</Link>
+              <Link to="cloud">{companyName}</Link>
             </EuiPopoverTitle>
             {list}
             <EuiPopoverFooter paddingSize="s">

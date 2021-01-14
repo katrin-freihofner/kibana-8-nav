@@ -16,7 +16,7 @@ import {
   EuiFlexItem,
   EuiCard,
 } from '@elastic/eui';
-import { SolutionCards } from '../../components/kibana/solutions';
+import { SolutionCards } from '../../components/kibana/solution_cards';
 // @ts-ignore
 import appImg from '../../images/App_Search.png';
 // @ts-ignore

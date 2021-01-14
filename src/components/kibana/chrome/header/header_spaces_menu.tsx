@@ -17,7 +17,7 @@ import {
   EuiSelectableOptionsProps,
 } from '../../../../eui_types_shim';
 
-import { spaces, additionalSpaces } from '../data/spaces';
+import { spaces, additionalSpaces } from '../../_data';
 
 function createOptionFromSpace(
   space: KibanaSpaceProps

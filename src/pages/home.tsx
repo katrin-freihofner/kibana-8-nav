@@ -23,7 +23,7 @@ import {
 } from '@elastic/eui';
 // @ts-ignore
 import illustrationImg from '../images/Illustration_3.svg';
-import { SolutionCards } from '../components/kibana/solutions';
+import { SolutionCards } from '../components/kibana/solution_cards';
 import { KibanaPage } from '../components/kibana/page/page';
 
 const PAGE_TITLE = 'Home';

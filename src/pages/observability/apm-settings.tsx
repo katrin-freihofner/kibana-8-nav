@@ -2,7 +2,7 @@ import React from 'react';
 
 import { EuiPageContent, EuiEmptyPrompt, EuiButton } from '@elastic/eui';
 
-import { ObservabilityPage } from '../../components/observability/page';
+import { ObservabilityPage } from '../../components/kibana/observability/page';
 
 export default () => (
   <>

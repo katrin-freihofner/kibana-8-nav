@@ -1,9 +1,9 @@
 import React from 'react';
-import { ChromeNavGroupProps } from '../nav/nav';
+import { ChromeNavGroupProps } from '../chrome/nav/nav';
 import { EuiIcon } from '@elastic/eui';
 
 // @ts-ignore
-import { home } from '../../../../images/home';
+import { home } from '../../../images/home';
 
 export const KibanaNavTopLinks: ChromeNavGroupProps = {
   title: 'Top',

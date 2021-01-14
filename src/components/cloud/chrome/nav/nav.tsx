@@ -20,9 +20,7 @@ import {
   EuiPinnableListGroupItemProps,
 } from '@elastic/eui';
 
-import { CloudNavLinksFirst } from '../data';
-
-import ThemeContext from '../../../../themes/ThemeContext';
+import { CloudNavLinksFirst } from '../../_data';
 
 interface Props
   extends Omit<EuiFlyoutProps, 'onClose'>,
@@ -42,7 +40,7 @@ export type ChromeNavGroupProps = {
 };
 
 export const CloudNav: FunctionComponent<Props> = ({}) => {
-  const context = React.useContext(ThemeContext);
+  // const context = React.useContext(ThemeContext);
   const [navIsOpen, setNavIsOpen] = useState(false);
 
   const [pinnedItems, setPinnedItems] = useState<

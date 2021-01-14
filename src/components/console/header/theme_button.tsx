@@ -1,8 +1,8 @@
 import React from 'react';
 import { EuiButtonProps, EuiButton } from '@elastic/eui';
-import ThemeContext from '../../../../themes/ThemeContext';
+import ThemeContext from '../../../themes/ThemeContext';
 
-export const KibanaHeaderThemeButton: React.FunctionComponent<EuiButtonProps> = ({
+export const ConsoleThemeButton: React.FunctionComponent<EuiButtonProps> = ({
   ...props
 }) => {
   return (

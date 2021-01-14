@@ -13,8 +13,8 @@ import {
 } from '@elastic/eui';
 // @ts-ignore
 import illustration2 from '../../images/Illustration_2.png';
-import { SolutionCards } from '../../components/kibana/solutions';
-import { SecurityPage } from '../../components/security/page';
+import { SolutionCards } from '../../components/kibana/solution_cards';
+import { SecurityPage } from '../../components/kibana/security/page';
 
 export default () => (
   <SecurityPage

@@ -19,7 +19,7 @@ import {
   EuiFlexItem,
   EuiCard,
 } from '@elastic/eui';
-import { SolutionCards } from '../../components/kibana/solutions';
+import { SolutionCards } from '../../components/kibana/solution_cards';
 // @ts-ignore
 // @ts-ignore
 import dashboardImg from '../../images/analytics-card-dashboard.png';

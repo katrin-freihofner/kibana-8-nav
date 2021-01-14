@@ -1,4 +1,4 @@
-import { ChromeNavGroupProps } from '../nav/nav';
+import { ChromeNavGroupProps } from '../chrome/nav/nav';
 
 export const CloudNavLinksFirst: ChromeNavGroupProps[] = [
   {

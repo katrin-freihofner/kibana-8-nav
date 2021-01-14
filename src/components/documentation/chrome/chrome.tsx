@@ -9,13 +9,11 @@ import {
   EuiHeaderLinks,
 } from '@elastic/eui';
 
-import { user } from '../../kibana/chrome/data';
-
-import { KibanaHeaderUserMenu } from '../../kibana/chrome/header';
-
 import { DocsNav } from './nav';
 import { navigate } from 'gatsby';
 import { KibanaChromeSearch } from '../../kibana/chrome/search';
+import { ConsoleUserMenu } from '../../console/header/user_menu';
+import { CloudUser } from '../../cloud/_data';
 
 export type DocsChromeProps = {
   breadcrumbs?: EuiBreadcrumb[];
@@ -57,7 +55,7 @@ export const DocsChrome: React.FunctionComponent<DocsChromeProps> = ({
             borders: 'none',
           },
           {
-            items: [<KibanaHeaderUserMenu {...user} />],
+            items: [<ConsoleUserMenu {...CloudUser} />],
             borders: 'none',
           },
         ]}

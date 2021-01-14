@@ -23,7 +23,7 @@ import {
 } from '@elastic/eui';
 
 import { DocsMissionNav } from './mission_nav';
-import { DocsNavLinksFirst } from '../data';
+import { DocsNavLinksFirst } from '../../_data';
 
 import ThemeContext from '../../../../themes/ThemeContext';
 

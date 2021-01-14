@@ -21,7 +21,7 @@ import {
   EuiBreadcrumb,
 } from '@elastic/eui';
 import { EuiSuperDatePicker } from '../../components/eui/super_date_picker';
-import { ObservabilityPage } from '../../components/observability/page';
+import { ObservabilityPage } from '../../components/kibana/observability/page';
 
 const breadcrumbs: EuiBreadcrumb[] = [
   {

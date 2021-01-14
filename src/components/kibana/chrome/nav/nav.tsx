@@ -28,7 +28,7 @@ import {
   KibanaNavLinksFirst,
   KibanaNavLinksLast,
   KibanaNavTopLinks,
-} from '../data/nav_links';
+} from '../../_data';
 
 interface Props
   extends Omit<EuiFlyoutProps, 'onClose'>,

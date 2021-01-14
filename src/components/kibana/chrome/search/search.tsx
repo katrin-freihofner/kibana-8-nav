@@ -10,7 +10,7 @@ import {
 } from '@elastic/eui';
 import { navigate } from 'gatsby';
 import React, { useState, useEffect } from 'react';
-import { searchData } from '../data/search';
+import { searchData } from '../../_data';
 
 export const KibanaChromeSearch = () => {
   const [searchValue, setSearchValue] = useState('');

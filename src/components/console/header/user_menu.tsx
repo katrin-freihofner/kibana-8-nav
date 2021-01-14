@@ -12,16 +12,16 @@ import {
   htmlIdGenerator,
 } from '@elastic/eui';
 
-import { KibanaHeaderThemeButton } from './header_theme_button';
+import { ConsoleThemeButton } from './theme_button';
 
-export type KibanaUserProps = {
+export type ConsoleUserProps = {
   username: string;
 };
 
-type Props = KibanaUserProps &
+type Props = ConsoleUserProps &
   React.ComponentProps<typeof EuiHeaderSectionItemButton>;
 
-export const KibanaHeaderUserMenu: React.FunctionComponent<Props> = ({
+export const ConsoleUserMenu: React.FunctionComponent<Props> = ({
   username,
   ...rest
 }) => {
@@ -83,7 +83,7 @@ export const KibanaHeaderUserMenu: React.FunctionComponent<Props> = ({
 
           <EuiSpacer size="m" />
 
-          <KibanaHeaderThemeButton />
+          <ConsoleThemeButton />
         </EuiFlexItem>
       </EuiFlexGroup>
     </EuiPopover>

@@ -15,7 +15,7 @@ import {
 
 type Props = React.ComponentProps<typeof EuiHeaderSectionItemButton>;
 
-export const KibanaHeaderHelpMenu: React.FunctionComponent<Props> = ({
+export const ConsoleHelpMenu: React.FunctionComponent<Props> = ({
   ...rest
 }) => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
@@ -60,15 +60,28 @@ export const KibanaHeaderHelpMenu: React.FunctionComponent<Props> = ({
       </EuiPopoverTitle>
       <EuiListGroup gutterSize="none" flush>
         <EuiListGroupItem
+          size="s"
           color="primary"
           label="Documentation"
           onClick={() => {
             navigate('documentation');
           }}
         />
-        <EuiListGroupItem color="primary" isDisabled label="Ask Elastic" />
-        <EuiListGroupItem color="primary" isDisabled label="Give feedback" />
         <EuiListGroupItem
+          size="s"
+          color="primary"
+          isDisabled
+          label="Ask Elastic"
+        />
+        <EuiListGroupItem
+          size="s"
+          color="primary"
+          // TODO: Disabled is not changing the color
+          isDisabled
+          label="Give feedback"
+        />
+        <EuiListGroupItem
+          size="s"
           color="primary"
           isDisabled
           label="Open an issue in Github"

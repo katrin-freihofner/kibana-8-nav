@@ -2,7 +2,8 @@
 @import '~@elastic/eui/src/theme_amsterdam_light';
 
 @import '../global_styling/index';
-@import '../components/index';
+@import '../components/eui/index';
+@import '../components/kibana/index';
 
 // Testing old layout vs new by only importing new page into light theme
 @import '../components/eui/page';

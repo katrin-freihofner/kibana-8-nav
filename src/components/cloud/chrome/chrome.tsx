@@ -1,24 +1,9 @@
 import React from 'react';
 
-import {
-  EuiHeaderLogo,
-  EuiBreadcrumb,
-  EuiBadge,
-  EuiHeader,
-} from '@elastic/eui';
-
-import { user } from '../../kibana/chrome/data';
-
-import {
-  KibanaHeaderUpdates,
-  KibanaHeaderUserMenu,
-} from '../../kibana/chrome/header';
+import { EuiBreadcrumb, EuiBadge, EuiHeader } from '@elastic/eui';
 
 import { CloudNav } from './nav';
-import { KibanaHeaderHelpMenu } from '../../kibana/chrome/header/header_help_menu';
-import { navigate } from 'gatsby';
-import { KibanaChromeSearch } from '../../kibana/chrome/search';
-import { CloudDeploymentMenu } from './deployments_menu';
+import { ConsoleHeader } from '../../console/header/chrome';
 
 export type CloudChromeProps = {
   breadcrumbs?: EuiBreadcrumb[];
@@ -27,41 +12,9 @@ export type CloudChromeProps = {
 export const CloudChrome: React.FunctionComponent<CloudChromeProps> = ({
   breadcrumbs,
 }) => {
-  function renderLogo() {
-    return (
-      <EuiHeaderLogo
-        iconType="logoElastic"
-        onClick={() => navigate('cloud')}
-        aria-label="Goes to home">
-        Elastic
-      </EuiHeaderLogo>
-    );
-  }
-
   return (
-    <div className="docsHeader">
-      <EuiHeader
-        position="fixed"
-        theme="dark"
-        sections={[
-          {
-            items: [renderLogo(), <CloudDeploymentMenu />],
-            borders: 'none',
-          },
-          {
-            items: [<KibanaChromeSearch />],
-            borders: 'none',
-          },
-          {
-            items: [
-              <KibanaHeaderHelpMenu />,
-              <KibanaHeaderUpdates />,
-              <KibanaHeaderUserMenu {...user} />,
-            ],
-            borders: 'none',
-          },
-        ]}
-      />
+    <div className="cloudHeader">
+      <ConsoleHeader companyName="Acme Inc." />
       <EuiHeader
         position="fixed"
         sections={[

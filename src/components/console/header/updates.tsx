@@ -2,10 +2,10 @@ import React, { FunctionComponent, Fragment, useState } from 'react';
 
 import { EuiIcon, EuiHeaderSectionItemButton } from '@elastic/eui';
 
-import { EuiHeaderAlertFlyout } from '../../../eui/header';
-import { updates } from '../data';
+import { EuiHeaderAlertFlyout } from '../../eui/header';
+import { updates } from '../../kibana/_data';
 
-export const KibanaHeaderUpdates: FunctionComponent = () => {
+export const ConsoleUpdates: FunctionComponent = () => {
   const [isFlyoutVisible, setIsFlyoutVisible] = useState(false);
   const [showNotification, setShowNotification] = useState(true);
 

@@ -5,14 +5,14 @@ import React, {
   useState,
 } from 'react';
 
-import { KibanaChrome, KibanaChromeProps } from './kibana/chrome/chrome';
+import { KibanaChrome, KibanaChromeProps } from './chrome/chrome';
 
 const localStorageIsDefined: boolean = typeof localStorage !== 'undefined';
 
 if (localStorageIsDefined && localStorage.getItem('theme') === 'dark') {
-  require('../themes/theme_dark.scss');
+  require('../../themes/theme_dark.scss');
 } else {
-  require('../themes/theme_light.scss');
+  require('../../themes/theme_light.scss');
 }
 
 interface KibanaChromeContextShape {
