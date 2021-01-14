@@ -18,7 +18,7 @@ export const DeploymentsPage: FunctionComponent<DeploymentsPageProps> = ({
 }) => {
   const baseBreadcrumb: EuiBreadcrumb[] = [
     {
-      text: 'Cloud',
+      text: 'Overview',
       onClick: breadcrumbs?.length ? () => navigate('cloud') : undefined,
     },
   ];

@@ -26,7 +26,7 @@ export const CloudChromeContext = createContext<CloudChromeContextShape>({
   chrome: {
     breadcrumbs: [
       {
-        text: 'Cloud',
+        text: 'Overview',
       },
     ],
   },
@@ -41,7 +41,7 @@ const CloudLayout: FunctionComponent<{
   const [chromeOptions, setChromeOptions] = useState({
     breadcrumbs: [
       {
-        text: 'Cloud',
+        text: 'Overview',
       },
     ],
   });

@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import { EuiBreadcrumb } from '@elastic/eui';
+import { CloudPage } from '../components/cloud/page';
 
 // @ts-ignore
 import cloudImg from '../images/Cloud - Home.png';
-import { KibanaPage } from '../components/kibana/page/page';
-import { EuiBreadcrumb } from '@elastic/eui';
 
 const breadcrumbs: EuiBreadcrumb[] = [
   {
@@ -14,7 +14,7 @@ const breadcrumbs: EuiBreadcrumb[] = [
 
 export default () => {
   return (
-    <KibanaPage pageTitle="Cloud" breadcrumbs={breadcrumbs}>
+    <CloudPage pageTitle="Cloud" breadcrumbs={breadcrumbs}>
       <div className="eui-textCenter">
         <Link className="pageScreenshot__TBD" to="cloud/deployments">
           <img
@@ -25,6 +25,6 @@ export default () => {
           />
         </Link>
       </div>
-    </KibanaPage>
+    </CloudPage>
   );
 };
