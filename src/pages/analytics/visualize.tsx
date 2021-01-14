@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { navigate } from 'gatsby';
 
 import {
@@ -10,6 +10,7 @@ import {
 import tsvbImg from '../../images/TSVB.png';
 import { KibanaPage } from '../../components/kibana/page/page';
 import { KibanaPageHeaderTabs } from '../../components/kibana/page/page_header';
+import { KibanaChromeContext } from '../../components/kibana/layout';
 
 const PAGE_TITLE = 'TSVB';
 
@@ -51,25 +52,34 @@ const tabs: KibanaPageHeaderTabs['tabs'] = [
   },
 ];
 
-export default () => (
-  <KibanaPage
-    pageTitle={PAGE_TITLE}
-    breadcrumbs={breadcrumbs}
-    pageHeader={{
-      tabs: tabs,
-      time: true,
-    }}>
-    <EuiPageContent>
-      <EuiPageContentBody>
-        <div className="pageScreenshot__TBD">
-          <img
-            className="pageScreenshot pageScreenshot--fullWidth"
-            alt="TSVB Gauge chart"
-            width={1400}
-            src={tsvbImg}
-          />
-        </div>
-      </EuiPageContentBody>
-    </EuiPageContent>
-  </KibanaPage>
-);
+export default () => {
+  const setKibanaContext = useContext(KibanaChromeContext);
+
+  useEffect(() => {
+    setKibanaContext.setChrome({
+      breadcrumbs,
+      pageTitle: PAGE_TITLE,
+    });
+  }, [breadcrumbs]);
+
+  return (
+    <KibanaPage
+      pageHeader={{
+        tabs: tabs,
+        time: true,
+      }}>
+      <EuiPageContent>
+        <EuiPageContentBody>
+          <div className="pageScreenshot__TBD">
+            <img
+              className="pageScreenshot pageScreenshot--fullWidth"
+              alt="TSVB Gauge chart"
+              width={1400}
+              src={tsvbImg}
+            />
+          </div>
+        </EuiPageContentBody>
+      </EuiPageContent>
+    </KibanaPage>
+  );
+};

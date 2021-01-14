@@ -1,17 +1,27 @@
-import React, { FunctionComponent, ReactNode } from 'react';
+import React, {
+  FunctionComponent,
+  ReactNode,
+  useContext,
+  useEffect,
+} from 'react';
 import { EuiBreadcrumb, EuiHeaderLink, EuiHeaderLinks } from '@elastic/eui';
 import { KibanaPage, KibanaPageProps } from '../page/page';
 import { SecurityNav } from './nav';
 import { navigate } from 'gatsby';
+import { KibanaChromeContext } from '../layout';
+import { KibanaHeaderProps } from '../chrome/header';
 
-export type SecurityPage = KibanaPageProps & {
-  navItem?: string;
-};
+export type SecurityPage = KibanaHeaderProps &
+  KibanaPageProps & {
+    navItem?: string;
+    pageTitle?: string;
+  };
 
 export const SecurityPage: FunctionComponent<SecurityPage> = ({
   breadcrumbs = [],
   headerLinks,
   navItem,
+  pageTitle,
   children,
   ...rest
 }) => {
@@ -36,12 +46,18 @@ export const SecurityPage: FunctionComponent<SecurityPage> = ({
     </EuiHeaderLinks>
   );
 
+  const setKibanaContext = useContext(KibanaChromeContext);
+
+  useEffect(() => {
+    setKibanaContext.setChrome({
+      breadcrumbs: theBreadcrumbs,
+      headerLinks: theHeaderLinks,
+      pageTitle: pageTitle || 'Security',
+    });
+  }, [breadcrumbs, headerLinks]);
+
   return (
-    <KibanaPage
-      breadcrumbs={theBreadcrumbs}
-      headerLinks={theHeaderLinks}
-      solutionNav={<SecurityNav navItem={navItem} />}
-      {...rest}>
+    <KibanaPage solutionNav={<SecurityNav navItem={navItem} />} {...rest}>
       {children}
     </KibanaPage>
   );

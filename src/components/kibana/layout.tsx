@@ -4,11 +4,15 @@ import React, {
   createContext,
   useState,
 } from 'react';
+import { Helmet } from 'react-helmet';
+import { KibanaChrome } from './chrome/chrome';
 
 import { KibanaHeader, KibanaHeaderProps } from './chrome/header';
 
-interface KibanaChromeContextShape {
-  chrome?: KibanaHeaderProps;
+export interface KibanaChromeContextShape {
+  chrome?: KibanaHeaderProps & {
+    pageTitle?: string;
+  };
   setChrome: React.Dispatch<
     React.SetStateAction<KibanaChromeContextShape['chrome']>
   >;
@@ -21,6 +25,8 @@ export const KibanaChromeContext = createContext<KibanaChromeContextShape>({
         text: 'Home',
       },
     ],
+    headerLinks: [],
+    pageTitle: 'Home',
   },
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function
@@ -36,14 +42,25 @@ const Layout: FunctionComponent<{
         text: 'Home',
       },
     ],
+    headerLinks: [],
+    pageTitle: 'Home',
   });
 
   return (
     <KibanaChromeContext.Provider
       // @ts-ignore
       value={{ chrome: chromeOptions, setChrome: setChromeOptions }}>
-      <KibanaHeader {...chromeOptions} />
-      {children}
+      <KibanaChrome>
+        <Helmet>
+          <title>{chromeOptions.pageTitle} | Kibana 8 Prototype</title>
+        </Helmet>
+
+        <KibanaHeader
+          breadcrumbs={chromeOptions.breadcrumbs}
+          headerLinks={chromeOptions.headerLinks}
+        />
+        {children}
+      </KibanaChrome>
     </KibanaChromeContext.Provider>
   );
 };

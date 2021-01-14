@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 
 import {
   EuiBreadcrumb,
@@ -22,6 +22,7 @@ import appImg from '../../images/App_Search.png';
 // @ts-ignore
 import workplaceImg from '../../images/Workplace_Search.png';
 import { KibanaPage } from '../../components/kibana/page/page';
+import { KibanaChromeContext } from '../../components/kibana/layout';
 
 const breadcrumbs: EuiBreadcrumb[] = [
   {
@@ -29,59 +30,70 @@ const breadcrumbs: EuiBreadcrumb[] = [
   },
 ];
 
-export default () => (
-  <KibanaPage pageTitle="Enterprise search" breadcrumbs={breadcrumbs}>
-    <EuiPageHeader
-      className="euiPageHeader--restrictWidth"
-      style={{ padding: 32 }}>
-      <EuiPageHeaderSection>
-        <EuiTitle size="l">
-          <h1>
-            <EuiIcon
-              type="logoWorkplaceSearch"
-              size="xl"
-              style={{ verticalAlign: 'baseline' }}
-            />{' '}
-            Enterprise search
-          </h1>
-        </EuiTitle>
-      </EuiPageHeaderSection>
-    </EuiPageHeader>
-    <EuiPageContent className="euiPageContent--restrictWidth">
-      <EuiPageContentBody>
-        <EuiFlexGroup>
-          <EuiFlexItem grow={false}>
-            <EuiCard
-              image={<img alt="" aria-hidden={true} src={appImg} />}
-              title="Elastic App Search"
-              description="Provides user-friendly tools to design a deploy a powerful search to your websites or web/mobile applications."
-              footer={<EuiButton>Launch App Search</EuiButton>}
-              betaBadgeLabel="Platinum"
-            />
-          </EuiFlexItem>
-          <EuiFlexItem grow={false}>
-            <EuiCard
-              image={<img alt="" aria-hidden={true} src={workplaceImg} />}
-              title="Elastic Workplace Search"
-              description="Unify all your team's content in one place, with instance connectivity to popular productivity nd collaboration tools."
-              footer={<EuiButton>Launch Workplace Search</EuiButton>}
-              betaBadgeLabel="Platinum"
-            />
-          </EuiFlexItem>
-        </EuiFlexGroup>
+export default () => {
+  const setKibanaContext = useContext(KibanaChromeContext);
 
-        <EuiSpacer size="xl" />
+  useEffect(() => {
+    setKibanaContext.setChrome({
+      breadcrumbs,
+      pageTitle: 'Enterprise search',
+    });
+  }, [breadcrumbs]);
 
-        <EuiHorizontalRule />
+  return (
+    <KibanaPage>
+      <EuiPageHeader
+        className="euiPageHeader--restrictWidth"
+        style={{ padding: 32 }}>
+        <EuiPageHeaderSection>
+          <EuiTitle size="l">
+            <h1>
+              <EuiIcon
+                type="logoWorkplaceSearch"
+                size="xl"
+                style={{ verticalAlign: 'baseline' }}
+              />{' '}
+              Enterprise search
+            </h1>
+          </EuiTitle>
+        </EuiPageHeaderSection>
+      </EuiPageHeader>
+      <EuiPageContent className="euiPageContent--restrictWidth">
+        <EuiPageContentBody>
+          <EuiFlexGroup>
+            <EuiFlexItem grow={false}>
+              <EuiCard
+                image={<img alt="" aria-hidden={true} src={appImg} />}
+                title="Elastic App Search"
+                description="Provides user-friendly tools to design a deploy a powerful search to your websites or web/mobile applications."
+                footer={<EuiButton>Launch App Search</EuiButton>}
+                betaBadgeLabel="Platinum"
+              />
+            </EuiFlexItem>
+            <EuiFlexItem grow={false}>
+              <EuiCard
+                image={<img alt="" aria-hidden={true} src={workplaceImg} />}
+                title="Elastic Workplace Search"
+                description="Unify all your team's content in one place, with instance connectivity to popular productivity nd collaboration tools."
+                footer={<EuiButton>Launch Workplace Search</EuiButton>}
+                betaBadgeLabel="Platinum"
+              />
+            </EuiFlexItem>
+          </EuiFlexGroup>
 
-        <EuiText textAlign="center">
-          <h2>Do more with Elastic</h2>
-        </EuiText>
+          <EuiSpacer size="xl" />
 
-        <EuiSpacer />
+          <EuiHorizontalRule />
 
-        <SolutionCards current="Enterprise search" />
-      </EuiPageContentBody>
-    </EuiPageContent>
-  </KibanaPage>
-);
+          <EuiText textAlign="center">
+            <h2>Do more with Elastic</h2>
+          </EuiText>
+
+          <EuiSpacer />
+
+          <SolutionCards current="Enterprise search" />
+        </EuiPageContentBody>
+      </EuiPageContent>
+    </KibanaPage>
+  );
+};

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link, navigate } from 'gatsby';
 
 import {
@@ -15,6 +15,7 @@ import {
   KibanaPageHeaderPrimaryAddButton,
   KibanaPageHeaderProps,
 } from '../../components/kibana/page/page_header';
+import { KibanaChromeContext } from '../../components/kibana/layout';
 
 const PAGE_TITLE = 'Dashboards';
 
@@ -40,29 +41,37 @@ const pageHeader: KibanaPageHeaderProps = {
   ],
 };
 
-export default () => (
-  <KibanaPage
-    pageTitle={PAGE_TITLE}
-    breadcrumbs={breadcrumbs}
-    pageHeader={pageHeader}>
-    <EuiPageContent className="euiPageContent--restrictWidth">
-      <EuiPageContentBody>
-        <EuiFieldSearch
-          fullWidth
-          placeholder="Search for by dashboard name..."
-        />
-        <EuiSpacer />
-        <Link
-          className="pageScreenshot__TBD"
-          to="/analytics/dashboards/logs-web-traffic">
-          <img
-            className="pageScreenshot pageScreenshot--responsive"
-            alt="Dashboard listing page"
-            width={1212}
-            src={dashboardImg}
+export default () => {
+  const setKibanaContext = useContext(KibanaChromeContext);
+
+  useEffect(() => {
+    setKibanaContext.setChrome({
+      breadcrumbs,
+      pageTitle: PAGE_TITLE,
+    });
+  }, [breadcrumbs]);
+
+  return (
+    <KibanaPage pageHeader={pageHeader}>
+      <EuiPageContent className="euiPageContent--restrictWidth">
+        <EuiPageContentBody>
+          <EuiFieldSearch
+            fullWidth
+            placeholder="Search for by dashboard name..."
           />
-        </Link>
-      </EuiPageContentBody>
-    </EuiPageContent>
-  </KibanaPage>
-);
+          <EuiSpacer />
+          <Link
+            className="pageScreenshot__TBD"
+            to="/analytics/dashboards/logs-web-traffic">
+            <img
+              className="pageScreenshot pageScreenshot--responsive"
+              alt="Dashboard listing page"
+              width={1212}
+              src={dashboardImg}
+            />
+          </Link>
+        </EuiPageContentBody>
+      </EuiPageContent>
+    </KibanaPage>
+  );
+};

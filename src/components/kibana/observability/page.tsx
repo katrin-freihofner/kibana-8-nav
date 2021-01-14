@@ -1,11 +1,19 @@
-import React, { FunctionComponent, ReactNode } from 'react';
+import React, {
+  FunctionComponent,
+  ReactNode,
+  useContext,
+  useEffect,
+} from 'react';
 import { EuiBreadcrumb, EuiHeaderLinks, EuiButton } from '@elastic/eui';
-import { KibanaPage, KibanaPageProps } from '../page/page';
+import { KibanaPage } from '../page/page';
 import { ObservabilityNav } from './nav';
 import { navigate } from 'gatsby';
+import { KibanaChromeContext } from '../layout';
+import { KibanaHeaderProps } from '../chrome/header';
 
-export type ObservabilityPage = KibanaPageProps & {
+export type ObservabilityPage = KibanaHeaderProps & {
   navItem?: string;
+  pageTitle?: string;
 };
 
 export const ObservabilityPage: FunctionComponent<ObservabilityPage> = ({
@@ -13,6 +21,7 @@ export const ObservabilityPage: FunctionComponent<ObservabilityPage> = ({
   headerLinks,
   navItem,
   children,
+  pageTitle,
   ...rest
 }) => {
   const baseBreadcrumb: EuiBreadcrumb[] = [
@@ -38,12 +47,18 @@ export const ObservabilityPage: FunctionComponent<ObservabilityPage> = ({
     </EuiHeaderLinks>
   );
 
+  const setKibanaContext = useContext(KibanaChromeContext);
+
+  useEffect(() => {
+    setKibanaContext.setChrome({
+      breadcrumbs: theBreadcrumbs,
+      headerLinks: theHeaderLinks,
+      pageTitle: pageTitle || 'Observability',
+    });
+  }, [breadcrumbs, headerLinks]);
+
   return (
-    <KibanaPage
-      breadcrumbs={theBreadcrumbs}
-      headerLinks={theHeaderLinks}
-      solutionNav={<ObservabilityNav navItem={navItem} />}
-      {...rest}>
+    <KibanaPage solutionNav={<ObservabilityNav navItem={navItem} />} {...rest}>
       {children}
     </KibanaPage>
   );

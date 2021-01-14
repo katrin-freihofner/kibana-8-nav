@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useContext, useEffect } from 'react';
 import { navigate } from 'gatsby';
 
 import {
@@ -12,6 +12,7 @@ import {
 import logsDashboardImg from '../../../images/[Logs] Web Traffic.png';
 import { KibanaGlobals } from '../../../components/kibana/chrome/globals';
 import { KibanaPage } from '../../../components/kibana/page/page';
+import { KibanaChromeContext } from '../../../components/kibana/layout';
 
 const breadcrumbs: EuiBreadcrumb[] = [
   {
@@ -49,21 +50,30 @@ const headerLinks: ReactNode = (
   </EuiHeaderLinks>
 );
 
-export default () => (
-  <KibanaPage
-    pageTitle="[Logs] Web Traffic | Dashboards"
-    breadcrumbs={breadcrumbs}
-    headerLinks={headerLinks}>
-    <EuiPageHeader style={{ padding: 16 }}>
-      <KibanaGlobals />
-    </EuiPageHeader>
-    <div className="pageScreenshot__TBD">
-      <img
-        className="pageScreenshot pageScreenshot--fullWidth"
-        alt="[Logs] Web Traffic dashboard"
-        width={1175}
-        src={logsDashboardImg}
-      />
-    </div>
-  </KibanaPage>
-);
+export default () => {
+  const setKibanaContext = useContext(KibanaChromeContext);
+
+  useEffect(() => {
+    setKibanaContext.setChrome({
+      breadcrumbs,
+      headerLinks,
+      pageTitle: '[Logs] Web Traffic | Dashboards',
+    });
+  }, [breadcrumbs, headerLinks]);
+
+  return (
+    <KibanaPage>
+      <EuiPageHeader style={{ padding: 16 }}>
+        <KibanaGlobals />
+      </EuiPageHeader>
+      <div className="pageScreenshot__TBD">
+        <img
+          className="pageScreenshot pageScreenshot--fullWidth"
+          alt="[Logs] Web Traffic dashboard"
+          width={1175}
+          src={logsDashboardImg}
+        />
+      </div>
+    </KibanaPage>
+  );
+};

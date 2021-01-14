@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { navigate } from 'gatsby';
 
 import {
@@ -12,6 +12,7 @@ import {
 import dashboardImg from '../../images/Dashboard - Listing.png';
 import { KibanaPage } from '../../components/kibana/page/page';
 import { KibanaPageHeaderPrimaryAddButton } from '../../components/kibana/page/page_header';
+import { KibanaChromeContext } from '../../components/kibana/layout';
 
 const PAGE_TITLE = 'Maps';
 
@@ -27,33 +28,42 @@ const breadcrumbs: EuiBreadcrumb[] = [
   },
 ];
 
-export default () => (
-  <KibanaPage
-    pageTitle={PAGE_TITLE}
-    breadcrumbs={breadcrumbs}
-    pageHeader={{
-      restrictWidth: true,
-      pageTitle: PAGE_TITLE,
-      actionButtons: [
-        <KibanaPageHeaderPrimaryAddButton>
-          Add map
-        </KibanaPageHeaderPrimaryAddButton>,
-      ],
-    }}>
-    <EuiPageContent className="euiPageContent--restrictWidth">
-      <EuiPageContentBody>
-        <EuiFieldSearch fullWidth placeholder="Search for a by map name..." />
-        <EuiSpacer />
+export default () => {
+  const setKibanaContext = useContext(KibanaChromeContext);
 
-        <div className="pageScreenshot__TBD">
-          <img
-            className="pageScreenshot pageScreenshot--responsive"
-            alt="Dashboard listing page"
-            width={1212}
-            src={dashboardImg}
-          />
-        </div>
-      </EuiPageContentBody>
-    </EuiPageContent>
-  </KibanaPage>
-);
+  useEffect(() => {
+    setKibanaContext.setChrome({
+      breadcrumbs,
+      pageTitle: PAGE_TITLE,
+    });
+  }, [breadcrumbs]);
+
+  return (
+    <KibanaPage
+      pageHeader={{
+        restrictWidth: true,
+        pageTitle: PAGE_TITLE,
+        actionButtons: [
+          <KibanaPageHeaderPrimaryAddButton>
+            Add map
+          </KibanaPageHeaderPrimaryAddButton>,
+        ],
+      }}>
+      <EuiPageContent className="euiPageContent--restrictWidth">
+        <EuiPageContentBody>
+          <EuiFieldSearch fullWidth placeholder="Search for a by map name..." />
+          <EuiSpacer />
+
+          <div className="pageScreenshot__TBD">
+            <img
+              className="pageScreenshot pageScreenshot--responsive"
+              alt="Dashboard listing page"
+              width={1212}
+              src={dashboardImg}
+            />
+          </div>
+        </EuiPageContentBody>
+      </EuiPageContent>
+    </KibanaPage>
+  );
+};

@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useContext, useEffect } from 'react';
 
 import {
   EuiBreadcrumb,
@@ -25,6 +25,7 @@ import tableImg from '../../images/Discover - table.svg';
 import { KibanaGlobals } from '../../components/kibana/chrome/globals';
 import { KibanaPage } from '../../components/kibana/page/page';
 import { navigate } from 'gatsby';
+import { KibanaChromeContext } from '../../components/kibana/layout';
 
 const breadcrumbs: EuiBreadcrumb[] = [
   {
@@ -90,74 +91,82 @@ const sideBar = (
   </EuiFlexGroup>
 );
 
-export default () => (
-  <KibanaPage
-    fullHeight
-    pageTitle="Discover"
-    breadcrumbs={breadcrumbs}
-    headerLinks={headerLinks}
-    pageProps={{
-      className: 'dscPage',
-    }}
-    pageBodyProps={{
-      className: 'dscPageBody',
-    }}>
-    <EuiPageHeader style={{ padding: 16 }}>
-      <KibanaGlobals />
-    </EuiPageHeader>
-    <EuiResizableContainer>
-      {(EuiResizablePanel, EuiResizableButton) => (
-        <>
-          <EuiResizablePanel
-            mode="collapsible"
-            initialSize={25}
-            // TODO: Fix: miSize isn't respected on page load
-            minSize={'260px'}
-            paddingSize="none"
-            className="euiPageSideBar dscPageSidebar">
-            {sideBar}
-          </EuiResizablePanel>
+export default () => {
+  const setKibanaContext = useContext(KibanaChromeContext);
 
-          <EuiResizableButton style={{}} />
+  useEffect(() => {
+    setKibanaContext.setChrome({
+      breadcrumbs,
+      headerLinks,
+      pageTitle: 'Discover',
+    });
+  }, [breadcrumbs, headerLinks]);
 
-          <EuiResizablePanel
-            mode="main"
-            initialSize={85}
-            minSize="600px"
-            paddingSize="none"
-            className="dscPageContent__wrapper">
-            <EuiPageBody>
-              <EuiPageContent paddingSize="none" className="eui-fullHeight">
-                <EuiFlexGroup
-                  className="eui-fullHeight"
-                  direction="column"
-                  alignItems="stretch"
-                  gutterSize="none"
-                  responsive={false}>
-                  <EuiFlexItem grow={false}>
-                    <div className="pageScreenshot__TBD">
-                      <img
-                        className="pageScreenshot pageScreenshot--fullWidth"
-                        alt="Discover chart"
-                        src={chartImg}
-                      />
-                    </div>
-                  </EuiFlexItem>
-                  <EuiFlexItem className="eui-yScroll">
-                    <div className="pageScreenshot__TBD">
-                      <img
-                        className="pageScreenshot pageScreenshot--fullWidth"
-                        alt="Discover table"
-                        src={tableImg}
-                      />
-                    </div>
-                  </EuiFlexItem>
-                </EuiFlexGroup>
-              </EuiPageContent>
-            </EuiPageBody>
-          </EuiResizablePanel>
-        </>
-      )}
-    </EuiResizableContainer>
-  </KibanaPage>
-);
+  return (
+    <KibanaPage
+      pageProps={{
+        className: 'dscPage',
+      }}
+      pageBodyProps={{
+        className: 'dscPageBody',
+      }}>
+      <EuiPageHeader style={{ padding: 16 }}>
+        <KibanaGlobals />
+      </EuiPageHeader>
+      <EuiResizableContainer>
+        {(EuiResizablePanel, EuiResizableButton) => (
+          <>
+            <EuiResizablePanel
+              mode="collapsible"
+              initialSize={25}
+              // TODO: Fix: miSize isn't respected on page load
+              minSize={'260px'}
+              paddingSize="none"
+              className="euiPageSideBar dscPageSidebar">
+              {sideBar}
+            </EuiResizablePanel>
+
+            <EuiResizableButton style={{}} />
+
+            <EuiResizablePanel
+              mode="main"
+              initialSize={85}
+              minSize="600px"
+              paddingSize="none"
+              className="dscPageContent__wrapper">
+              <EuiPageBody>
+                <EuiPageContent paddingSize="none" className="eui-fullHeight">
+                  <EuiFlexGroup
+                    className="eui-fullHeight"
+                    direction="column"
+                    alignItems="stretch"
+                    gutterSize="none"
+                    responsive={false}>
+                    <EuiFlexItem grow={false}>
+                      <div className="pageScreenshot__TBD">
+                        <img
+                          className="pageScreenshot pageScreenshot--fullWidth"
+                          alt="Discover chart"
+                          src={chartImg}
+                        />
+                      </div>
+                    </EuiFlexItem>
+                    <EuiFlexItem className="eui-yScroll">
+                      <div className="pageScreenshot__TBD">
+                        <img
+                          className="pageScreenshot pageScreenshot--fullWidth"
+                          alt="Discover table"
+                          src={tableImg}
+                        />
+                      </div>
+                    </EuiFlexItem>
+                  </EuiFlexGroup>
+                </EuiPageContent>
+              </EuiPageBody>
+            </EuiResizablePanel>
+          </>
+        )}
+      </EuiResizableContainer>
+    </KibanaPage>
+  );
+};
