@@ -2,25 +2,25 @@ import React, { ReactNode } from 'react';
 
 import { EuiBreadcrumb, EuiHeader } from '@elastic/eui';
 
-import { KibanaHeaderSpacesMenu } from './header';
+import { KibanaHeaderSpacesMenu } from './spaces_menu';
 
 import { KibanaNav } from './nav';
 import { ConsoleHeader } from '../../console/header/chrome';
+import { EuiSticky } from '../../eui';
 
-export type KibanaChromeProps = {
+export type KibanaHeaderProps = {
   breadcrumbs?: EuiBreadcrumb[];
   headerLinks?: ReactNode;
 };
 
-export const KibanaChrome: React.FunctionComponent<KibanaChromeProps> = ({
+export const KibanaHeader: React.FunctionComponent<KibanaHeaderProps> = ({
   breadcrumbs,
   headerLinks = <></>,
 }) => {
   return (
-    <div className="kbnHeader">
+    <EuiSticky id="kbnHeader">
       <ConsoleHeader inDeployment />
       <EuiHeader
-        position="fixed"
         sections={[
           {
             items: [
@@ -40,6 +40,6 @@ export const KibanaChrome: React.FunctionComponent<KibanaChromeProps> = ({
           },
         ]}
       />
-    </div>
+    </EuiSticky>
   );
 };

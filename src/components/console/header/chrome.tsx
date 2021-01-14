@@ -34,7 +34,6 @@ export const ConsoleHeader: React.FunctionComponent<ConsoleHeaderProps> = ({
 
   return (
     <EuiHeader
-      position="fixed"
       theme="dark"
       sections={[
         {

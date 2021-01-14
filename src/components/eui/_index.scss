@@ -1,9 +1,5 @@
 @import './variables';
-
-// @import './page';
-
-@import './fixed/index';
-@import './padding/index';
+@import './sticky/index';
 
 .euiButtonContent > * + * {
   &:empty {

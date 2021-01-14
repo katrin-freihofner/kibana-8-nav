@@ -5,10 +5,10 @@ import React, {
   useState,
 } from 'react';
 
-import { KibanaChrome, KibanaChromeProps } from './chrome/chrome';
+import { KibanaHeader, KibanaHeaderProps } from './chrome/header';
 
 interface KibanaChromeContextShape {
-  chrome?: KibanaChromeProps;
+  chrome?: KibanaHeaderProps;
   setChrome: React.Dispatch<
     React.SetStateAction<KibanaChromeContextShape['chrome']>
   >;
@@ -42,7 +42,7 @@ const Layout: FunctionComponent<{
     <KibanaChromeContext.Provider
       // @ts-ignore
       value={{ chrome: chromeOptions, setChrome: setChromeOptions }}>
-      <KibanaChrome {...chromeOptions} />
+      <KibanaHeader {...chromeOptions} />
       {children}
     </KibanaChromeContext.Provider>
   );

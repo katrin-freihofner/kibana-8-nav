@@ -1,4 +1,4 @@
-import { KibanaSpaceProps } from '../chrome/header/header_spaces_menu';
+import { KibanaSpaceProps } from '../chrome/spaces_menu/header_spaces_menu';
 
 export const spaces: KibanaSpaceProps[] = [
   {

@@ -5,6 +5,7 @@ import React, {
   useEffect,
 } from 'react';
 import {
+  CommonProps,
   EuiBreadcrumb,
   EuiPage,
   EuiPageBody,
@@ -13,15 +14,14 @@ import {
   EuiPageSideBar,
   EuiPageSideBarProps,
 } from '@elastic/eui';
+import { CloudChromeContext } from '../layout';
+import Helmet from 'react-helmet';
 import {
   KibanaPageHeader,
   KibanaPageHeaderProps,
 } from '../../kibana/page/page_header';
-import { CloudChromeContext } from '../layout';
-import Helmet from 'react-helmet';
-import classNames from 'classnames';
 
-export type CloudPageProps = {
+export type CloudPageProps = CommonProps & {
   breadcrumbs?: EuiBreadcrumb[];
   pageTitle: string;
   solutionNav?: ReactNode;
@@ -29,11 +29,6 @@ export type CloudPageProps = {
   pageProps?: EuiPageProps;
   pageBodyProps?: EuiPageBodyProps;
   pageSideBarProps?: EuiPageSideBarProps;
-  /**
-   * Only allows the page to be the full height of the window.
-   * Pages then must control their own internal scroll.
-   */
-  fullHeight?: boolean;
 };
 
 export const CloudPage: FunctionComponent<CloudPageProps> = ({
@@ -45,7 +40,7 @@ export const CloudPage: FunctionComponent<CloudPageProps> = ({
   pageProps,
   pageBodyProps,
   pageSideBarProps,
-  fullHeight,
+  className,
 }) => {
   const setHeaderItems = useContext(CloudChromeContext);
 
@@ -61,20 +56,12 @@ export const CloudPage: FunctionComponent<CloudPageProps> = ({
 
   const optionalPageHeader = pageHeader && <KibanaPageHeader {...pageHeader} />;
 
-  const pageClasses = classNames(
-    'kbnPage',
-    {
-      'kbnPage--fullHeight': fullHeight,
-    },
-    pageProps ? pageProps.className : ''
-  );
-
   return (
     <>
       <Helmet>
-        <title>{pageTitle} | Kibana 8 Prototype</title>
+        <title>{pageTitle} | Cloud 8 Prototype</title>
       </Helmet>
-      <EuiPage {...pageProps} paddingSize="none" className={pageClasses}>
+      <EuiPage {...pageProps} paddingSize="none" className={className}>
         {optionalSideBar}
         <EuiPageBody {...pageBodyProps}>
           {optionalPageHeader}

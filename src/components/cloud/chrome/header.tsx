@@ -1,4 +1,5 @@
 import React from 'react';
+import { navigate } from 'gatsby';
 
 import {
   EuiBreadcrumb,
@@ -7,15 +8,16 @@ import {
   EuiHeaderLogo,
 } from '@elastic/eui';
 
-import { CloudNav } from './nav';
-import { ConsoleHeader } from '../../console/header/chrome';
-import { navigate } from 'gatsby';
+import { EuiSticky } from '../../eui';
 
-export type CloudChromeProps = {
+import { ConsoleHeader } from '../../console/header/chrome';
+import { CloudNav } from './nav';
+
+export type CloudHeaderProps = {
   breadcrumbs?: EuiBreadcrumb[];
 };
 
-export const CloudChrome: React.FunctionComponent<CloudChromeProps> = ({
+export const CloudHeader: React.FunctionComponent<CloudHeaderProps> = ({
   breadcrumbs,
 }) => {
   const CloudLogo = (
@@ -28,10 +30,9 @@ export const CloudChrome: React.FunctionComponent<CloudChromeProps> = ({
   );
 
   return (
-    <div className="cloudHeader">
+    <EuiSticky id="cloudHeader">
       <ConsoleHeader />
       <EuiHeader
-        position="fixed"
         sections={[
           {
             items: [
@@ -51,6 +52,6 @@ export const CloudChrome: React.FunctionComponent<CloudChromeProps> = ({
           },
         ]}
       />
-    </div>
+    </EuiSticky>
   );
 };

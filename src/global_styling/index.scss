@@ -8,3 +8,8 @@
 // Site specific global styling
 @import './variables/index';
 @import './mixins/index';
+
+.euiFlyout,
+.euiCollapsibleNav {
+  top: $euiHeaderHeightCompensation * 2;
+}

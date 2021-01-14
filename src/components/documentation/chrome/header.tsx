@@ -14,12 +14,13 @@ import { navigate } from 'gatsby';
 import { KibanaChromeSearch } from '../../kibana/chrome/search';
 import { ConsoleUserMenu } from '../../console/header/user_menu';
 import { CloudUser } from '../../cloud/_data';
+import { EuiSticky } from '../../eui';
 
-export type DocsChromeProps = {
+export type DocsHeaderProps = {
   breadcrumbs?: EuiBreadcrumb[];
 };
 
-export const DocsChrome: React.FunctionComponent<DocsChromeProps> = ({
+export const DocsHeader: React.FunctionComponent<DocsHeaderProps> = ({
   breadcrumbs,
 }) => {
   function renderLogo() {
@@ -34,7 +35,7 @@ export const DocsChrome: React.FunctionComponent<DocsChromeProps> = ({
   }
 
   return (
-    <div className="docsHeader">
+    <EuiSticky id="docsHeader">
       <EuiHeader
         position="fixed"
         theme="dark"
@@ -80,6 +81,6 @@ export const DocsChrome: React.FunctionComponent<DocsChromeProps> = ({
           },
         ]}
       />
-    </div>
+    </EuiSticky>
   );
 };

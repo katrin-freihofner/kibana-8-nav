@@ -5,10 +5,10 @@ import React, {
   useState,
 } from 'react';
 
-import { CloudChrome, CloudChromeProps } from './chrome/chrome';
+import { CloudHeader, CloudHeaderProps } from './chrome/header';
 
 interface CloudChromeContextShape {
-  chrome?: CloudChromeProps;
+  chrome?: CloudHeaderProps;
   setChrome: React.Dispatch<
     React.SetStateAction<CloudChromeContextShape['chrome']>
   >;
@@ -42,7 +42,7 @@ const CloudLayout: FunctionComponent<{
     <CloudChromeContext.Provider
       // @ts-ignore
       value={{ chrome: chromeOptions, setChrome: setChromeOptions }}>
-      <CloudChrome {...chromeOptions} />
+      <CloudHeader {...chromeOptions} />
       {children}
     </CloudChromeContext.Provider>
   );

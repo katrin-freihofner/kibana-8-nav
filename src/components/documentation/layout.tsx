@@ -5,10 +5,10 @@ import React, {
   useState,
 } from 'react';
 
-import { DocsChrome, DocsChromeProps } from './chrome/chrome';
+import { DocsHeader, DocsHeaderProps } from './chrome/header';
 
 interface DocsChromeContextShape {
-  chrome?: DocsChromeProps;
+  chrome?: DocsHeaderProps;
   setChrome: React.Dispatch<
     React.SetStateAction<DocsChromeContextShape['chrome']>
   >;
@@ -48,7 +48,7 @@ const DocsLayout: FunctionComponent<{
     <DocsChromeContext.Provider
       // @ts-ignore
       value={{ chrome: chromeOptions, setChrome: setChromeOptions }}>
-      <DocsChrome {...chromeOptions} />
+      <DocsHeader {...chromeOptions} />
       {children}
     </DocsChromeContext.Provider>
   );
