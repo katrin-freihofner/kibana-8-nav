@@ -10,7 +10,8 @@ import {
   htmlIdGenerator,
   EuiBadge,
 } from '@elastic/eui';
-import theme from '@elastic/eui/dist/eui_theme_light.json';
+
+import theme from '@elastic/eui/dist/eui_theme_dark.json';
 
 import { CloudDeployments } from '../../cloud/_data';
 import { EuiSelectableOptionsProps } from '../../../eui_types_shim';
@@ -28,7 +29,7 @@ export const ConsoleDeploymentMenu: React.FunctionComponent<ConsoleDeploymentMen
 }) => {
   if (!inDeployment) {
     return (
-      <EuiBadge color={theme.euiColorDarkestShade} {...props}>
+      <EuiBadge color={theme.euiColorMediumShade} {...props}>
         {companyName}
       </EuiBadge>
     );
@@ -60,7 +61,7 @@ export const ConsoleDeploymentMenu: React.FunctionComponent<ConsoleDeploymentMen
 
   const button = (
     <EuiBadge
-      color={theme.euiColorDarkestShade}
+      color={theme.euiColorMediumShade}
       iconType="arrowDown"
       iconSide="right"
       onClick={onMenuButtonClick}
