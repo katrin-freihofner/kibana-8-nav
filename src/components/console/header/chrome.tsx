@@ -11,12 +11,14 @@ import {
 } from './deployments_menu';
 import { ConsoleUpdates } from './updates';
 import { ConsoleUserMenu } from './user_menu';
-import { CloudUser } from '../../cloud/_data';
+import { CloudCompany, CloudUser } from '../../cloud/_data';
 
-export type ConsoleHeaderProps = ConsoleDeploymentMenuProps;
+export type ConsoleHeaderProps = Omit<
+  ConsoleDeploymentMenuProps,
+  'companyName'
+>;
 
 export const ConsoleHeader: React.FunctionComponent<ConsoleHeaderProps> = ({
-  companyName,
   inDeployment,
 }) => {
   function renderLogo() {
@@ -40,7 +42,7 @@ export const ConsoleHeader: React.FunctionComponent<ConsoleHeaderProps> = ({
           items: [
             renderLogo(),
             <ConsoleDeploymentMenu
-              companyName={companyName}
+              companyName={CloudCompany}
               inDeployment={inDeployment}
             />,
           ],

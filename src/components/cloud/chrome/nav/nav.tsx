@@ -20,7 +20,7 @@ import {
   EuiPinnableListGroupItemProps,
 } from '@elastic/eui';
 
-import { CloudNavLinksFirst } from '../../_data';
+import { CloudNavLinks } from '../../_data';
 
 interface Props
   extends Omit<EuiFlyoutProps, 'onClose'>,
@@ -49,7 +49,7 @@ export const CloudNav: FunctionComponent<Props> = ({}) => {
 
   const [openGroups, setOpenGroups] = useState(
     JSON.parse(String(localStorage.getItem('openNavGroups'))) ||
-      CloudNavLinksFirst.map((object) => object.title)
+      CloudNavLinks.map((object) => object.title)
   );
 
   const addPin = (item: any) => {
@@ -94,7 +94,7 @@ export const CloudNav: FunctionComponent<Props> = ({}) => {
             },
         pinned: showPinned ? pinned : false,
         'aria-current': isActive,
-        color: isActive ? 'primary' : undefined,
+        color: isActive ? 'primary' : 'text',
         isActive,
         href,
         url,
@@ -153,9 +153,9 @@ export const CloudNav: FunctionComponent<Props> = ({}) => {
           background="light"
           title="Cloud"
           isCollapsible={false}
-          iconType="logoElastic"
+          iconType="logoCloud"
         />
-        {createNavGroups(CloudNavLinksFirst)}
+        {createNavGroups(CloudNavLinks)}
       </EuiFlexItem>
     </EuiCollapsibleNav>
   );

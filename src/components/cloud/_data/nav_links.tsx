@@ -1,6 +1,6 @@
 import { ChromeNavGroupProps } from '../chrome/nav/nav';
 
-export const CloudNavLinksFirst: ChromeNavGroupProps[] = [
+export const CloudNavLinks: ChromeNavGroupProps[] = [
   {
     title: 'Deployments',
     iconType: 'package',

@@ -29,7 +29,7 @@ export const CloudChrome: React.FunctionComponent<CloudChromeProps> = ({
 
   return (
     <div className="cloudHeader">
-      <ConsoleHeader companyName="Acme Inc." />
+      <ConsoleHeader />
       <EuiHeader
         position="fixed"
         sections={[

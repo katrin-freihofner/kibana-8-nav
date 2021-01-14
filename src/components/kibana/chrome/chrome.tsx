@@ -18,7 +18,7 @@ export const KibanaChrome: React.FunctionComponent<KibanaChromeProps> = ({
 }) => {
   return (
     <div className="kbnHeader">
-      <ConsoleHeader companyName="Acme Inc." inDeployment />
+      <ConsoleHeader inDeployment />
       <EuiHeader
         position="fixed"
         sections={[
