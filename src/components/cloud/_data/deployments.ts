@@ -1,6 +1,6 @@
-import { EuiSelectableOptionProps } from '../../../eui_types_shim';
+import { EuiSelectableOption } from '@elastic/eui';
 
-export const CloudDeployments: EuiSelectableOptionProps[] = [
+export const CloudDeployments: EuiSelectableOption[] = [
   {
     label: 'Squirrel',
     checked: 'on',

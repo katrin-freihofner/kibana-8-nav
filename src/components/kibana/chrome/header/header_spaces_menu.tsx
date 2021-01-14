@@ -11,17 +11,13 @@ import {
   EuiAvatar,
   EuiIcon,
   htmlIdGenerator,
+  EuiSelectableOption,
+  EuiSelectableProps,
 } from '@elastic/eui';
-import {
-  EuiSelectableOptionProps,
-  EuiSelectableOptionsProps,
-} from '../../../../eui_types_shim';
 
 import { spaces, additionalSpaces } from '../../_data';
 
-function createOptionFromSpace(
-  space: KibanaSpaceProps
-): EuiSelectableOptionProps {
+function createOptionFromSpace(space: KibanaSpaceProps): EuiSelectableOption {
   return {
     label: space.title,
     prepend: <EuiAvatar name={space.title} type="space" size="s" />,
@@ -39,10 +35,10 @@ type Props = React.ComponentProps<typeof EuiHeaderSectionItemButton>;
 export const KibanaHeaderSpacesMenu: React.FunctionComponent<Props> = ({
   ...props
 }) => {
-  const spacesList: EuiSelectableOptionsProps = spaces.map((space) =>
+  const spacesList: EuiSelectableProps['options'] = spaces.map((space) =>
     createOptionFromSpace(space)
   );
-  const additionalSpacesList: EuiSelectableOptionsProps = additionalSpaces.map(
+  const additionalSpacesList: EuiSelectableProps['options'] = additionalSpaces.map(
     (space) => createOptionFromSpace(space)
   );
 
@@ -63,7 +59,7 @@ export const KibanaHeaderSpacesMenu: React.FunctionComponent<Props> = ({
     setMenuIsOpen(false);
   };
 
-  const onSpaceSelect = (options: EuiSelectableOptionsProps) => {
+  const onSpaceSelect = (options: EuiSelectableProps['options']) => {
     setOptions(options);
     setMenuIsOpen(false);
     setSelectedSpace(find(options, { checked: 'on' }));

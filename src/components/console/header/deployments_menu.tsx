@@ -9,12 +9,12 @@ import {
   EuiPopoverFooter,
   htmlIdGenerator,
   EuiBadge,
+  EuiSelectableProps,
 } from '@elastic/eui';
 
 import theme from '@elastic/eui/dist/eui_theme_dark.json';
 
 import { CloudDeployments } from '../../cloud/_data';
-import { EuiSelectableOptionsProps } from '../../../eui_types_shim';
 import { Link, navigate } from 'gatsby';
 
 export type ConsoleDeploymentMenuProps = {
@@ -49,7 +49,7 @@ export const ConsoleDeploymentMenu: React.FunctionComponent<ConsoleDeploymentMen
     setMenuIsOpen(false);
   };
 
-  const onDeploymentSelect = (options: EuiSelectableOptionsProps) => {
+  const onDeploymentSelect = (options: EuiSelectableProps['options']) => {
     setOptions(options);
     setMenuIsOpen(false);
     setSelectedDeployment(find(options, { checked: 'on' }));
