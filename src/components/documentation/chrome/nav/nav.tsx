@@ -138,11 +138,8 @@ export const DocsNav: FunctionComponent<Props> = ({}) => {
 
   return (
     <EuiCollapsibleNav
-      id="kbnCollapsibleNav"
+      id="docsCollapsibleNav"
       aria-label="Main navigation"
-      maskProps={{
-        className: 'kbnCollapsibleNav__overlay',
-      }}
       isOpen={navIsOpen}
       isDocked={context.navIsDocked}
       button={

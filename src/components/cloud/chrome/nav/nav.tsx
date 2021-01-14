@@ -133,11 +133,8 @@ export const CloudNav: FunctionComponent<Props> = ({}) => {
 
   return (
     <EuiCollapsibleNav
-      id="kbnCollapsibleNav"
+      id="cloudCollapsibleNav"
       aria-label="Main navigation"
-      maskProps={{
-        className: 'kbnCollapsibleNav__overlay',
-      }}
       isOpen={navIsOpen}
       button={
         <EuiHeaderSectionItemButton

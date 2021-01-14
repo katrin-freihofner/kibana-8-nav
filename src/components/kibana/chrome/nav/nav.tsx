@@ -156,9 +156,6 @@ export const KibanaNav: FunctionComponent<Props> = ({
     <EuiCollapsibleNav
       id="kbnCollapsibleNav"
       aria-label="Main navigation"
-      maskProps={{
-        className: 'kbnCollapsibleNav__overlay',
-      }}
       isOpen={navIsOpen}
       button={
         <EuiHeaderSectionItemButton
