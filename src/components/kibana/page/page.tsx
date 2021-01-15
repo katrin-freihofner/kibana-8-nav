@@ -6,6 +6,10 @@ import {
   EuiPageProps,
   EuiPageSideBarProps,
   EuiResizableContainer,
+  EuiPageContent,
+  EuiPageContentBody,
+  EuiPageContentBodyProps,
+  EuiPageContentProps,
 } from '@elastic/eui';
 import { KibanaPageHeader, KibanaPageHeaderProps } from './page_header';
 import classNames from 'classnames';
@@ -15,7 +19,10 @@ export type KibanaPageProps = {
   pageHeader?: KibanaPageHeaderProps;
   pageProps?: EuiPageProps;
   pageBodyProps?: EuiPageBodyProps;
+  pageContentProps?: EuiPageContentProps;
+  pageContentBodyProps?: EuiPageContentBodyProps;
   pageSideBarProps?: EuiPageSideBarProps;
+  restrictWidth?: boolean;
 };
 
 export const KibanaPage: FunctionComponent<KibanaPageProps> = ({
@@ -24,7 +31,10 @@ export const KibanaPage: FunctionComponent<KibanaPageProps> = ({
   pageHeader,
   pageProps,
   pageBodyProps,
+  pageContentProps,
+  pageContentBodyProps,
   pageSideBarProps,
+  restrictWidth = true,
 }) => {
   const optionalSideBar = solutionNav ? (
     <div {...pageSideBarProps}>{solutionNav}</div>
@@ -37,9 +47,23 @@ export const KibanaPage: FunctionComponent<KibanaPageProps> = ({
     pageProps ? pageProps.className : ''
   );
 
+  const pageBody = (
+    <EuiPageBody {...pageBodyProps}>
+      {optionalPageHeader}
+      {/* TODO: Allow EuiPageContent to restrictWidth */}
+      <EuiPageContent
+        {...pageContentProps}
+        className={restrictWidth ? 'euiPageContent--restrictWidth' : ''}>
+        <EuiPageContentBody {...pageContentBodyProps}>
+          {children}
+        </EuiPageContentBody>
+      </EuiPageContent>
+    </EuiPageBody>
+  );
+
   return optionalSideBar ? (
     <>
-      <EuiResizableContainer>
+      <EuiResizableContainer style={{ flexGrow: 1 }}>
         {(EuiResizablePanel, EuiResizableButton) => (
           <EuiPage {...pageProps} paddingSize="none" className={pageClasses}>
             <EuiResizablePanel
@@ -67,10 +91,7 @@ export const KibanaPage: FunctionComponent<KibanaPageProps> = ({
               initialSize={83}
               minSize="600px"
               paddingSize="none">
-              <EuiPageBody {...pageBodyProps}>
-                {optionalPageHeader}
-                {children}
-              </EuiPageBody>
+              {pageBody}
             </EuiResizablePanel>
           </EuiPage>
         )}
@@ -79,11 +100,7 @@ export const KibanaPage: FunctionComponent<KibanaPageProps> = ({
   ) : (
     <>
       <EuiPage {...pageProps} paddingSize="none" className={pageClasses}>
-        {optionalSideBar}
-        <EuiPageBody {...pageBodyProps}>
-          {optionalPageHeader}
-          {children}
-        </EuiPageBody>
+        {pageBody}
       </EuiPage>
     </>
   );

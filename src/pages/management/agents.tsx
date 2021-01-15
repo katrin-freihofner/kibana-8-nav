@@ -2,9 +2,6 @@ import React, { ReactNode } from 'react';
 
 import {
   EuiBreadcrumb,
-  EuiPageContent,
-  EuiPageHeader,
-  EuiPageHeaderSection,
   EuiButton,
   EuiText,
   EuiSpacer,
@@ -12,7 +9,6 @@ import {
   EuiPanel,
   EuiHeaderLink,
   EuiHeaderLinks,
-  EuiPageContentBody,
   EuiTab,
   EuiTabs,
   EuiFieldSearch,
@@ -48,81 +44,73 @@ export default () => {
       pageTitle="Agents"
       sideNavItem="Agents"
       headerLinks={headerLinks}
-      breadcrumbs={breadcrumbs}>
-      <EuiPageHeader className="euiPageHeader--restrictWidth">
-        <EuiPageHeaderSection>
-          <EuiTabs display="condensed">
-            <EuiTab isSelected>Agents</EuiTab>
-            <EuiTab>Policies</EuiTab>
-            <EuiTab>Enrollment tokens</EuiTab>
-            <EuiTab>Data streams</EuiTab>
-          </EuiTabs>
-        </EuiPageHeaderSection>
-        <EuiPageHeaderSection>
-          <EuiButton fill iconType="plusInCircle">
-            Add agent
-          </EuiButton>
-        </EuiPageHeaderSection>
-      </EuiPageHeader>
-      <EuiPageContent
-        className="euiPageContent--restrictWidth"
-        style={{ flexGrow: 0 }}>
-        <EuiPageContentBody>
-          <EuiFlexGroup>
-            <EuiFlexItem>
-              <EuiStat title="0" description="Agents" titleColor="subdued" />
-            </EuiFlexItem>
-            <EuiFlexItem>
-              <EuiStat title="0" description="Online" titleColor="subdued" />
-            </EuiFlexItem>
-            <EuiFlexItem>
-              <EuiStat title="0" description="Offline" titleColor="subdued" />
-            </EuiFlexItem>
-            <EuiFlexItem>
-              <EuiStat title="0" description="Error" titleColor="subdued" />
-            </EuiFlexItem>
-          </EuiFlexGroup>
-        </EuiPageContentBody>
-      </EuiPageContent>
-      <EuiPageContent className="euiPageContent--restrictWidth">
-        <EuiPageContentBody>
-          <EuiPanel hasShadow={false} color="subdued">
-            <EuiText size="s">
+      breadcrumbs={breadcrumbs}
+      pageHeader={{
+        alignItems: 'top',
+        leftSideContent: (
+          <>
+            <EuiTabs display="condensed">
+              <EuiTab isSelected>Agents</EuiTab>
+              <EuiTab>Policies</EuiTab>
+              <EuiTab>Enrollment tokens</EuiTab>
+              <EuiTab>Data streams</EuiTab>
+            </EuiTabs>
+            <EuiSpacer />
+            <EuiText color="subdued" size="s">
               <p>
                 Manage and deploy policy updates to a group of agents of any
                 size.
               </p>
             </EuiText>
-          </EuiPanel>
-          <EuiSpacer />
-          <EuiPageContentBody>
-            <EuiFlexGroup>
-              <EuiFlexItem grow={3}>
-                <EuiFieldSearch
-                  fullWidth
-                  placeholder="Search for by workpad name..."
-                />
-              </EuiFlexItem>
-              <EuiFlexItem grow={1}>
-                <EuiFilterGroup>
-                  <EuiFilterButton iconType="arrowDown" numFilters={5}>
-                    Filters
-                  </EuiFilterButton>
-                </EuiFilterGroup>
-              </EuiFlexItem>
-            </EuiFlexGroup>
-            <EuiSpacer />
-            <div className="pageScreenshot__TBD">
-              <img
-                className="pageScreenshot pageScreenshot--responsive"
-                alt="Blank table"
-                width={1168}
-                src={tableImg}
-              />
-            </div>
-          </EuiPageContentBody>
-        </EuiPageContentBody>
-      </EuiPageContent>
+          </>
+        ),
+        actionButtons: [
+          <EuiButton fill iconType="plusInCircle">
+            Add agent
+          </EuiButton>,
+        ],
+      }}>
+      <EuiPanel hasShadow={false} color="subdued">
+        <EuiFlexGroup justifyContent="spaceAround">
+          <EuiFlexItem grow={false}>
+            <EuiStat title="0" description="Agents" titleColor="subdued" />
+          </EuiFlexItem>
+          <EuiFlexItem grow={false}>
+            <EuiStat title="0" description="Online" titleColor="subdued" />
+          </EuiFlexItem>
+          <EuiFlexItem grow={false}>
+            <EuiStat title="0" description="Offline" titleColor="subdued" />
+          </EuiFlexItem>
+          <EuiFlexItem grow={false}>
+            <EuiStat title="0" description="Error" titleColor="subdued" />
+          </EuiFlexItem>
+        </EuiFlexGroup>
+      </EuiPanel>
+      <EuiSpacer />
+      <EuiFlexGroup>
+        <EuiFlexItem grow={3}>
+          <EuiFieldSearch
+            fullWidth
+            placeholder="Search for by workpad name..."
+          />
+        </EuiFlexItem>
+        <EuiFlexItem grow={1}>
+          <EuiFilterGroup>
+            <EuiFilterButton iconType="arrowDown" numFilters={5}>
+              Filters
+            </EuiFilterButton>
+          </EuiFilterGroup>
+        </EuiFlexItem>
+      </EuiFlexGroup>
+      <EuiSpacer />
+      <div className="pageScreenshot__TBD">
+        <img
+          className="pageScreenshot pageScreenshot--responsive"
+          alt="Blank table"
+          width={1168}
+          src={tableImg}
+        />
+      </div>
     </ManagementPage>
   );
 };

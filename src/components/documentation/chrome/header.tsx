@@ -37,7 +37,6 @@ export const DocsHeader: React.FunctionComponent<DocsHeaderProps> = ({
   return (
     <EuiSticky id="docsHeader">
       <EuiHeader
-        position="fixed"
         theme="dark"
         sections={[
           {
@@ -62,7 +61,6 @@ export const DocsHeader: React.FunctionComponent<DocsHeaderProps> = ({
         ]}
       />
       <EuiHeader
-        position="fixed"
         sections={[
           {
             items: [

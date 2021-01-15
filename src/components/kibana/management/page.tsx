@@ -1,20 +1,25 @@
 import React, { FunctionComponent, useContext, useEffect } from 'react';
 import { EuiBreadcrumb } from '@elastic/eui';
-import { KibanaPage } from '../page/page';
+import { KibanaPage, KibanaPageProps } from '../page/page';
 import { KibanaManagementNav } from './nav';
 import { navigate } from 'gatsby';
 import { KibanaChromeContext } from '../layout';
 import { KibanaHeaderProps } from '../chrome/header';
+import { KibanaPageHeaderProps } from '../page/page_header';
 
-export type ManagementPage = KibanaHeaderProps & {
-  sideNavItem?: string;
-  pageTitle?: string;
-};
+export type ManagementPage = KibanaHeaderProps &
+  KibanaPageProps & {
+    sideNavItem?: string;
+    pageTitle?: string;
+    pageHeader?: KibanaPageHeaderProps;
+  };
 
 export const ManagementPage: FunctionComponent<ManagementPage> = ({
   breadcrumbs,
+  headerLinks,
   sideNavItem,
   pageTitle,
+  pageHeader,
   children,
   ...rest
 }) => {
@@ -37,12 +42,14 @@ export const ManagementPage: FunctionComponent<ManagementPage> = ({
   useEffect(() => {
     setKibanaContext.setChrome({
       breadcrumbs: theBreadcrumbs,
+      headerLinks,
       pageTitle: pageTitle || 'Management',
     });
   }, [breadcrumbs]);
 
   return (
     <KibanaPage
+      pageHeader={pageHeader}
       solutionNav={<KibanaManagementNav currentItem={sideNavItem} />}
       {...rest}>
       {children}

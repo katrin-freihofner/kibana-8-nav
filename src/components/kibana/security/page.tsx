@@ -4,25 +4,25 @@ import React, {
   useContext,
   useEffect,
 } from 'react';
-import { EuiBreadcrumb, EuiHeaderLink, EuiHeaderLinks } from '@elastic/eui';
+import { EuiBreadcrumb, EuiHeaderLinks, EuiHeaderLink } from '@elastic/eui';
 import { KibanaPage, KibanaPageProps } from '../page/page';
 import { SecurityNav } from './nav';
 import { navigate } from 'gatsby';
 import { KibanaChromeContext } from '../layout';
 import { KibanaHeaderProps } from '../chrome/header';
 
-export type SecurityPage = KibanaHeaderProps &
-  KibanaPageProps & {
+export type SecurityPage = KibanaPageProps &
+  KibanaHeaderProps & {
     navItem?: string;
     pageTitle?: string;
   };
 
 export const SecurityPage: FunctionComponent<SecurityPage> = ({
-  breadcrumbs = [],
+  breadcrumbs,
   headerLinks,
   navItem,
-  pageTitle,
   children,
+  pageTitle,
   ...rest
 }) => {
   const baseBreadcrumb: EuiBreadcrumb[] = [

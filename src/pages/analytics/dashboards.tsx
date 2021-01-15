@@ -1,13 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { Link, navigate } from 'gatsby';
 
-import {
-  EuiBreadcrumb,
-  EuiPageContent,
-  EuiPageContentBody,
-  EuiSpacer,
-  EuiFieldSearch,
-} from '@elastic/eui';
+import { EuiBreadcrumb, EuiSpacer, EuiFieldSearch } from '@elastic/eui';
 // @ts-ignore
 import dashboardImg from '../../images/Dashboard - Listing.png';
 import { KibanaPage } from '../../components/kibana/page/page';
@@ -53,25 +47,18 @@ export default () => {
 
   return (
     <KibanaPage pageHeader={pageHeader}>
-      <EuiPageContent className="euiPageContent--restrictWidth">
-        <EuiPageContentBody>
-          <EuiFieldSearch
-            fullWidth
-            placeholder="Search for by dashboard name..."
-          />
-          <EuiSpacer />
-          <Link
-            className="pageScreenshot__TBD"
-            to="/analytics/dashboards/logs-web-traffic">
-            <img
-              className="pageScreenshot pageScreenshot--responsive"
-              alt="Dashboard listing page"
-              width={1212}
-              src={dashboardImg}
-            />
-          </Link>
-        </EuiPageContentBody>
-      </EuiPageContent>
+      <EuiFieldSearch fullWidth placeholder="Search for by dashboard name..." />
+      <EuiSpacer />
+      <Link
+        className="pageScreenshot__TBD"
+        to="/analytics/dashboards/logs-web-traffic">
+        <img
+          className="pageScreenshot pageScreenshot--responsive"
+          alt="Dashboard listing page"
+          width={1212}
+          src={dashboardImg}
+        />
+      </Link>
     </KibanaPage>
   );
 };

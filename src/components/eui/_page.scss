@@ -33,6 +33,14 @@
   margin-right: auto;
 }
 
+.euiPageHeader--top {
+  align-items: flex-start;
+}
+
+.euiPageHeader--bottom {
+  align-items: flex-end;
+}
+
 .euiPageContent--restrictWidth .euiPageContentBody {
   width: 100%;
   max-width: 1200px;

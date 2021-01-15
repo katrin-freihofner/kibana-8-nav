@@ -5,8 +5,6 @@ import {
   EuiBreadcrumb,
   EuiCallOut,
   EuiLink,
-  EuiPageContent,
-  EuiPageContentBody,
   EuiTitle,
   EuiHeaderLinks,
   EuiHeaderLink,
@@ -20,7 +18,6 @@ import {
   EuiCard,
 } from '@elastic/eui';
 import { SolutionCards } from '../../components/kibana/solution_cards';
-// @ts-ignore
 // @ts-ignore
 import dashboardImg from '../../images/analytics-card-dashboard.png';
 // @ts-ignore
@@ -89,167 +86,158 @@ export default () => {
           </EuiCallOut>,
         ],
       }}>
-      <EuiPageContent className="euiPageContent--restrictWidth">
-        <EuiPageContentBody>
-          <EuiPanel
-            hasShadow={false}
-            color="primary"
-            paddingSize="l"
-            style={{ marginBottom: 120 }}>
-            <EuiFlexGroup>
-              <EuiFlexItem>
-                <EuiTitle size="m">
-                  <h2>Visualize & analyze</h2>
-                </EuiTitle>
-                <EuiSpacer size="s" />
-                <EuiText>
-                  <p>
-                    To get the most out of every aspect of your data. Search and
-                    explore your data. Plot your geographic information. Craft
-                    pixel-perfect reports. Detect anomalous events. Reveal
-                    patterns and relationships.
-                  </p>
-                </EuiText>
-              </EuiFlexItem>
-              <EuiFlexItem grow={false}>
-                <EuiCard
-                  // @ts-ignore
-                  style={{
-                    width: 320,
-                    background: 'white',
-                    marginBottom: -120,
-                  }}
-                  image={
-                    <img
-                      alt=""
-                      aria-hidden={true}
-                      height={170}
-                      src={dashboardImg}
-                    />
-                  }
-                  title="Dashboard"
-                  description="Visualize all aspects of your data."
-                  onClick={() => {
-                    navigate('analytics/dashboards');
-                  }}
+      <EuiPanel
+        hasShadow={false}
+        color="primary"
+        paddingSize="l"
+        style={{ marginBottom: 120 }}>
+        <EuiFlexGroup>
+          <EuiFlexItem>
+            <EuiTitle size="m">
+              <h2>Visualize & analyze</h2>
+            </EuiTitle>
+            <EuiSpacer size="s" />
+            <EuiText>
+              <p>
+                To get the most out of every aspect of your data. Search and
+                explore your data. Plot your geographic information. Craft
+                pixel-perfect reports. Detect anomalous events. Reveal patterns
+                and relationships.
+              </p>
+            </EuiText>
+          </EuiFlexItem>
+          <EuiFlexItem grow={false}>
+            <EuiCard
+              // @ts-ignore
+              style={{
+                width: 320,
+                background: 'white',
+                marginBottom: -120,
+              }}
+              image={
+                <img
+                  alt=""
+                  aria-hidden={true}
+                  height={170}
+                  src={dashboardImg}
                 />
-              </EuiFlexItem>
-              <EuiFlexItem grow={false}>
-                <EuiCard
-                  // @ts-ignore
-                  style={{
-                    width: 320,
-                    background: 'white',
-                    marginBottom: -120,
-                  }}
-                  image={
-                    <img
-                      alt=""
-                      aria-hidden={true}
-                      height={170}
-                      src={discoverImg}
-                    />
-                  }
-                  title="Discover"
-                  description="Visualize all aspects of your data."
-                  onClick={() => {
-                    navigate('analytics/discover');
-                  }}
-                />
-              </EuiFlexItem>
-            </EuiFlexGroup>
-          </EuiPanel>
+              }
+              title="Dashboard"
+              description="Visualize all aspects of your data."
+              onClick={() => {
+                navigate('analytics/dashboards');
+              }}
+            />
+          </EuiFlexItem>
+          <EuiFlexItem grow={false}>
+            <EuiCard
+              // @ts-ignore
+              style={{
+                width: 320,
+                background: 'white',
+                marginBottom: -120,
+              }}
+              image={
+                <img alt="" aria-hidden={true} height={170} src={discoverImg} />
+              }
+              title="Discover"
+              description="Visualize all aspects of your data."
+              onClick={() => {
+                navigate('analytics/discover');
+              }}
+            />
+          </EuiFlexItem>
+        </EuiFlexGroup>
+      </EuiPanel>
 
-          <EuiSpacer size="xl" />
+      <EuiSpacer size="xl" />
 
-          <EuiFlexGroup>
-            <EuiFlexItem grow={false}>
-              <EuiCard
-                display="plain"
-                // @ts-ignore
-                style={{
-                  border: '1px solid #D3DAE6',
-                }}
-                image={
-                  <div>
-                    <img alt="" aria-hidden={true} src={mapsImg} />
-                  </div>
-                }
-                title="Maps"
-                description="Plot your geographic information."
-                onClick={() => {
-                  navigate('analytics/maps');
-                }}
-              />
-            </EuiFlexItem>
-            <EuiFlexItem grow={false}>
-              <EuiCard
-                display="plain"
-                // @ts-ignore
-                style={{
-                  border: '1px solid #D3DAE6',
-                }}
-                image={
-                  <div>
-                    <img alt="" aria-hidden={true} src={canvasImg} />
-                  </div>
-                }
-                title="Canvas"
-                description="Craft pixel-perfect reports."
-                onClick={() => {
-                  navigate('analytics/canvas');
-                }}
-              />
-            </EuiFlexItem>
-            <EuiFlexItem grow={false}>
-              <EuiCard
-                display="plain"
-                // @ts-ignore
-                style={{
-                  border: '1px solid #D3DAE6',
-                }}
-                image={
-                  <div>
-                    <img alt="" aria-hidden={true} src={machineImg} />
-                  </div>
-                }
-                title="Machine Learning"
-                description="Compute anomalous events."
-                isDisabled
-              />
-            </EuiFlexItem>
-            <EuiFlexItem grow={false}>
-              <EuiCard
-                display="plain"
-                // @ts-ignore
-                style={{
-                  border: '1px solid #D3DAE6',
-                }}
-                image={
-                  <div>
-                    <img alt="" aria-hidden={true} src={graphImg} />
-                  </div>
-                }
-                title="Graph"
-                description="Reveal patterns and relationships."
-                isDisabled
-              />
-            </EuiFlexItem>
-          </EuiFlexGroup>
+      <EuiFlexGroup>
+        <EuiFlexItem grow={false}>
+          <EuiCard
+            display="plain"
+            // @ts-ignore
+            style={{
+              border: '1px solid #D3DAE6',
+            }}
+            image={
+              <div>
+                <img alt="" aria-hidden={true} src={mapsImg} />
+              </div>
+            }
+            title="Maps"
+            description="Plot your geographic information."
+            onClick={() => {
+              navigate('analytics/maps');
+            }}
+          />
+        </EuiFlexItem>
+        <EuiFlexItem grow={false}>
+          <EuiCard
+            display="plain"
+            // @ts-ignore
+            style={{
+              border: '1px solid #D3DAE6',
+            }}
+            image={
+              <div>
+                <img alt="" aria-hidden={true} src={canvasImg} />
+              </div>
+            }
+            title="Canvas"
+            description="Craft pixel-perfect reports."
+            onClick={() => {
+              navigate('analytics/canvas');
+            }}
+          />
+        </EuiFlexItem>
+        <EuiFlexItem grow={false}>
+          <EuiCard
+            display="plain"
+            // @ts-ignore
+            style={{
+              border: '1px solid #D3DAE6',
+            }}
+            image={
+              <div>
+                <img alt="" aria-hidden={true} src={machineImg} />
+              </div>
+            }
+            title="Machine Learning"
+            description="Compute anomalous events."
+            isDisabled
+          />
+        </EuiFlexItem>
+        <EuiFlexItem grow={false}>
+          <EuiCard
+            display="plain"
+            // @ts-ignore
+            style={{
+              border: '1px solid #D3DAE6',
+            }}
+            image={
+              <div>
+                <img alt="" aria-hidden={true} src={graphImg} />
+              </div>
+            }
+            title="Graph"
+            description="Reveal patterns and relationships."
+            isDisabled
+          />
+        </EuiFlexItem>
+      </EuiFlexGroup>
 
-          <EuiSpacer size="xl" />
+      <EuiSpacer size="xl" />
 
-          <EuiHorizontalRule />
+      <EuiHorizontalRule />
 
-          <EuiText textAlign="center">
-            <h2>Do more with Elastic</h2>
-          </EuiText>
+      <EuiText textAlign="center">
+        <h2>Do more with Elastic</h2>
+      </EuiText>
 
-          <EuiSpacer />
+      <EuiSpacer />
 
-          <SolutionCards current="Analytics" />
-        </EuiPageContentBody>
-      </EuiPageContent>
+      <SolutionCards current="Analytics" />
     </KibanaPage>
   );
 };

@@ -18,6 +18,8 @@ import {
 import classNames from 'classnames';
 import { EuiSuperDatePicker } from '../../eui/super_date_picker';
 
+export const ALIGN_ITEMS = ['top', 'bottom', 'middle'] as const;
+
 type EuiTabProps = React.ComponentProps<typeof EuiTab>;
 
 export type KibanaPageHeaderTitle = {
@@ -53,8 +55,13 @@ export type KibanaPageHeaderTabs = {
  * Or a list of tabs
  */
 type KibanaPageHeaderLeft = ExclusiveUnion<
-  KibanaPageHeaderTitle,
-  KibanaPageHeaderTabs
+  ExclusiveUnion<KibanaPageHeaderTitle, KibanaPageHeaderTabs>,
+  {
+    /**
+     * Pass custom content to the left side with `leftSideContent`
+     */
+    leftSideContent: ReactNode;
+  }
 >;
 
 type KibanaPageHeaderTime = {
@@ -67,15 +74,24 @@ type KibanaPageHeaderTime = {
 
 /**
  * The right side can either be up to 3 buttons, one being primary
- * Or the time picker
+ * Or the time picker,
+ * Or a simple node
  */
 type KibanaPageHeaderRight = ExclusiveUnion<
-  {
-    /**
-     * The first button in the list will should always be primary/filled
-     */
-    actionButtons?: ReactNode[];
-  },
+  ExclusiveUnion<
+    {
+      /**
+       * The first button in the list will should always be primary/filled
+       */
+      actionButtons?: ReactNode[];
+    },
+    {
+      /**
+       * Pass custom content to the left side with `leftSideContent`
+       */
+      rightSideContent?: ReactNode;
+    }
+  >,
   KibanaPageHeaderTime
 >;
 
@@ -83,6 +99,7 @@ export type KibanaPageHeaderProps = CommonProps &
   KibanaPageHeaderLeft &
   KibanaPageHeaderRight & {
     restrictWidth?: boolean;
+    alignItems?: typeof ALIGN_ITEMS[number];
   };
 
 export const KibanaPageHeaderPrimaryAddButton: FunctionComponent<EuiButtonProps> = ({
@@ -96,12 +113,23 @@ export const KibanaPageHeader: FunctionComponent<KibanaPageHeaderProps> = ({
   tabs,
   tabsProps,
   className,
-  restrictWidth = false,
   actionButtons = [],
+  leftSideContent,
+  rightSideContent,
   time,
+  restrictWidth = false,
+  alignItems = 'middle',
 }) => {
-  let leftSideContent;
-  if (pageTitle) {
+  const classes = classNames(
+    {
+      'euiPageHeader--restrictWidth': restrictWidth,
+      'euiPageHeader--solutionHeading': iconType,
+    },
+    `euiPageHeader--${alignItems}`,
+    className
+  );
+
+  if (!leftSideContent && pageTitle) {
     const icon = iconType ? (
       <EuiIcon
         type={iconType}
@@ -119,7 +147,7 @@ export const KibanaPageHeader: FunctionComponent<KibanaPageHeaderProps> = ({
         {description && <p>{description}</p>}
       </EuiText>
     );
-  } else if (tabs) {
+  } else if (!leftSideContent && tabs) {
     const renderTabs = () => {
       return tabs.map((tab, index) => {
         const { name, ...tabRest } = tab;
@@ -138,10 +166,9 @@ export const KibanaPageHeader: FunctionComponent<KibanaPageHeaderProps> = ({
     );
   }
 
-  let rightSideContent;
-  if (time) {
+  if (!rightSideContent && time) {
     rightSideContent = <EuiSuperDatePicker />;
-  } else if (actionButtons!.length) {
+  } else if (!rightSideContent && actionButtons!.length) {
     const renderButtons = () => {
       return actionButtons.map((button, index) => {
         return (
@@ -158,14 +185,6 @@ export const KibanaPageHeader: FunctionComponent<KibanaPageHeaderProps> = ({
       </EuiFlexGroup>
     );
   }
-
-  const classes = classNames(
-    {
-      'euiPageHeader--restrictWidth': restrictWidth,
-      'euiPageHeader--solutionHeading': iconType,
-    },
-    className
-  );
 
   return (
     <EuiPageHeader className={classes}>

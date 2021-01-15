@@ -30,7 +30,8 @@ export default () => (
   <SecurityPage
     pageTitle="Suspicious login"
     navItem="Events"
-    breadcrumbs={breadcrumbs}>
+    breadcrumbs={breadcrumbs}
+    pageContentProps={{ paddingSize: 'none' }}>
     <EuiPageHeader style={{ padding: 16 }}>
       <KibanaGlobals />
     </EuiPageHeader>

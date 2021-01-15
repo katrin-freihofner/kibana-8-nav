@@ -5,16 +5,17 @@ import React, {
   useEffect,
 } from 'react';
 import { EuiBreadcrumb, EuiHeaderLinks, EuiButton } from '@elastic/eui';
-import { KibanaPage } from '../page/page';
+import { KibanaPage, KibanaPageProps } from '../page/page';
 import { ObservabilityNav } from './nav';
 import { navigate } from 'gatsby';
 import { KibanaChromeContext } from '../layout';
 import { KibanaHeaderProps } from '../chrome/header';
 
-export type ObservabilityPage = KibanaHeaderProps & {
-  navItem?: string;
-  pageTitle?: string;
-};
+export type ObservabilityPage = KibanaPageProps &
+  KibanaHeaderProps & {
+    navItem?: string;
+    pageTitle?: string;
+  };
 
 export const ObservabilityPage: FunctionComponent<ObservabilityPage> = ({
   breadcrumbs,

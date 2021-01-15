@@ -1,7 +1,5 @@
 import React, { useContext, useEffect } from 'react';
 import {
-  EuiPageContent,
-  EuiPageContentBody,
   EuiButton,
   EuiFlexGroup,
   EuiFlexItem,
@@ -53,34 +51,30 @@ export default () => {
           <EuiButton iconType="importAction">Import workpad</EuiButton>,
         ],
       }}>
-      <EuiPageContent className="euiPageContent--restrictWidth">
-        <EuiPageContentBody>
-          <EuiFlexGroup>
-            <EuiFlexItem grow={3}>
-              <EuiFieldSearch
-                fullWidth
-                placeholder="Search for by workpad name..."
-              />
-            </EuiFlexItem>
-            <EuiFlexItem grow={1}>
-              <EuiFilterGroup>
-                <EuiFilterButton iconType="arrowDown" numFilters={5}>
-                  Tags
-                </EuiFilterButton>
-              </EuiFilterGroup>
-            </EuiFlexItem>
-          </EuiFlexGroup>
-          <EuiSpacer />
-          <div className="pageScreenshot__TBD">
-            <img
-              className="pageScreenshot pageScreenshot--responsive"
-              alt="Canvas listing page"
-              width={1212}
-              src={canvasImg}
-            />
-          </div>
-        </EuiPageContentBody>
-      </EuiPageContent>
+      <EuiFlexGroup>
+        <EuiFlexItem grow={3}>
+          <EuiFieldSearch
+            fullWidth
+            placeholder="Search for by workpad name..."
+          />
+        </EuiFlexItem>
+        <EuiFlexItem grow={1}>
+          <EuiFilterGroup>
+            <EuiFilterButton iconType="arrowDown" numFilters={5}>
+              Tags
+            </EuiFilterButton>
+          </EuiFilterGroup>
+        </EuiFlexItem>
+      </EuiFlexGroup>
+      <EuiSpacer />
+      <div className="pageScreenshot__TBD">
+        <img
+          className="pageScreenshot pageScreenshot--responsive"
+          alt="Canvas listing page"
+          width={1212}
+          src={canvasImg}
+        />
+      </div>
     </KibanaPage>
   );
 };

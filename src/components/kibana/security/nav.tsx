@@ -16,7 +16,6 @@ export function SecurityNav({ navItem }: Props) {
 
   const createItem = (name: string, data = {}) => {
     return {
-      ...data,
       id: name,
       name,
       // @ts-ignore
@@ -32,6 +31,7 @@ export function SecurityNav({ navItem }: Props) {
         : () => {
             return null;
           },
+      ...data,
     };
   };
 

@@ -1,11 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { navigate } from 'gatsby';
 
-import {
-  EuiBreadcrumb,
-  EuiPageContent,
-  EuiPageContentBody,
-} from '@elastic/eui';
+import { EuiBreadcrumb } from '@elastic/eui';
 // @ts-ignore
 import tsvbImg from '../../images/TSVB.png';
 import { KibanaPage } from '../../components/kibana/page/page';
@@ -64,22 +60,20 @@ export default () => {
 
   return (
     <KibanaPage
+      restrictWidth={false}
+      pageContentProps={{ paddingSize: 'none' }}
       pageHeader={{
         tabs: tabs,
         time: true,
       }}>
-      <EuiPageContent>
-        <EuiPageContentBody>
-          <div className="pageScreenshot__TBD">
-            <img
-              className="pageScreenshot pageScreenshot--fullWidth"
-              alt="TSVB Gauge chart"
-              width={1400}
-              src={tsvbImg}
-            />
-          </div>
-        </EuiPageContentBody>
-      </EuiPageContent>
+      <div className="pageScreenshot__TBD">
+        <img
+          className="pageScreenshot pageScreenshot--fullWidth"
+          alt="TSVB Gauge chart"
+          width={1400}
+          src={tsvbImg}
+        />
+      </div>
     </KibanaPage>
   );
 };
