@@ -3,7 +3,6 @@ import { navigate } from 'gatsby';
 
 import {
   EuiBreadcrumb,
-  EuiPageHeader,
   EuiButton,
   EuiHeaderLink,
   EuiHeaderLinks,
@@ -63,9 +62,8 @@ export default () => {
 
   return (
     <KibanaPage>
-      <EuiPageHeader style={{ padding: 16 }}>
-        <KibanaGlobals />
-      </EuiPageHeader>
+      <KibanaGlobals />
+
       <div className="pageScreenshot__TBD">
         <img
           className="pageScreenshot pageScreenshot--fullWidth"

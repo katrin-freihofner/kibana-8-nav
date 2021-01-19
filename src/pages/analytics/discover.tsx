@@ -2,7 +2,6 @@ import React, { ReactNode, useContext, useEffect } from 'react';
 
 import {
   EuiBreadcrumb,
-  EuiPageHeader,
   EuiButton,
   EuiHeaderLink,
   EuiHeaderLinks,
@@ -105,9 +104,8 @@ export default () => {
   return (
     <EuiPage paddingSize="none" className="dscPage">
       <EuiPageBody className="dscPageBody">
-        <EuiPageHeader style={{ padding: 16 }}>
-          <KibanaGlobals />
-        </EuiPageHeader>
+        <KibanaGlobals />
+
         <EuiResizableContainer>
           {(EuiResizablePanel, EuiResizableButton) => (
             <>

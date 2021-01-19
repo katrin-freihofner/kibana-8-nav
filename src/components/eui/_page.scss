@@ -26,12 +26,6 @@
   margin-right: auto;
 }
 
-.euiPageBody {
-  min-height: 100%;
-  background: $euiPageBackgroundColor;
-  border-left: $euiBorderThin;
-}
-
 .euiPageBody--restrictWidth-default,
 .euiPageBody--restrictWidth-custom {
   background: none;

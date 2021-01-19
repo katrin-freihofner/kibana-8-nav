@@ -4,7 +4,6 @@ import {
   EuiBreadcrumb,
   EuiFlexGroup,
   EuiPageContent,
-  EuiPageHeader,
   EuiFlexItem,
   EuiButton,
   EuiStat,
@@ -31,10 +30,9 @@ export default () => (
     pageTitle="Suspicious login"
     navItem="Events"
     breadcrumbs={breadcrumbs}
+    restrictWidth={false}
     pageContentProps={{ paddingSize: 'none' }}>
-    <EuiPageHeader style={{ padding: 16 }}>
-      <KibanaGlobals />
-    </EuiPageHeader>
+    <KibanaGlobals />
     <KibanaPageHeader
       pageTitle="Suspcious login"
       description="This timeline is to investigate a suspicious login."

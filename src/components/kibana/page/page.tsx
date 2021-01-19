@@ -13,6 +13,7 @@ import {
 } from '@elastic/eui';
 import classNames from 'classnames';
 import { KibanaPageHeader, KibanaPageHeaderProps } from './page_header';
+import ThemeContext from '../../../themes/ThemeContext';
 
 export type KibanaPageProps = {
   solutionNav?: ReactNode;
@@ -36,6 +37,8 @@ export const KibanaPage: FunctionComponent<KibanaPageProps> = ({
   pageSideBarProps,
   restrictWidth = true,
 }) => {
+  const context = React.useContext(ThemeContext);
+
   const optionalSideBar = solutionNav ? (
     <div {...pageSideBarProps}>{solutionNav}</div>
   ) : undefined;
@@ -47,8 +50,15 @@ export const KibanaPage: FunctionComponent<KibanaPageProps> = ({
     pageProps ? pageProps.className : ''
   );
 
+  const pageBodyClasses = classNames(
+    {
+      'kbnPageBody--hasSideNav': solutionNav,
+    },
+    pageBodyProps ? pageBodyProps.className : ''
+  );
+
   const pageBody = (
-    <EuiPageBody {...pageBodyProps}>
+    <EuiPageBody {...pageBodyProps} className={pageBodyClasses}>
       {optionalPageHeader}
       {/* TODO: Allow EuiPageContent to restrictWidth */}
       <EuiPageContent
@@ -65,7 +75,10 @@ export const KibanaPage: FunctionComponent<KibanaPageProps> = ({
     <>
       <EuiResizableContainer style={{ flexGrow: 1 }}>
         {(EuiResizablePanel, EuiResizableButton) => (
-          <EuiPage {...pageProps} paddingSize="none" className={pageClasses}>
+          <EuiPage
+            paddingSize={context.theme.includes('dark') ? undefined : 'none'}
+            {...pageProps}
+            className={pageClasses}>
             <EuiResizablePanel
               mode={[
                 'collapsible',
@@ -99,7 +112,11 @@ export const KibanaPage: FunctionComponent<KibanaPageProps> = ({
     </>
   ) : (
     <>
-      <EuiPage {...pageProps} paddingSize="none" className={pageClasses}>
+      <EuiPage
+        paddingSize={context.theme.includes('dark') ? undefined : 'none'}
+        restrictWidth={context.theme.includes('dark') ? restrictWidth : false}
+        {...pageProps}
+        className={pageClasses}>
         {pageBody}
       </EuiPage>
     </>
