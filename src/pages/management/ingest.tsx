@@ -62,7 +62,8 @@ export default () => (
     pageHeader={{
       pageTitle: 'Integrations',
       description: 'Browse integrations for popular apps and services.',
-      rightSideContent: (
+      alignItems: 'middle',
+      rightSideContent: [
         <img
           className="pageScreenshot pageScreenshot--responsive"
           style={{ marginBottom: -32 }}
@@ -70,8 +71,8 @@ export default () => (
           aria-hidden={true}
           width={320}
           src={illustrationImg}
-        />
-      ),
+        />,
+      ],
     }}>
     <EuiFieldSearch fullWidth placeholder="Search integrations..." />
     <EuiSpacer size="xxl" />

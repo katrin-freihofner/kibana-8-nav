@@ -3,7 +3,6 @@ import React from 'react';
 import {
   EuiBreadcrumb,
   EuiPageContent,
-  EuiPageHeader,
   EuiPageHeaderSection,
   EuiButton,
   EuiPageContentBody,
@@ -15,6 +14,7 @@ import { DeploymentsPage } from '../../components/cloud/deployments/page';
 // @ts-ignore
 import squirrelImg from '../../images/Cloud Deployment - Squirrel.png';
 import { navigate } from 'gatsby';
+import { EuiPageHeader } from '../../components/eui/page/page_header_shim';
 
 const breadcrumbs: EuiBreadcrumb[] = [
   {
@@ -34,7 +34,7 @@ export default () => (
     showSingleDeployment={true}
     sideNavItem="Overview"
     breadcrumbs={breadcrumbs}>
-    <EuiPageHeader className="euiPageHeader--restrictWidth">
+    <EuiPageHeader>
       <EuiPageHeaderSection>
         <EuiTitle size="xxs">
           <h1>

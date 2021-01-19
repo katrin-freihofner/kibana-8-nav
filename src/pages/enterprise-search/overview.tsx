@@ -2,12 +2,8 @@ import React, { useContext, useEffect } from 'react';
 
 import {
   EuiBreadcrumb,
-  EuiIcon,
   EuiPageContent,
   EuiPageContentBody,
-  EuiPageHeader,
-  EuiPageHeaderSection,
-  EuiTitle,
   EuiButton,
   EuiHorizontalRule,
   EuiText,
@@ -24,6 +20,7 @@ import appImg from '../../images/App_Search.png';
 // @ts-ignore
 import workplaceImg from '../../images/Workplace_Search.png';
 import { KibanaChromeContext } from '../../components/kibana/layout';
+import { KibanaPageHeader } from '../../components/kibana/page/page_header';
 
 const breadcrumbs: EuiBreadcrumb[] = [
   {
@@ -44,22 +41,10 @@ export default () => {
   return (
     <EuiPage paddingSize="none">
       <EuiPageBody>
-        <EuiPageHeader
-          className="euiPageHeader--restrictWidth"
-          style={{ padding: 32 }}>
-          <EuiPageHeaderSection>
-            <EuiTitle size="l">
-              <h1>
-                <EuiIcon
-                  type="logoWorkplaceSearch"
-                  size="xl"
-                  style={{ verticalAlign: 'baseline' }}
-                />{' '}
-                Enterprise search
-              </h1>
-            </EuiTitle>
-          </EuiPageHeaderSection>
-        </EuiPageHeader>
+        <KibanaPageHeader
+          pageTitle="Enterprise Search"
+          iconType="logoWorkplaceSearch"
+        />
         <EuiPageContent className="euiPageContent--restrictWidth">
           <EuiPageContentBody>
             <EuiFlexGroup>

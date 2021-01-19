@@ -4,6 +4,8 @@ import React, {
   useContext,
   useEffect,
 } from 'react';
+import Helmet from 'react-helmet';
+
 import {
   CommonProps,
   EuiBreadcrumb,
@@ -14,18 +16,18 @@ import {
   EuiPageSideBar,
   EuiPageSideBarProps,
 } from '@elastic/eui';
-import { CloudChromeContext } from '../layout';
-import Helmet from 'react-helmet';
 import {
-  KibanaPageHeader,
-  KibanaPageHeaderProps,
-} from '../../kibana/page/page_header';
+  EuiPageHeaderProps,
+  EuiPageHeader,
+} from '../../eui/page/page_header_shim';
+
+import { CloudChromeContext } from '../layout';
 
 export type CloudPageProps = CommonProps & {
   breadcrumbs?: EuiBreadcrumb[];
   pageTitle: string;
   solutionNav?: ReactNode;
-  pageHeader?: KibanaPageHeaderProps;
+  pageHeader?: EuiPageHeaderProps;
   pageProps?: EuiPageProps;
   pageBodyProps?: EuiPageBodyProps;
   pageSideBarProps?: EuiPageSideBarProps;
@@ -54,7 +56,7 @@ export const CloudPage: FunctionComponent<CloudPageProps> = ({
     <EuiPageSideBar {...pageSideBarProps}>{solutionNav}</EuiPageSideBar>
   ) : undefined;
 
-  const optionalPageHeader = pageHeader && <KibanaPageHeader {...pageHeader} />;
+  const optionalPageHeader = pageHeader && <EuiPageHeader {...pageHeader} />;
 
   return (
     <>

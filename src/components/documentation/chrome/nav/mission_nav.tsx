@@ -1,4 +1,5 @@
 import React from 'react';
+import { navigate } from 'gatsby';
 
 import {
   EuiCollapsibleNavGroup,
@@ -16,6 +17,12 @@ const deploymentsList: EuiListGroupProps['listItems'] = [
     label: 'Elastic Security',
     iconType: 'logoSecurity',
     size: 's',
+  },
+  {
+    label: 'Elastic UI',
+    iconType: 'logoElastic',
+    size: 's',
+    onClick: () => navigate('documentation/eui'),
   },
 ];
 

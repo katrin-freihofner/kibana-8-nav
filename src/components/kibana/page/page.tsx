@@ -11,8 +11,8 @@ import {
   EuiPageContentBodyProps,
   EuiPageContentProps,
 } from '@elastic/eui';
-import { KibanaPageHeader, KibanaPageHeaderProps } from './page_header';
 import classNames from 'classnames';
+import { KibanaPageHeader, KibanaPageHeaderProps } from './page_header';
 
 export type KibanaPageProps = {
   solutionNav?: ReactNode;
@@ -78,7 +78,7 @@ export const KibanaPage: FunctionComponent<KibanaPageProps> = ({
               minSize={'60px'}
               // @ts-ignore TODO: Allow for maxSize
               // Also TODO: Allow all Size follows take a percentage or string value
-              maxSize="300px"
+              // maxSize="300px"
               paddingSize="none"
               className="euiPageSideBar">
               {optionalSideBar}

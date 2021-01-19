@@ -5,8 +5,8 @@ import { EuiBreadcrumb } from '@elastic/eui';
 // @ts-ignore
 import tsvbImg from '../../images/TSVB.png';
 import { KibanaPage } from '../../components/kibana/page/page';
-import { KibanaPageHeaderTabs } from '../../components/kibana/page/page_header';
 import { KibanaChromeContext } from '../../components/kibana/layout';
+import { EuiPageHeaderProps } from '../../components/eui/page/page_header_shim';
 
 const PAGE_TITLE = 'TSVB';
 
@@ -26,25 +26,25 @@ const breadcrumbs: EuiBreadcrumb[] = [
   },
 ];
 
-const tabs: KibanaPageHeaderTabs['tabs'] = [
+const tabs: EuiPageHeaderProps['tabs'] = [
   {
-    name: 'Time series',
+    label: 'Time series',
   },
   {
-    name: 'Metric',
+    label: 'Metric',
   },
   {
-    name: 'Top N',
+    label: 'Top N',
     isSelected: true,
   },
   {
-    name: 'Gauge',
+    label: 'Gauge',
   },
   {
-    name: 'Markdown',
+    label: 'Markdown',
   },
   {
-    name: 'Tables',
+    label: 'Tables',
   },
 ];
 

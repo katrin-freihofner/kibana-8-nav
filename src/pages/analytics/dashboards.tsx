@@ -2,14 +2,16 @@ import React, { useContext, useEffect } from 'react';
 import { Link, navigate } from 'gatsby';
 
 import { EuiBreadcrumb, EuiSpacer, EuiFieldSearch } from '@elastic/eui';
-// @ts-ignore
-import dashboardImg from '../../images/Dashboard - Listing.png';
+
 import { KibanaPage } from '../../components/kibana/page/page';
 import {
   KibanaPageHeaderPrimaryAddButton,
   KibanaPageHeaderProps,
 } from '../../components/kibana/page/page_header';
 import { KibanaChromeContext } from '../../components/kibana/layout';
+
+// @ts-ignore
+import dashboardImg from '../../images/Dashboard - Listing.png';
 
 const PAGE_TITLE = 'Dashboards';
 

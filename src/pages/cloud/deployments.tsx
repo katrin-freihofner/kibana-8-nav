@@ -28,7 +28,7 @@ export default () => (
     pageTitle="Deployments"
     pageHeader={{
       pageTitle: 'All deployments',
-      actionButtons: [
+      rightSideContent: [
         <KibanaPageHeaderPrimaryAddButton>
           Create deployment
         </KibanaPageHeaderPrimaryAddButton>,

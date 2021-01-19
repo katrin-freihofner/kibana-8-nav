@@ -19,28 +19,6 @@
   top: #{$euiHeaderHeightCompensation * 2};
 }
 
-.euiPageHeader {
-  padding: $euiSizeL;
-  margin-bottom: 0;
-  background: $euiPageBackgroundColor;
-  border-bottom: $euiBorderThin;
-}
-
-.euiPageHeader--restrictWidth {
-  width: 100%;
-  max-width: 1200px + ($euiSizeL * 2);
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.euiPageHeader--top {
-  align-items: flex-start;
-}
-
-.euiPageHeader--bottom {
-  align-items: flex-end;
-}
-
 .euiPageContent--restrictWidth .euiPageContentBody {
   width: 100%;
   max-width: 1200px;

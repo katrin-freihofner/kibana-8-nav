@@ -11,21 +11,19 @@ import {
 // @ts-ignore
 import canvasImg from '../../images/Canvas - Listing.png';
 import { KibanaPage } from '../../components/kibana/page/page';
-import {
-  KibanaPageHeaderPrimaryAddButton,
-  KibanaPageHeaderTabs,
-} from '../../components/kibana/page/page_header';
+import { KibanaPageHeaderPrimaryAddButton } from '../../components/kibana/page/page_header';
 import { KibanaChromeContext } from '../../components/kibana/layout';
+import { EuiPageHeaderProps } from '../../components/eui/page/page_header_shim';
 
 const PAGE_TITLE = 'Canvas';
 
-const tabs: KibanaPageHeaderTabs['tabs'] = [
+const tabs: EuiPageHeaderProps['tabs'] = [
   {
-    name: 'Workpads',
+    label: 'Workpads',
     isSelected: true,
   },
   {
-    name: 'Templates',
+    label: 'Templates',
   },
 ];
 

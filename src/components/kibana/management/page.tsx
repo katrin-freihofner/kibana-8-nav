@@ -5,13 +5,13 @@ import { KibanaManagementNav } from './nav';
 import { navigate } from 'gatsby';
 import { KibanaChromeContext } from '../layout';
 import { KibanaHeaderProps } from '../chrome/header';
-import { KibanaPageHeaderProps } from '../page/page_header';
+import { EuiPageHeaderProps } from '../../eui/page/page_header_shim';
 
 export type ManagementPage = KibanaHeaderProps &
   KibanaPageProps & {
     sideNavItem?: string;
     pageTitle?: string;
-    pageHeader?: KibanaPageHeaderProps;
+    pageHeader?: EuiPageHeaderProps;
   };
 
 export const ManagementPage: FunctionComponent<ManagementPage> = ({
