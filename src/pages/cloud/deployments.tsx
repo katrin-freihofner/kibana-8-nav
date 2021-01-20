@@ -14,7 +14,7 @@ import {
 import { DeploymentsPage } from '../../components/cloud/deployments/page';
 // @ts-ignore
 import listImg from '../../images/Cloud - Deployments List.png';
-import { KibanaPageHeaderPrimaryAddButton } from '../../components/kibana/page/page_header';
+import { KibanaPageHeaderPrimaryAddButton } from '../../components/kibana/chrome/page/page_header';
 import { Link } from 'gatsby';
 
 const breadcrumbs: EuiBreadcrumb[] = [

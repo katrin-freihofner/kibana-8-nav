@@ -110,7 +110,7 @@ export const EuiPageHeader: FunctionComponent<EuiPageHeaderProps> = ({
 }) => {
   const classes = classNames(
     {
-      'euiPageHeader--restrictWidth': restrictWidth,
+      'euiPageHeader--restrictWidth-default': restrictWidth,
       'euiPageHeader--tabsAtBottom': pageTitle && tabs,
       'euiPageHeader--responsiveReverse': responsiveOrder === 'rightFirst',
     },
@@ -185,14 +185,22 @@ export const EuiPageHeader: FunctionComponent<EuiPageHeaderProps> = ({
 
   let leftSideOrder;
   if (tabsNode && !pageTitleNode) {
-    leftSideOrder = [tabsNode, leftSideContentNode, descriptionNode];
+    leftSideOrder = (
+      <>
+        {tabsNode}
+        {leftSideContentNode}
+        {descriptionNode}
+      </>
+    );
   } else {
-    leftSideOrder = [
-      pageTitleNode,
-      descriptionNode,
-      leftSideContentNode,
-      tabsNode,
-    ];
+    leftSideOrder = (
+      <>
+        {pageTitleNode}
+        {descriptionNode}
+        {leftSideContentNode}
+        {tabsNode}
+      </>
+    );
   }
 
   let rightSideNode;

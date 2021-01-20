@@ -3,13 +3,6 @@
   padding-bottom: $euiSizeL;
 }
 
-.euiPageHeader--restrictWidth {
-  width: 100%;
-  max-width: 1200px + ($euiSizeL * 2);
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .euiPageHeader--top {
   align-items: flex-start;
 }

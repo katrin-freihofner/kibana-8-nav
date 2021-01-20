@@ -4,8 +4,8 @@ import { navigate } from 'gatsby';
 import { EuiBreadcrumb, EuiSpacer, EuiFieldSearch } from '@elastic/eui';
 // @ts-ignore
 import dashboardImg from '../../images/Dashboard - Listing.png';
-import { KibanaPage } from '../../components/kibana/page/page';
-import { KibanaPageHeaderPrimaryAddButton } from '../../components/kibana/page/page_header';
+import { KibanaPage } from '../../components/kibana/chrome/page/page';
+import { KibanaPageHeaderPrimaryAddButton } from '../../components/kibana/chrome/page/page_header';
 import { KibanaChromeContext } from '../../components/kibana/layout';
 
 const PAGE_TITLE = 'Maps';
@@ -34,8 +34,8 @@ export default () => {
 
   return (
     <KibanaPage
+      restrictWidth={true}
       pageHeader={{
-        restrictWidth: true,
         pageTitle: PAGE_TITLE,
         actionButtons: [
           <KibanaPageHeaderPrimaryAddButton>

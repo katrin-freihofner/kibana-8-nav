@@ -5,9 +5,9 @@ import { EuiButton, EuiButtonProps } from '@elastic/eui';
 import {
   EuiPageHeaderProps,
   EuiPageHeader,
-} from '../../eui/page/page_header_shim';
+} from '../../../eui/page/page_header_shim';
 
-import { EuiSuperDatePicker } from '../../eui/super_date_picker';
+import { EuiSuperDatePicker } from '../../../eui/super_date_picker';
 
 export type KibanaPageHeaderProps = EuiPageHeaderProps & {
   time?: boolean;

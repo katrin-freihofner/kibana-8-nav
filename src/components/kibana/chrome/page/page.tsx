@@ -1,19 +1,27 @@
 import React, { FunctionComponent, ReactNode } from 'react';
+import classNames from 'classnames';
+
 import {
-  EuiPage,
-  EuiPageBody,
-  EuiPageBodyProps,
-  EuiPageProps,
   EuiPageSideBarProps,
   EuiResizableContainer,
   EuiPageContent,
+  EuiPageContentProps,
+  EuiPageSideBar,
+} from '@elastic/eui';
+import { EuiPage, EuiPageProps } from '../../../eui/page/page_shim';
+import {
+  EuiPageBody,
+  EuiPageBodyProps,
+} from '../../../eui/page/page_body_shim';
+import {
   EuiPageContentBody,
   EuiPageContentBodyProps,
-  EuiPageContentProps,
-} from '@elastic/eui';
-import classNames from 'classnames';
+} from '../../../eui/page/page_body_content_shim';
+
+import ThemeContext from '../../../../themes/ThemeContext';
+
 import { KibanaPageHeader, KibanaPageHeaderProps } from './page_header';
-import ThemeContext from '../../../themes/ThemeContext';
+import { KibanaPageK8 } from './page_k8';
 
 export type KibanaPageProps = {
   solutionNav?: ReactNode;
@@ -24,6 +32,9 @@ export type KibanaPageProps = {
   pageContentBodyProps?: EuiPageContentBodyProps;
   pageSideBarProps?: EuiPageSideBarProps;
   restrictWidth?: boolean;
+  resizableSidebar?: boolean;
+  centered?: boolean;
+  panelled?: boolean;
 };
 
 export const KibanaPage: FunctionComponent<KibanaPageProps> = ({
@@ -36,34 +47,50 @@ export const KibanaPage: FunctionComponent<KibanaPageProps> = ({
   pageContentBodyProps,
   pageSideBarProps,
   restrictWidth = true,
+  resizableSidebar = false,
+  centered = false,
+  panelled,
 }) => {
   const context = React.useContext(ThemeContext);
 
+  if (context.theme.includes('light')) {
+    return (
+      <KibanaPageK8
+        solutionNav={solutionNav}
+        children={children}
+        pageHeader={pageHeader}
+        pageProps={pageProps}
+        pageBodyProps={pageBodyProps}
+        pageContentProps={pageContentProps}
+        pageContentBodyProps={pageContentBodyProps}
+        pageSideBarProps={pageSideBarProps}
+        restrictWidth={restrictWidth}
+        resizableSidebar={resizableSidebar}
+        centered={centered}
+        panelled={panelled}
+      />
+    );
+  }
+
   const optionalSideBar = solutionNav ? (
-    <div {...pageSideBarProps}>{solutionNav}</div>
+    <EuiPageSideBar {...pageSideBarProps}>{solutionNav}</EuiPageSideBar>
   ) : undefined;
 
   const optionalPageHeader = pageHeader && <KibanaPageHeader {...pageHeader} />;
 
   const pageClasses = classNames(
-    'kbnPage',
+    'cloudPage',
     pageProps ? pageProps.className : ''
   );
 
-  const pageBodyClasses = classNames(
-    {
-      'kbnPageBody--hasSideNav': solutionNav,
-    },
-    pageBodyProps ? pageBodyProps.className : ''
-  );
-
   const pageBody = (
-    <EuiPageBody {...pageBodyProps} className={pageBodyClasses}>
+    <EuiPageBody {...pageBodyProps} restrictWidth={restrictWidth}>
       {optionalPageHeader}
       {/* TODO: Allow EuiPageContent to restrictWidth */}
       <EuiPageContent
-        {...pageContentProps}
-        className={restrictWidth ? 'euiPageContent--restrictWidth' : ''}>
+        verticalPosition={centered ? 'center' : undefined}
+        horizontalPosition={centered ? 'center' : undefined}
+        {...pageContentProps}>
         <EuiPageContentBody {...pageContentBodyProps}>
           {children}
         </EuiPageContentBody>
@@ -71,7 +98,7 @@ export const KibanaPage: FunctionComponent<KibanaPageProps> = ({
     </EuiPageBody>
   );
 
-  return optionalSideBar ? (
+  return resizableSidebar ? (
     <>
       <EuiResizableContainer style={{ flexGrow: 1 }}>
         {(EuiResizablePanel, EuiResizableButton) => (
@@ -97,7 +124,7 @@ export const KibanaPage: FunctionComponent<KibanaPageProps> = ({
               {optionalSideBar}
             </EuiResizablePanel>
 
-            <EuiResizableButton className="kbnPage__resizer" style={{}} />
+            <EuiResizableButton className="kbnPage__resizer" />
 
             <EuiResizablePanel
               mode="main"
@@ -113,10 +140,11 @@ export const KibanaPage: FunctionComponent<KibanaPageProps> = ({
   ) : (
     <>
       <EuiPage
-        paddingSize={context.theme.includes('dark') ? undefined : 'none'}
-        restrictWidth={context.theme.includes('dark') ? restrictWidth : false}
+        grow={true}
+        restrictWidth={!solutionNav && restrictWidth}
         {...pageProps}
         className={pageClasses}>
+        {optionalSideBar}
         {pageBody}
       </EuiPage>
     </>

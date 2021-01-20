@@ -6,7 +6,7 @@ import { EuiPage, EuiEmptyPrompt, EuiButton } from '@elastic/eui';
 const NotFoundPage = () => (
   <EuiPage restrictWidth>
     <EuiEmptyPrompt
-      iconType="editorStrike"
+      iconType="faceSad"
       title={<h2>Ack! There&apos;s nothing here.</h2>}
       body={
         <Fragment>

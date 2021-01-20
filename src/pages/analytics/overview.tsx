@@ -30,7 +30,7 @@ import graphImg from '../../images/analytics-card-Graph.svg';
 import machineImg from '../../images/analytics-card-Machine Learning.svg';
 // @ts-ignore
 import mapsImg from '../../images/analytics-card-Maps.svg';
-import { KibanaPage } from '../../components/kibana/page/page';
+import { KibanaPage } from '../../components/kibana/chrome/page/page';
 import { KibanaChromeContext } from '../../components/kibana/layout';
 
 const PAGE_TITLE = 'Analytics';
@@ -72,8 +72,9 @@ export default () => {
 
   return (
     <KibanaPage
+      restrictWidth={true}
       pageHeader={{
-        restrictWidth: true,
+        alignItems: 'middle',
         pageTitle: PAGE_TITLE,
         iconType: 'logoKibana',
         actionButtons: [

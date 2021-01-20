@@ -10,14 +10,16 @@ import {
 } from '@elastic/eui';
 // @ts-ignore
 import canvasImg from '../../images/Canvas - Listing.png';
-import { KibanaPage } from '../../components/kibana/page/page';
-import { KibanaPageHeaderPrimaryAddButton } from '../../components/kibana/page/page_header';
+import { KibanaPage } from '../../components/kibana/chrome/page/page';
+import {
+  KibanaPageHeaderPrimaryAddButton,
+  KibanaPageHeaderProps,
+} from '../../components/kibana/chrome/page/page_header';
 import { KibanaChromeContext } from '../../components/kibana/layout';
-import { EuiPageHeaderProps } from '../../components/eui/page/page_header_shim';
 
 const PAGE_TITLE = 'Canvas';
 
-const tabs: EuiPageHeaderProps['tabs'] = [
+const tabs: KibanaPageHeaderProps['tabs'] = [
   {
     label: 'Workpads',
     isSelected: true,
@@ -39,8 +41,8 @@ export default () => {
 
   return (
     <KibanaPage
+      restrictWidth={true}
       pageHeader={{
-        restrictWidth: true,
         tabs: tabs,
         actionButtons: [
           <KibanaPageHeaderPrimaryAddButton>

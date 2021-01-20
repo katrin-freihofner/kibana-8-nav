@@ -10,7 +10,7 @@ import {
 // @ts-ignore
 import logsDashboardImg from '../../../images/[Logs] Web Traffic.png';
 import { KibanaGlobals } from '../../../components/kibana/chrome/globals';
-import { KibanaPage } from '../../../components/kibana/page/page';
+import { KibanaPage } from '../../../components/kibana/chrome/page/page';
 import { KibanaChromeContext } from '../../../components/kibana/layout';
 
 const breadcrumbs: EuiBreadcrumb[] = [

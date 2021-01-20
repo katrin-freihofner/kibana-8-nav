@@ -5,7 +5,7 @@ import React, {
   useEffect,
 } from 'react';
 import { EuiBreadcrumb, EuiHeaderLinks, EuiButton } from '@elastic/eui';
-import { KibanaPage, KibanaPageProps } from '../page/page';
+import { KibanaPage, KibanaPageProps } from '../chrome/page/page';
 import { ObservabilityNav } from './nav';
 import { navigate } from 'gatsby';
 import { KibanaChromeContext } from '../layout';

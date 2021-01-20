@@ -9,10 +9,6 @@ import Helmet from 'react-helmet';
 import {
   CommonProps,
   EuiBreadcrumb,
-  EuiPage,
-  EuiPageBody,
-  EuiPageBodyProps,
-  EuiPageProps,
   EuiPageSideBar,
   EuiPageSideBarProps,
 } from '@elastic/eui';
@@ -22,6 +18,8 @@ import {
 } from '../../eui/page/page_header_shim';
 
 import { CloudChromeContext } from '../layout';
+import { EuiPage, EuiPageProps } from '../../eui/page/page_shim';
+import { EuiPageBody, EuiPageBodyProps } from '../../eui/page/page_body_shim';
 
 export type CloudPageProps = CommonProps & {
   breadcrumbs?: EuiBreadcrumb[];

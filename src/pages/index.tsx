@@ -22,7 +22,7 @@ import {
 // @ts-ignore
 import illustrationImg from '../images/Illustration_3.svg';
 import { SolutionCards } from '../components/kibana/solution_cards';
-import { KibanaPage } from '../components/kibana/page/page';
+import { KibanaPage } from '../components/kibana/chrome/page/page';
 import { KibanaChromeContext } from '../components/kibana/layout';
 
 const PAGE_TITLE = 'Home';
@@ -64,8 +64,8 @@ export default () => {
 
   return (
     <KibanaPage
+      restrictWidth={true}
       pageHeader={{
-        restrictWidth: true,
         pageTitle: 'Welcome to the Elastic stack!',
       }}>
       <SolutionCards />

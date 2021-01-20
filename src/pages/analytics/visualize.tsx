@@ -2,11 +2,12 @@ import React, { useContext, useEffect } from 'react';
 import { navigate } from 'gatsby';
 
 import { EuiBreadcrumb } from '@elastic/eui';
+import { KibanaPage } from '../../components/kibana/chrome/page/page';
+import { KibanaChromeContext } from '../../components/kibana/layout';
+import { KibanaPageHeaderProps } from '../../components/kibana/chrome/page/page_header';
+
 // @ts-ignore
 import tsvbImg from '../../images/TSVB.png';
-import { KibanaPage } from '../../components/kibana/page/page';
-import { KibanaChromeContext } from '../../components/kibana/layout';
-import { EuiPageHeaderProps } from '../../components/eui/page/page_header_shim';
 
 const PAGE_TITLE = 'TSVB';
 
@@ -26,7 +27,7 @@ const breadcrumbs: EuiBreadcrumb[] = [
   },
 ];
 
-const tabs: EuiPageHeaderProps['tabs'] = [
+const tabs: KibanaPageHeaderProps['tabs'] = [
   {
     label: 'Time series',
   },

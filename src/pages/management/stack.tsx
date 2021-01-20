@@ -9,12 +9,11 @@ export default () => (
     <ManagementPage
       pageTitle="Management Overview"
       sideNavItem="Overview"
-      pageContentProps={{
-        verticalPosition: 'center',
-        horizontalPosition: 'center',
-      }}>
+      centered={true}
+      panelled={true}>
       <EuiEmptyPrompt
         iconType="managementApp"
+        // TODO: Allow changing icon color to inherit
         // @ts-ignore
         iconColor={null}
         title={
