@@ -79,7 +79,7 @@ export const KibanaPage: FunctionComponent<KibanaPageProps> = ({
   const optionalPageHeader = pageHeader && <KibanaPageHeader {...pageHeader} />;
 
   const pageClasses = classNames(
-    'cloudPage',
+    'kbnPage',
     pageProps ? pageProps.className : ''
   );
 
