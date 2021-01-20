@@ -152,7 +152,7 @@ export const DocsNav: FunctionComponent<Props> = ({}) => {
       onClose={() => setNavIsOpen(false)}>
       {/* Dark deployments section */}
       <EuiFlexItem grow={false} style={{ flexShrink: 0 }}>
-        <DocsMissionNav />
+        <DocsMissionNav currentItem="Elastic UI" />
       </EuiFlexItem>
 
       {/* BOTTOM */}

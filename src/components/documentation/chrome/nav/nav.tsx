@@ -31,6 +31,7 @@ interface Props
   extends Omit<EuiFlyoutProps, 'onClose'>,
     HTMLAttributes<HTMLDivElement> {
   currentRoute?: string;
+  currentMission: string;
 }
 
 type ChromNavListItem = EuiPinnableListGroupItemProps & {
@@ -44,7 +45,7 @@ export type ChromeNavGroupProps = {
   isOpen?: boolean;
 };
 
-export const DocsNav: FunctionComponent<Props> = ({}) => {
+export const DocsNav: FunctionComponent<Props> = ({ currentMission }) => {
   const context = React.useContext(ThemeContext);
   const [navIsOpen, setNavIsOpen] = useState(context.navIsDocked);
 
@@ -152,7 +153,7 @@ export const DocsNav: FunctionComponent<Props> = ({}) => {
       onClose={() => setNavIsOpen(false)}>
       {/* Dark deployments section */}
       <EuiFlexItem grow={false} style={{ flexShrink: 0 }}>
-        <DocsMissionNav />
+        <DocsMissionNav currentItem={currentMission} />
       </EuiFlexItem>
 
       {/* BOTTOM */}

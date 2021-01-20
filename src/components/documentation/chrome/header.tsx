@@ -68,6 +68,7 @@ export const DocsHeader: React.FunctionComponent<DocsHeaderProps> = ({
                 currentRoute={
                   breadcrumbs ? String(breadcrumbs[0].text) : 'Documentation'
                 }
+                currentMission="Product Design"
               />,
             ],
             borders: 'none',
