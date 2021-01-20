@@ -12,12 +12,13 @@ import { EuiPageContentBody } from '../../../eui/page/page_body_content_shim';
 
 import { KibanaPageHeader } from './page_header';
 import { KibanaPageProps } from './page';
+import { KibanaGlobals } from '../globals';
 
 export const KibanaPageK8: FunctionComponent<KibanaPageProps> = ({
   solutionNav,
   children,
   pageHeader,
-  pageProps,
+  className,
   pageBodyProps,
   pageContentProps,
   pageContentBodyProps,
@@ -26,6 +27,8 @@ export const KibanaPageK8: FunctionComponent<KibanaPageProps> = ({
   resizableSidebar = false,
   centered = false,
   panelled = false, // When the INNER content should be panelled
+  globals = false,
+  ...rest
 }) => {
   const optionalSideBar = solutionNav ? (
     <EuiPageSideBar {...pageSideBarProps}>{solutionNav}</EuiPageSideBar>
@@ -35,15 +38,15 @@ export const KibanaPageK8: FunctionComponent<KibanaPageProps> = ({
     <KibanaPageHeader restrictWidth={restrictWidth} {...pageHeader} />
   );
 
-  const pageClasses = classNames(
-    'kbnPage',
-    pageProps ? pageProps.className : ''
-  );
+  const optionalGlobals = globals && <KibanaGlobals />;
+
+  const pageClasses = classNames('kbnPage', className);
 
   const shouldPageBodyBePannelled = Boolean(panelled !== true && solutionNav);
 
   const pageBody = (
     <EuiPageBody panelled={shouldPageBodyBePannelled} {...pageBodyProps}>
+      {Boolean(optionalSideBar) && optionalGlobals}
       {optionalPageHeader}
       <EuiPageContent
         borderRadius={!panelled ? 'none' : 'm'}
@@ -67,7 +70,7 @@ export const KibanaPageK8: FunctionComponent<KibanaPageProps> = ({
           <EuiPage
             paddingSize={'none'}
             grow={true}
-            {...pageProps}
+            {...rest}
             className={pageClasses}>
             <EuiResizablePanel
               mode={[
@@ -102,10 +105,11 @@ export const KibanaPageK8: FunctionComponent<KibanaPageProps> = ({
     </>
   ) : (
     <>
+      {Boolean(!optionalSideBar) && optionalGlobals}
       <EuiPage
         grow={true}
         paddingSize={'none'}
-        {...pageProps}
+        {...rest}
         restrictWidth={false}
         className={pageClasses}>
         {optionalSideBar}

@@ -22,11 +22,11 @@ import ThemeContext from '../../../../themes/ThemeContext';
 
 import { KibanaPageHeader, KibanaPageHeaderProps } from './page_header';
 import { KibanaPageK8 } from './page_k8';
+import { KibanaGlobals } from '../globals';
 
-export type KibanaPageProps = {
+export type KibanaPageProps = EuiPageProps & {
   solutionNav?: ReactNode;
   pageHeader?: KibanaPageHeaderProps;
-  pageProps?: EuiPageProps;
   pageBodyProps?: EuiPageBodyProps;
   pageContentProps?: EuiPageContentProps;
   pageContentBodyProps?: EuiPageContentBodyProps;
@@ -35,13 +35,13 @@ export type KibanaPageProps = {
   resizableSidebar?: boolean;
   centered?: boolean;
   panelled?: boolean;
+  globals?: boolean;
 };
 
 export const KibanaPage: FunctionComponent<KibanaPageProps> = ({
   solutionNav,
   children,
   pageHeader,
-  pageProps,
   pageBodyProps,
   pageContentProps,
   pageContentBodyProps,
@@ -50,6 +50,9 @@ export const KibanaPage: FunctionComponent<KibanaPageProps> = ({
   resizableSidebar = false,
   centered = false,
   panelled,
+  globals = false,
+  className,
+  ...rest
 }) => {
   const context = React.useContext(ThemeContext);
 
@@ -59,7 +62,6 @@ export const KibanaPage: FunctionComponent<KibanaPageProps> = ({
         solutionNav={solutionNav}
         children={children}
         pageHeader={pageHeader}
-        pageProps={pageProps}
         pageBodyProps={pageBodyProps}
         pageContentProps={pageContentProps}
         pageContentBodyProps={pageContentBodyProps}
@@ -68,6 +70,8 @@ export const KibanaPage: FunctionComponent<KibanaPageProps> = ({
         resizableSidebar={resizableSidebar}
         centered={centered}
         panelled={panelled}
+        globals={globals}
+        {...rest}
       />
     );
   }
@@ -78,13 +82,13 @@ export const KibanaPage: FunctionComponent<KibanaPageProps> = ({
 
   const optionalPageHeader = pageHeader && <KibanaPageHeader {...pageHeader} />;
 
-  const pageClasses = classNames(
-    'kbnPage',
-    pageProps ? pageProps.className : ''
-  );
+  const optionalGlobals = globals && <KibanaGlobals />;
+
+  const pageClasses = classNames('kbnPage', className);
 
   const pageBody = (
     <EuiPageBody {...pageBodyProps} restrictWidth={restrictWidth}>
+      {Boolean(optionalSideBar) && optionalGlobals}
       {optionalPageHeader}
       {/* TODO: Allow EuiPageContent to restrictWidth */}
       <EuiPageContent
@@ -104,7 +108,7 @@ export const KibanaPage: FunctionComponent<KibanaPageProps> = ({
         {(EuiResizablePanel, EuiResizableButton) => (
           <EuiPage
             paddingSize={context.theme.includes('dark') ? undefined : 'none'}
-            {...pageProps}
+            {...rest}
             className={pageClasses}>
             <EuiResizablePanel
               mode={[
@@ -139,10 +143,11 @@ export const KibanaPage: FunctionComponent<KibanaPageProps> = ({
     </>
   ) : (
     <>
+      {Boolean(!optionalSideBar) && optionalGlobals}
       <EuiPage
         grow={true}
         restrictWidth={!solutionNav && restrictWidth}
-        {...pageProps}
+        {...rest}
         className={pageClasses}>
         {optionalSideBar}
         {pageBody}

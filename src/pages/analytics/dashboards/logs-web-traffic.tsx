@@ -9,9 +9,11 @@ import {
 } from '@elastic/eui';
 // @ts-ignore
 import logsDashboardImg from '../../../images/[Logs] Web Traffic.png';
-import { KibanaGlobals } from '../../../components/kibana/chrome/globals';
-import { KibanaPage } from '../../../components/kibana/chrome/page/page';
 import { KibanaChromeContext } from '../../../components/kibana/layout';
+import { EuiPage } from '../../../components/eui/page/page_shim';
+import { EuiPageBody } from '../../../components/eui/page/page_body_shim';
+import { EuiPageContentBody } from '../../../components/eui/page/page_body_content_shim';
+import { KibanaGlobals } from '../../../components/kibana/chrome/globals';
 
 const breadcrumbs: EuiBreadcrumb[] = [
   {
@@ -61,17 +63,20 @@ export default () => {
   }, [breadcrumbs, headerLinks]);
 
   return (
-    <KibanaPage>
-      <KibanaGlobals />
-
-      <div className="pageScreenshot__TBD">
-        <img
-          className="pageScreenshot pageScreenshot--fullWidth"
-          alt="[Logs] Web Traffic dashboard"
-          width={1175}
-          src={logsDashboardImg}
-        />
-      </div>
-    </KibanaPage>
+    <EuiPage restrictWidth={false} paddingSize="none">
+      <EuiPageBody panelled={false}>
+        <KibanaGlobals />
+        <EuiPageContentBody restrictWidth={false}>
+          <div className="pageScreenshot__TBD">
+            <img
+              className="pageScreenshot pageScreenshot--fullWidth"
+              alt="[Logs] Web Traffic dashboard"
+              width={1175}
+              src={logsDashboardImg}
+            />
+          </div>
+        </EuiPageContentBody>
+      </EuiPageBody>
+    </EuiPage>
   );
 };
