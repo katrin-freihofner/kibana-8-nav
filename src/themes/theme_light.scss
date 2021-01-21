@@ -20,6 +20,9 @@
 @import '../components/kibana/chrome/globals/globals_ams';
 @import '../pages/analytics/discover_ams';
 
+/** CLOUD **/
+@import '../components/cloud/index';
+
 .pageScreenshot {
   filter: none;
   mix-blend-mode: normal;

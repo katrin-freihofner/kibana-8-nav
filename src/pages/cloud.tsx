@@ -14,12 +14,15 @@ const breadcrumbs: EuiBreadcrumb[] = [
 
 export default () => {
   return (
-    <CloudPage pageTitle="Cloud" breadcrumbs={breadcrumbs}>
+    <CloudPage
+      pageTitle="Cloud"
+      breadcrumbs={breadcrumbs}
+      dashboardStyle={true}>
       <div className="eui-textCenter">
         <Link className="pageScreenshot__TBD" to="cloud/deployments">
           <img
-            className="pageScreenshot"
-            alt="Blank table"
+            className="pageScreenshot pageScreenshot--fullWidth"
+            alt="Cloud overview"
             width={1638}
             src={cloudImg}
           />

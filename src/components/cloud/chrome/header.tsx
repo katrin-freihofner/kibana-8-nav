@@ -10,7 +10,7 @@ import {
 
 import { EuiSticky } from '../../eui';
 
-import { ConsoleHeader } from '../../console/header/chrome';
+import { ConsoleHeader } from '../../console/header/header';
 import { CloudNav } from './nav';
 
 export type CloudHeaderProps = {

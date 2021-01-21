@@ -21,8 +21,8 @@ import {
 import ThemeContext from '../../../../themes/ThemeContext';
 
 import { KibanaPageHeader, KibanaPageHeaderProps } from './page_header';
-import { KibanaPageK8 } from './page_k8';
 import { KibanaGlobals } from '../globals';
+import { EuiSticky } from '../../../eui';
 
 export type KibanaPageProps = EuiPageProps & {
   solutionNav?: ReactNode;
@@ -36,6 +36,7 @@ export type KibanaPageProps = EuiPageProps & {
   centered?: boolean;
   panelled?: boolean;
   globals?: boolean;
+  bottomBar?: ReactNode;
 };
 
 export const KibanaPage: FunctionComponent<KibanaPageProps> = ({
@@ -51,63 +52,94 @@ export const KibanaPage: FunctionComponent<KibanaPageProps> = ({
   centered = false,
   panelled,
   globals = false,
+  bottomBar,
   className,
   ...rest
 }) => {
   const context = React.useContext(ThemeContext);
-
-  if (context.theme.includes('light')) {
-    return (
-      <KibanaPageK8
-        solutionNav={solutionNav}
-        children={children}
-        pageHeader={pageHeader}
-        pageBodyProps={pageBodyProps}
-        pageContentProps={pageContentProps}
-        pageContentBodyProps={pageContentBodyProps}
-        pageSideBarProps={pageSideBarProps}
-        restrictWidth={restrictWidth}
-        resizableSidebar={resizableSidebar}
-        centered={centered}
-        panelled={panelled}
-        globals={globals}
-        {...rest}
-      />
-    );
-  }
+  const isK8Theme = context.theme.includes('light');
 
   const optionalSideBar = solutionNav ? (
     <EuiPageSideBar {...pageSideBarProps}>{solutionNav}</EuiPageSideBar>
   ) : undefined;
 
-  const optionalPageHeader = pageHeader && <KibanaPageHeader {...pageHeader} />;
-
   const optionalGlobals = globals && <KibanaGlobals />;
+
+  const optionalBottomBar = bottomBar && (
+    <EuiSticky
+      bottom={0}
+      left={optionalSideBar ? 192 : 0}
+      zIndex={999}
+      className="euiBottomBar euiBottomBar--paddingSmall">
+      {bottomBar}
+    </EuiSticky>
+  );
+
+  let optionalPageHeader;
+  if (pageHeader && isK8Theme) {
+    optionalPageHeader = (
+      <KibanaPageHeader restrictWidth={restrictWidth} {...pageHeader} />
+    );
+  } else if (pageHeader) {
+    optionalPageHeader = <KibanaPageHeader {...pageHeader} />;
+  }
+
+  let pageBody: ReactNode;
+  if (isK8Theme) {
+    panelled = panelled === undefined ? false : panelled;
+
+    pageBody = (
+      <EuiPageBody
+        panelled={Boolean(panelled !== true && solutionNav)}
+        {...pageBodyProps}>
+        {Boolean(optionalSideBar) && optionalGlobals}
+        {optionalPageHeader}
+        <EuiPageContent
+          borderRadius={!panelled ? 'none' : 'm'}
+          hasShadow={!panelled ? false : true}
+          verticalPosition={centered ? 'center' : undefined}
+          horizontalPosition={centered ? 'center' : undefined}
+          {...pageContentProps}>
+          <EuiPageContentBody
+            restrictWidth={restrictWidth}
+            {...pageContentBodyProps}>
+            {children}
+          </EuiPageContentBody>
+        </EuiPageContent>
+      </EuiPageBody>
+    );
+  } else {
+    pageBody = (
+      <EuiPageBody {...pageBodyProps} restrictWidth={restrictWidth}>
+        {Boolean(optionalSideBar) && optionalGlobals}
+        {optionalPageHeader}
+        {/* TODO: Allow EuiPageContent to restrictWidth */}
+        <EuiPageContent
+          verticalPosition={centered ? 'center' : undefined}
+          horizontalPosition={centered ? 'center' : undefined}
+          {...pageContentProps}>
+          <EuiPageContentBody {...pageContentBodyProps}>
+            {children}
+          </EuiPageContentBody>
+        </EuiPageContent>
+      </EuiPageBody>
+    );
+  }
+
+  const shouldPageRestrictWidth = context.theme.includes('light')
+    ? false
+    : !solutionNav && restrictWidth;
+  const pagePaddingSize = context.theme.includes('light') ? 'none' : undefined;
 
   const pageClasses = classNames('kbnPage', className);
 
-  const pageBody = (
-    <EuiPageBody {...pageBodyProps} restrictWidth={restrictWidth}>
-      {Boolean(optionalSideBar) && optionalGlobals}
-      {optionalPageHeader}
-      {/* TODO: Allow EuiPageContent to restrictWidth */}
-      <EuiPageContent
-        verticalPosition={centered ? 'center' : undefined}
-        horizontalPosition={centered ? 'center' : undefined}
-        {...pageContentProps}>
-        <EuiPageContentBody {...pageContentBodyProps}>
-          {children}
-        </EuiPageContentBody>
-      </EuiPageContent>
-    </EuiPageBody>
-  );
-
   return resizableSidebar ? (
     <>
+      {Boolean(!optionalSideBar) && optionalGlobals}
       <EuiResizableContainer style={{ flexGrow: 1 }}>
         {(EuiResizablePanel, EuiResizableButton) => (
           <EuiPage
-            paddingSize={context.theme.includes('dark') ? undefined : 'none'}
+            paddingSize={pagePaddingSize}
             {...rest}
             className={pageClasses}>
             <EuiResizablePanel
@@ -140,18 +172,21 @@ export const KibanaPage: FunctionComponent<KibanaPageProps> = ({
           </EuiPage>
         )}
       </EuiResizableContainer>
+      {optionalBottomBar}
     </>
   ) : (
     <>
       {Boolean(!optionalSideBar) && optionalGlobals}
       <EuiPage
         grow={true}
-        restrictWidth={!solutionNav && restrictWidth}
+        paddingSize={pagePaddingSize}
+        restrictWidth={shouldPageRestrictWidth}
         {...rest}
         className={pageClasses}>
         {optionalSideBar}
         {pageBody}
       </EuiPage>
+      {optionalBottomBar}
     </>
   );
 };

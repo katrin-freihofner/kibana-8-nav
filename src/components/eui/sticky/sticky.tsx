@@ -32,9 +32,9 @@ export function EuiSticky({
 
   const computedStyle: CSSProperties = style ? style : {};
   computedStyle.top = top;
-  computedStyle.right = right;
+  computedStyle.marginRight = right;
   computedStyle.bottom = bottom;
-  computedStyle.left = left;
+  computedStyle.marginLeft = left;
   computedStyle.zIndex = zIndex;
 
   return (

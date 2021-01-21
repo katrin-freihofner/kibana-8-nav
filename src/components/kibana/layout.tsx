@@ -4,15 +4,10 @@ import React, {
   createContext,
   useState,
 } from 'react';
-import { Helmet } from 'react-helmet';
 import { KibanaChrome } from './chrome/chrome';
 
-import { KibanaHeader, KibanaHeaderProps } from './chrome/header';
-
 export interface KibanaChromeContextShape {
-  chrome?: KibanaHeaderProps & {
-    pageTitle?: string;
-  };
+  chrome?: KibanaChrome;
   setChrome: React.Dispatch<
     React.SetStateAction<KibanaChromeContextShape['chrome']>
   >;
@@ -50,17 +45,7 @@ const Layout: FunctionComponent<{
     <KibanaChromeContext.Provider
       // @ts-ignore
       value={{ chrome: chromeOptions, setChrome: setChromeOptions }}>
-      <KibanaChrome>
-        <Helmet>
-          <title>{chromeOptions.pageTitle} | Kibana 8 Prototype</title>
-        </Helmet>
-
-        <KibanaHeader
-          breadcrumbs={chromeOptions.breadcrumbs}
-          headerLinks={chromeOptions.headerLinks}
-        />
-        {children}
-      </KibanaChrome>
+      <KibanaChrome {...chromeOptions}>{children}</KibanaChrome>
     </KibanaChromeContext.Provider>
   );
 };

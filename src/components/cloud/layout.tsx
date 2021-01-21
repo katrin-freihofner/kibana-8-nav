@@ -5,10 +5,10 @@ import React, {
   useState,
 } from 'react';
 
-import { CloudHeader, CloudHeaderProps } from './chrome/header';
+import { CloudChrome } from './chrome/chrome';
 
 interface CloudChromeContextShape {
-  chrome?: CloudHeaderProps;
+  chrome?: CloudChrome;
   setChrome: React.Dispatch<
     React.SetStateAction<CloudChromeContextShape['chrome']>
   >;
@@ -21,6 +21,7 @@ export const CloudChromeContext = createContext<CloudChromeContextShape>({
         text: 'Overview',
       },
     ],
+    pageTitle: 'Overview',
   },
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function
@@ -36,14 +37,14 @@ const CloudLayout: FunctionComponent<{
         text: 'Overview',
       },
     ],
+    pageTitle: 'Overview',
   });
 
   return (
     <CloudChromeContext.Provider
       // @ts-ignore
       value={{ chrome: chromeOptions, setChrome: setChromeOptions }}>
-      <CloudHeader {...chromeOptions} />
-      {children}
+      <CloudChrome {...chromeOptions}>{children}</CloudChrome>
     </CloudChromeContext.Provider>
   );
 };

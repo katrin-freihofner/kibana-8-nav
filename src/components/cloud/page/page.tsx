@@ -4,11 +4,12 @@ import React, {
   useContext,
   useEffect,
 } from 'react';
-import Helmet from 'react-helmet';
 
 import {
   CommonProps,
   EuiBreadcrumb,
+  EuiPageContent,
+  EuiPageContentProps,
   EuiPageSideBar,
   EuiPageSideBarProps,
 } from '@elastic/eui';
@@ -20,6 +21,11 @@ import {
 import { CloudChromeContext } from '../layout';
 import { EuiPage, EuiPageProps } from '../../eui/page/page_shim';
 import { EuiPageBody, EuiPageBodyProps } from '../../eui/page/page_body_shim';
+import {
+  EuiPageContentBody,
+  EuiPageContentBodyProps,
+} from '../../eui/page/page_body_content_shim';
+import { EuiSticky } from '../../eui';
 
 export type CloudPageProps = CommonProps & {
   breadcrumbs?: EuiBreadcrumb[];
@@ -28,7 +34,12 @@ export type CloudPageProps = CommonProps & {
   pageHeader?: EuiPageHeaderProps;
   pageProps?: EuiPageProps;
   pageBodyProps?: EuiPageBodyProps;
+  pageContentProps?: EuiPageContentProps;
+  pageContentBodyProps?: EuiPageContentBodyProps;
   pageSideBarProps?: EuiPageSideBarProps;
+  bottomBar?: ReactNode;
+  restrictWidth?: boolean;
+  dashboardStyle?: boolean;
 };
 
 export const CloudPage: FunctionComponent<CloudPageProps> = ({
@@ -39,7 +50,12 @@ export const CloudPage: FunctionComponent<CloudPageProps> = ({
   pageHeader,
   pageProps,
   pageBodyProps,
+  pageContentProps,
+  pageContentBodyProps,
   pageSideBarProps,
+  bottomBar,
+  restrictWidth = true,
+  dashboardStyle = false,
   className,
 }) => {
   const setHeaderItems = useContext(CloudChromeContext);
@@ -47,6 +63,7 @@ export const CloudPage: FunctionComponent<CloudPageProps> = ({
   useEffect(() => {
     setHeaderItems.setChrome({
       breadcrumbs,
+      pageTitle,
     });
   }, [breadcrumbs]);
 
@@ -54,20 +71,54 @@ export const CloudPage: FunctionComponent<CloudPageProps> = ({
     <EuiPageSideBar {...pageSideBarProps}>{solutionNav}</EuiPageSideBar>
   ) : undefined;
 
-  const optionalPageHeader = pageHeader && <EuiPageHeader {...pageHeader} />;
+  const optionalPageHeader = pageHeader && (
+    <EuiPageHeader restrictWidth={restrictWidth} {...pageHeader} />
+  );
 
-  return (
+  const optionalBottomBar = bottomBar && (
+    <EuiSticky
+      bottom={0}
+      left={optionalSideBar ? 192 : 0}
+      zIndex={999}
+      className="euiBottomBar euiBottomBar--paddingSmall">
+      {bottomBar}
+    </EuiSticky>
+  );
+
+  return dashboardStyle ? (
     <>
-      <Helmet>
-        <title>{pageTitle} | Cloud 8 Prototype</title>
-      </Helmet>
-      <EuiPage {...pageProps} paddingSize="none" className={className}>
-        {optionalSideBar}
-        <EuiPageBody {...pageBodyProps}>
-          {optionalPageHeader}
-          {children}
+      <EuiPage restrictWidth={false} paddingSize="none">
+        <EuiPageBody panelled={false}>
+          <EuiPageContentBody restrictWidth={false} {...pageContentBodyProps}>
+            {children}
+          </EuiPageContentBody>
         </EuiPageBody>
       </EuiPage>
+      {optionalBottomBar}
+    </>
+  ) : (
+    <>
+      <EuiPage
+        grow={true}
+        {...pageProps}
+        paddingSize="none"
+        className={className}>
+        {optionalSideBar}
+        <EuiPageBody panelled={Boolean(optionalSideBar)} {...pageBodyProps}>
+          {optionalPageHeader}
+          <EuiPageContent
+            borderRadius={'none'}
+            hasShadow={false}
+            {...pageContentProps}>
+            <EuiPageContentBody
+              restrictWidth={restrictWidth}
+              {...pageContentBodyProps}>
+              {children}
+            </EuiPageContentBody>
+          </EuiPageContent>
+        </EuiPageBody>
+      </EuiPage>
+      {optionalBottomBar}
     </>
   );
 };

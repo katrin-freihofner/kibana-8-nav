@@ -5,7 +5,7 @@ import { EuiBreadcrumb, EuiHeader } from '@elastic/eui';
 import { KibanaHeaderSpacesMenu } from './spaces_menu';
 
 import { KibanaNav } from './nav';
-import { ConsoleHeader } from '../../console/header/chrome';
+import { ConsoleHeader } from '../../console/header/header';
 import { EuiSticky } from '../../eui';
 
 export type KibanaHeaderProps = {

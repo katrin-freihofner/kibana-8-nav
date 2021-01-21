@@ -1,20 +1,11 @@
 import React from 'react';
 
-import {
-  EuiBreadcrumb,
-  EuiPageContent,
-  EuiPageHeaderSection,
-  EuiButton,
-  EuiPageContentBody,
-  EuiTitle,
-  EuiLink,
-} from '@elastic/eui';
+import { EuiBreadcrumb, EuiButton, EuiTitle, EuiLink } from '@elastic/eui';
 
 import { DeploymentsPage } from '../../components/cloud/deployments/page';
 // @ts-ignore
 import squirrelImg from '../../images/Cloud Deployment - Squirrel.png';
 import { navigate } from 'gatsby';
-import { EuiPageHeader } from '../../components/eui/page/page_header_shim';
 
 const breadcrumbs: EuiBreadcrumb[] = [
   {
@@ -33,30 +24,34 @@ export default () => (
     pageTitle="Squirrel - Deployment overview"
     showSingleDeployment={true}
     sideNavItem="Overview"
-    breadcrumbs={breadcrumbs}>
-    <EuiPageHeader>
-      <EuiPageHeaderSection>
-        <EuiTitle size="xxs">
-          <h1>
-            <EuiLink>
-              <strong>Squirrel</strong>
-            </EuiLink>
-          </h1>
-        </EuiTitle>
-        {/* @ts-ignore NEED TO ALLOW THIS IN EUI */}
-        <EuiTitle size="l" style={{ marginTop: 0 }}>
-          <h2>Deployment overview</h2>
-        </EuiTitle>
-      </EuiPageHeaderSection>
-      <EuiPageHeaderSection>
+    breadcrumbs={breadcrumbs}
+    restrictWidth={false}
+    pageHeader={{
+      leftSideContent: (
+        <>
+          <EuiTitle size="xxs">
+            <h1>
+              <EuiLink>
+                <strong>Squirrel</strong>
+              </EuiLink>
+            </h1>
+          </EuiTitle>
+          {/* @ts-ignore NEED TO ALLOW THIS IN EUI */}
+          <EuiTitle size="l" style={{ marginTop: 0 }}>
+            <h2>Deployment overview</h2>
+          </EuiTitle>
+        </>
+      ),
+      rightSideContent: [
         <EuiButton
           iconType="popout"
           iconSide="right"
           onClick={() => navigate('/')}>
           Open deployment
-        </EuiButton>
-      </EuiPageHeaderSection>
-    </EuiPageHeader>
+        </EuiButton>,
+      ],
+    }}
+    bottomBar={<EuiButton fill>Save</EuiButton>}>
     {/* <EuiPageContent
       className="euiPageContent--restrictWidth"
       style={{ flexGrow: 0 }}>
@@ -77,17 +72,14 @@ export default () => (
         </EuiFlexGroup>
       </EuiPageContentBody>
     </EuiPageContent>*/}
-    <EuiPageContent
-      className="euiPageContent--restrictWidth"
-      style={{ paddingTop: 0 }}>
-      <EuiPageContentBody className="pageScreenshot__TBD">
-        <img
-          className="pageScreenshot pageScreenshot--responsive"
-          alt="Blank table"
-          width={1168}
-          src={squirrelImg}
-        />
-      </EuiPageContentBody>
-    </EuiPageContent>
+
+    <div className="pageScreenshot__TBD">
+      <img
+        className="pageScreenshot pageScreenshot--fullWidth"
+        alt="Blank table"
+        width={1168}
+        src={squirrelImg}
+      />
+    </div>
   </DeploymentsPage>
 );

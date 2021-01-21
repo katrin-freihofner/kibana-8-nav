@@ -69,7 +69,8 @@ export default () => {
             Add agent
           </EuiButton>,
         ],
-      }}>
+      }}
+      bottomBar={<EuiButton fill>Save</EuiButton>}>
       <EuiPanel hasShadow={false} color="subdued">
         <EuiFlexGroup justifyContent="spaceAround">
           <EuiFlexItem grow={false}>
@@ -105,7 +106,7 @@ export default () => {
       <EuiSpacer />
       <div className="pageScreenshot__TBD">
         <img
-          className="pageScreenshot pageScreenshot--responsive"
+          className="pageScreenshot pageScreenshot--fullWidth"
           alt="Blank table"
           width={1168}
           src={tableImg}
