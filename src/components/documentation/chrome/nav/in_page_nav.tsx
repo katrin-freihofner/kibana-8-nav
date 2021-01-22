@@ -72,14 +72,21 @@ export function DocsInPageNav({ currentUrl = 'introduction' }: Props) {
   ];
 
   return (
-    <EuiFlexGroup direction="column" style={{ height: '100%' }}>
-      <EuiFlexItem style={{ overflowY: 'auto', overflowX: 'hidden' }}>
+    <EuiFlexGroup
+      direction="column"
+      gutterSize="none"
+      style={{ height: '100%' }}>
+      <EuiFlexItem grow={false}>
+        <EuiTitle size="xs">
+          <EuiTextColor color="subdued">
+            <h2>On this page</h2>
+          </EuiTextColor>
+        </EuiTitle>
+      </EuiFlexItem>
+      <EuiFlexItem
+        className="eui-yScrollWithShadows"
+        style={{ overflowX: 'hidden' }}>
         <div>
-          <EuiTitle size="xs">
-            <EuiTextColor color="subdued">
-              <h2>On this page</h2>
-            </EuiTextColor>
-          </EuiTitle>
           <EuiSpacer />
           <EuiSideNav
             mobileTitle="Navigate within $APP_NAME"
@@ -91,7 +98,8 @@ export function DocsInPageNav({ currentUrl = 'introduction' }: Props) {
       </EuiFlexItem>
       <EuiFlexItem grow={false}>
         <div>
-          <EuiHorizontalRule />
+          <EuiHorizontalRule margin="xs" />
+          <EuiSpacer />
           <EuiText size="s" color="subdued">
             <p>No credit card required. Get up and running in 3-minutes!</p>
           </EuiText>

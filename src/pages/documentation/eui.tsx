@@ -31,7 +31,7 @@ const tabs: EuiPageHeaderProps['tabs'] = [
 ];
 
 export default () => (
-  <EuiPage paddingSize="none">
+  <EuiPage restrictWidth>
     <EuiPageBody>
       <EuiPageContent>
         {/* Page title */}

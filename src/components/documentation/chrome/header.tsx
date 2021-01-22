@@ -14,7 +14,6 @@ import { navigate } from 'gatsby';
 import { KibanaChromeSearch } from '../../kibana/chrome/search';
 import { ConsoleUserMenu } from '../../console/header/user_menu';
 import { CloudUser } from '../../cloud/_data';
-import { EuiSticky } from '../../eui';
 
 export type DocsHeaderProps = {
   breadcrumbs?: EuiBreadcrumb[];
@@ -35,8 +34,9 @@ export const DocsHeader: React.FunctionComponent<DocsHeaderProps> = ({
   }
 
   return (
-    <EuiSticky id="docsHeader">
+    <>
       <EuiHeader
+        position="fixed"
         theme="dark"
         sections={[
           {
@@ -61,6 +61,7 @@ export const DocsHeader: React.FunctionComponent<DocsHeaderProps> = ({
         ]}
       />
       <EuiHeader
+        position="fixed"
         sections={[
           {
             items: [
@@ -80,6 +81,6 @@ export const DocsHeader: React.FunctionComponent<DocsHeaderProps> = ({
           },
         ]}
       />
-    </EuiSticky>
+    </>
   );
 };

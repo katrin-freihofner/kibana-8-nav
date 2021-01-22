@@ -4,11 +4,10 @@ import React, {
   createContext,
   useState,
 } from 'react';
-
-import { DocsHeader, DocsHeaderProps } from './chrome/header';
+import { DocsChrome } from './chrome/chrome';
 
 interface DocsChromeContextShape {
-  chrome?: DocsHeaderProps;
+  chrome?: DocsChrome;
   setChrome: React.Dispatch<
     React.SetStateAction<DocsChromeContextShape['chrome']>
   >;
@@ -24,6 +23,7 @@ export const DocsChromeContext = createContext<DocsChromeContextShape>({
         text: 'Product Design',
       },
     ],
+    pageTitle: 'Product Design',
   },
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function
@@ -42,14 +42,14 @@ const DocsLayout: FunctionComponent<{
         text: 'Product Design',
       },
     ],
+    pageTitle: 'Product Design',
   });
 
   return (
     <DocsChromeContext.Provider
       // @ts-ignore
       value={{ chrome: chromeOptions, setChrome: setChromeOptions }}>
-      <DocsHeader {...chromeOptions} />
-      {children}
+      <DocsChrome {...chromeOptions}>{children}</DocsChrome>
     </DocsChromeContext.Provider>
   );
 };
