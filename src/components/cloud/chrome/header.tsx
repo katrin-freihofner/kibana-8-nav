@@ -30,7 +30,7 @@ export const CloudHeader: React.FunctionComponent<CloudHeaderProps> = ({
   );
 
   return (
-    <EuiSticky id="cloudHeader">
+    <EuiSticky zIndex={1000} id="cloudHeader">
       <ConsoleHeader />
       <EuiHeader
         sections={[

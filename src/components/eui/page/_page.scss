@@ -2,7 +2,7 @@ $euiPageDefaultMaxWidth: map-get($euiBreakpoints, 'xl') + ($euiSizeL * 2);
 
 .euiPage--grow {
   flex-grow: 1;
-  overflow-x: hidden; // Questionable
+  // overflow-x: hidden; // Questionable
 }
 
 .euiPageBody--restrictWidth-default,

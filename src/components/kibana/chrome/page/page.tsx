@@ -126,10 +126,10 @@ export const KibanaPage: FunctionComponent<KibanaPageProps> = ({
     );
   }
 
-  const shouldPageRestrictWidth = context.theme.includes('light')
+  const shouldPageRestrictWidth = isK8Theme
     ? false
     : !solutionNav && restrictWidth;
-  const pagePaddingSize = context.theme.includes('light') ? 'none' : undefined;
+  const pagePaddingSize = isK8Theme ? 'none' : undefined;
 
   const pageClasses = classNames('kbnPage', className);
 

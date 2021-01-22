@@ -24,7 +24,7 @@ export function EuiSticky({
   right,
   bottom,
   left,
-  zIndex = 1000,
+  zIndex = 999,
   style,
   ...rest
 }: Props): ReactElement {

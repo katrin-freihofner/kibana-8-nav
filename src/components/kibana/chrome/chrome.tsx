@@ -1,9 +1,9 @@
 import React, { ReactNode } from 'react';
 import { Helmet } from 'react-helmet';
-import classNames from 'classnames';
 
 import { CommonProps } from '@elastic/eui';
 import { KibanaHeader, KibanaHeaderProps } from './header';
+import { EuiPageLayout } from '../../eui/page/page_layout';
 
 export interface KibanaChrome extends KibanaHeaderProps, CommonProps {
   pageTitle?: string;
@@ -17,21 +17,12 @@ export type KibanaChromeProps = KibanaChrome & {
 export const KibanaChrome: React.FunctionComponent<KibanaChromeProps> = ({
   fullHeight,
   children,
-  className,
   pageTitle,
   breadcrumbs,
   headerLinks,
 }) => {
-  const classes = classNames(
-    'kbnChrome',
-    {
-      'kbnChrome--fullHeight': fullHeight,
-    },
-    className
-  );
-
   return (
-    <div className={classes}>
+    <EuiPageLayout fullHeight={fullHeight}>
       <Helmet>
         <title>{pageTitle} | Kibana 8 Prototype</title>
       </Helmet>
@@ -39,6 +30,6 @@ export const KibanaChrome: React.FunctionComponent<KibanaChromeProps> = ({
       <KibanaHeader breadcrumbs={breadcrumbs} headerLinks={headerLinks} />
 
       {children}
-    </div>
+    </EuiPageLayout>
   );
 };

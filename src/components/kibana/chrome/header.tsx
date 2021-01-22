@@ -18,7 +18,7 @@ export const KibanaHeader: React.FunctionComponent<KibanaHeaderProps> = ({
   headerLinks = <></>,
 }) => {
   return (
-    <EuiSticky id="kbnHeader">
+    <EuiSticky zIndex={1000} id="kbnHeader">
       <ConsoleHeader inDeployment />
       <EuiHeader
         sections={[

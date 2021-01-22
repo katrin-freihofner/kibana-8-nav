@@ -20,11 +20,23 @@ export default () => {
     setKibanaContext.setChrome({
       breadcrumbs,
       pageTitle: 'Dev tools | Console',
+      fullHeight: true,
     });
   }, [breadcrumbs]);
 
   return (
     <KibanaPage
+      style={{ overflow: 'hidden' }}
+      pageBodyProps={{
+        style: {
+          overflow: 'hidden',
+        },
+      }}
+      pageContentProps={{
+        style: {
+          overflow: 'auto',
+        },
+      }}
       restrictWidth={false}
       pageHeader={{
         leftSideContent: (

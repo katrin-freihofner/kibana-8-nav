@@ -1,0 +1,35 @@
+.euiPageLayout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  &--fullHeight {
+    max-height: 100vh;
+    overflow: hidden;
+  }
+}
+
+$euiNumberOfPossibleFixedHeaders: 1, 2, 3;
+
+@each $numberHeaders in $euiNumberOfPossibleFixedHeaders {
+  $headerHeight: $euiHeaderHeightCompensation * $numberHeaders;
+
+  .euiBody--#{$numberHeaders}FixedHeaders {
+    padding-top: $headerHeight;
+
+    // When the EuiHeader is fixed, we need to account for it in the position of the flyout
+    .euiFlyout,
+    .euiCollapsibleNav {
+      top: $headerHeight;
+      height: calc(100vh - #{$headerHeight});
+    }
+  }
+
+  .euiPageLayout--#{$numberHeaders}FixedHeaders {
+    min-height: calc(100vh - #{$headerHeight});
+
+    &--fullHeight {
+      max-height: calc(100vh - #{$headerHeight});
+    }
+  }
+}

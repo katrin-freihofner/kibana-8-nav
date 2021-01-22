@@ -98,11 +98,15 @@ export default () => {
       breadcrumbs,
       headerLinks,
       pageTitle: 'Discover',
+      fullHeight: true,
     });
   }, [breadcrumbs, headerLinks]);
 
   return (
-    <EuiPage paddingSize="none" className="dscPage">
+    <EuiPage
+      style={{ overflow: 'hidden' }}
+      paddingSize="none"
+      className="dscPage">
       <EuiPageBody className="dscPageBody">
         <KibanaGlobals />
 

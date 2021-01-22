@@ -1,13 +1,12 @@
 import React, { ReactNode } from 'react';
 import { Helmet } from 'react-helmet';
-import classNames from 'classnames';
 
 import { CommonProps } from '@elastic/eui';
 import { CloudHeader, CloudHeaderProps } from './header';
+import { EuiPageLayout } from '../../eui/page/page_layout';
 
 export interface CloudChrome extends CloudHeaderProps, CommonProps {
   pageTitle?: string;
-  fullHeight?: boolean;
 }
 
 export type CloudChromeProps = CloudChrome & {
@@ -16,14 +15,11 @@ export type CloudChromeProps = CloudChrome & {
 
 export const CloudChrome: React.FunctionComponent<CloudChromeProps> = ({
   children,
-  className,
   pageTitle,
   breadcrumbs,
 }) => {
-  const classes = classNames('cloudChrome', className);
-
   return (
-    <div className={classes}>
+    <EuiPageLayout>
       <Helmet>
         <title>{pageTitle} | Cloud 8 Prototype</title>
       </Helmet>
@@ -31,6 +27,6 @@ export const CloudChrome: React.FunctionComponent<CloudChromeProps> = ({
       <CloudHeader breadcrumbs={breadcrumbs} />
 
       {children}
-    </div>
+    </EuiPageLayout>
   );
 };

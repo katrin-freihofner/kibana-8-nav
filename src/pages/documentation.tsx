@@ -6,7 +6,6 @@ import {
   EuiPageContentBody,
   EuiText,
   EuiHorizontalRule,
-  EuiPage,
   EuiPageSideBar,
 } from '@elastic/eui';
 
@@ -14,9 +13,10 @@ import { EuiPageBody } from '../components/eui/page/page_body_shim';
 import { EuiSticky } from '../components/eui';
 
 import { DocsInPageNav } from '../components/documentation/chrome/nav';
+import { EuiPage } from '../components/eui/page/page_shim';
 
 export default () => (
-  <EuiPage restrictWidth={1248}>
+  <EuiPage grow={true} restrictWidth={1248}>
     <EuiPageBody>
       <EuiPageContent className="euiPageContent--restrictWidth">
         <EuiPageContentBody>
