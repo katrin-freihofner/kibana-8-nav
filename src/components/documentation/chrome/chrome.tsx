@@ -7,7 +7,6 @@ import { EuiPageLayout } from '../../eui/page/page_layout';
 
 export interface DocsChrome extends DocsHeaderProps, CommonProps {
   pageTitle?: string;
-  fullHeight?: boolean;
 }
 
 export type DocsChromeProps = DocsChrome & {

@@ -30,7 +30,7 @@ import { EuiSticky } from '../../eui';
 export type CloudPageProps = CommonProps & {
   breadcrumbs?: EuiBreadcrumb[];
   pageTitle: string;
-  solutionNav?: ReactNode;
+  sideNav?: ReactNode;
   pageHeader?: EuiPageHeaderProps;
   pageProps?: EuiPageProps;
   pageBodyProps?: EuiPageBodyProps;
@@ -44,7 +44,7 @@ export type CloudPageProps = CommonProps & {
 
 export const CloudPage: FunctionComponent<CloudPageProps> = ({
   breadcrumbs,
-  solutionNav,
+  sideNav,
   children,
   pageTitle,
   pageHeader,
@@ -67,8 +67,8 @@ export const CloudPage: FunctionComponent<CloudPageProps> = ({
     });
   }, [breadcrumbs]);
 
-  const optionalSideBar = solutionNav ? (
-    <EuiPageSideBar {...pageSideBarProps}>{solutionNav}</EuiPageSideBar>
+  const optionalSideBar = sideNav ? (
+    <EuiPageSideBar {...pageSideBarProps}>{sideNav}</EuiPageSideBar>
   ) : undefined;
 
   const optionalPageHeader = pageHeader && (

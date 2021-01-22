@@ -31,7 +31,7 @@ export const DeploymentsPage: FunctionComponent<DeploymentsPageProps> = ({
   return (
     <CloudPage
       breadcrumbs={theBreadcrumbs}
-      solutionNav={
+      sideNav={
         <CloudDeploymentsNav
           showSingleDeployment={showSingleDeployment}
           currentItem={sideNavItem}

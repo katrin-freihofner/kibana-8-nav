@@ -14,6 +14,7 @@ import { navigate } from 'gatsby';
 import { KibanaChromeSearch } from '../../kibana/chrome/search';
 import { ConsoleUserMenu } from '../../console/header/user_menu';
 import { CloudUser } from '../../cloud/_data';
+import { ConsoleUpdates } from '../../console/header/updates';
 
 export type DocsHeaderProps = {
   breadcrumbs?: EuiBreadcrumb[];
@@ -55,7 +56,7 @@ export const DocsHeader: React.FunctionComponent<DocsHeaderProps> = ({
             borders: 'none',
           },
           {
-            items: [<ConsoleUserMenu {...CloudUser} />],
+            items: [<ConsoleUpdates />, <ConsoleUserMenu {...CloudUser} />],
             borders: 'none',
           },
         ]}
